@@ -301,19 +301,54 @@ function makeShareCard(){
   x.fillStyle='#059669';x.textAlign='right';x.font='400 28px "Space Grotesk",sans-serif';x.fillText('soulcodeglobal.com',W-110,H-86);
   return c;
 }
+function _L(zh,en){return curLang==='en'?en:loc(zh);}
+function showShareModal(blob,cap){
+  var url=URL.createObjectURL(blob);
+  var ov=document.createElement('div');
+  ov.style.cssText='position:fixed;inset:0;z-index:9999;background:rgba(10,26,20,.55);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)';
+  var card=document.createElement('div');
+  card.style.cssText='background:#fff;border-radius:22px;max-width:380px;width:100%;max-height:92vh;overflow:auto;padding:18px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);text-align:center';
+  var img=document.createElement('img');
+  img.src=url; img.style.cssText='width:100%;border-radius:14px;display:block;margin-bottom:14px';
+  var row=document.createElement('div'); row.style.cssText='display:flex;flex-direction:column;gap:9px';
+  function mkbtn(label,primary){var b=document.createElement('button');b.textContent=label;b.style.cssText='width:100%;padding:13px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;border:1px solid '+(primary?'var(--emerald)':'var(--line)')+';background:'+(primary?'var(--emerald)':'#fff')+';color:'+(primary?'#fff':'var(--ink)')+'';return b;}
+  var file=new File([blob],'soulcode-'+curSC+'.png',{type:'image/png'});
+  var canNativeShare=navigator.canShare && navigator.canShare({files:[file]});
+  // Share (native) — show first if supported
+  if(canNativeShare){
+    var sb=mkbtn(_L('分享','Share'),true);
+    sb.onclick=async()=>{ try{ await navigator.share({files:[file],text:cap}); }catch(e){} };
+    row.appendChild(sb);
+  }
+  // Copy image
+  var cb=mkbtn(_L('複製圖片','Copy image'), !canNativeShare);
+  cb.onclick=async()=>{
+    try{
+      await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+      cb.textContent=_L('已複製！可直接貼上','Copied! Paste anywhere');
+      setTimeout(()=>{cb.textContent=_L('複製圖片','Copy image');},2200);
+    }catch(e){ cb.textContent=_L('此瀏覽器不支援，請用下載','Not supported — use Download'); setTimeout(()=>{cb.textContent=_L('複製圖片','Copy image');},2600); }
+  };
+  row.appendChild(cb);
+  // Download
+  var db=mkbtn(_L('下載圖片','Download'),false);
+  db.onclick=()=>{ var a=document.createElement('a');a.href=url;a.download='soulcode-'+curSC+'.png';document.body.appendChild(a);a.click();a.remove(); };
+  row.appendChild(db);
+  // Close
+  var xb=document.createElement('button'); xb.textContent=_L('關閉','Close');
+  xb.style.cssText='width:100%;padding:10px;margin-top:2px;background:none;border:none;color:var(--ink-soft);font-size:14px;cursor:pointer';
+  xb.onclick=close;
+  row.appendChild(xb);
+  function close(){ ov.remove(); setTimeout(()=>URL.revokeObjectURL(url),500); }
+  ov.addEventListener('click',(e)=>{ if(e.target===ov) close(); });
+  card.appendChild(img); card.appendChild(row); ov.appendChild(card); document.body.appendChild(ov);
+}
 $('shareBtn').addEventListener('click',async()=>{
   if(curSC==null) return;
   try{ if(document.fonts && document.fonts.ready){ await document.fonts.ready; } }catch(e){}
   var canvas=makeShareCard();
   var cap=window.__shareText||'';
-  canvas.toBlob(async (blob)=>{
-    if(!blob) return;
-    var file=new File([blob],'soulcode-'+curSC+'.png',{type:'image/png'});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      try{ await navigator.share({files:[file],text:cap}); return; }catch(e){ if(e && e.name==='AbortError') return; }
-    }
-    var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='soulcode-'+curSC+'.png';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},3000);
-  },'image/png');
+  canvas.toBlob((blob)=>{ if(!blob) return; showShareModal(blob,cap); },'image/png');
 });
 $('emailBtn').addEventListener('click',async()=>{
   const e=$('emailIn').value.trim();

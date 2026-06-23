@@ -23,7 +23,9 @@ exports.handler = async (event) => {
 
   const email = String(body.email || "").trim().toLowerCase();
   const soul = String(body.soul_core || "").trim();
-  const language = String(body.language || "").trim();
+  // 正規化語言：繁/簡都歸 "zh"，英文 "en"。方便 MailerLite automation 用 language 分流。
+  const rawLang = String(body.language || "").trim().toLowerCase();
+  const language = rawLang === "en" ? "en" : (rawLang ? "zh" : "");
 
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return resp(400, { error: "Invalid email" });
 
