@@ -1,13 +1,13 @@
 // netlify/functions/subscribe.js
 //
-// 計算器 email 擷取 → MailerLite（深度報告 Leads）
-// 計算器前端把 { email, soul_core, language } POST 過嚟，
-// 呢個 function 用 MailerLite API 建立／更新 subscriber，
-// 寫入 soul_core / language 欄，並加入「深度報告 Leads」group。
+// 計算器 / 訂閱框 email 擷取 → MailerLite（課程資訊訂閱）
+// 前端 POST { email, soul_core?, language? } 過嚟，
+// 用 MailerLite API 建立／更新 subscriber，寫入 soul_core / language 欄，
+// 並加入「課程資訊訂閱」group。
 //
 // 需要嘅 Netlify 環境變數（Site settings → Environment variables）：
-//   MAILERLITE_API_KEY     MailerLite → Integrations → API（需付費方案，API 先可用）
-//   MAILERLITE_GROUP_DEEP  「深度報告 Leads」group 的 ID
+//   MAILERLITE_API_KEY     MailerLite → Integrations → API（付費方案 API 先可用）
+//   MAILERLITE_GROUP_NEWS  「課程資訊訂閱」group 的 ID（191075802309198930）
 //
 // 部署後 endpoint：https://soulcodeglobal.com/.netlify/functions/subscribe
 
@@ -15,7 +15,7 @@ exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return resp(405, { error: "Method not allowed" });
 
   const key = process.env.MAILERLITE_API_KEY;
-  const group = process.env.MAILERLITE_GROUP_DEEP;
+  const group = process.env.MAILERLITE_GROUP_NEWS;
   if (!key) { console.error("Missing MAILERLITE_API_KEY"); return resp(500, { error: "Not configured" }); }
 
   let body;
