@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
+  <link rel="apple-touch-icon" href="/assets/soulcode-icon-256.png">
 <meta name="color-scheme" content="light only">
 <title data-zh="Soul Code Academy 靈魂解碼學院" data-en="Soul Code Academy">Soul Code Academy 靈魂解碼學院</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,18 +45,13 @@
     mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,transparent 30%,#000 100%)}
   header .wrap{position:relative;z-index:1}
 
-  /* number-ring emblem */
-  .emblem{position:relative;width:128px;height:128px;margin:0 auto 30px}
-  .ring{position:absolute;inset:0;animation:spin 44s linear infinite}
-  .ring .n{position:absolute;top:50%;left:50%;width:26px;height:26px;margin:-13px 0 0 -13px;
-    font-family:"Space Grotesk";font-weight:700;font-size:15px;color:var(--emerald);
-    display:flex;align-items:center;justify-content:center}
-  .emblem .core{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;
-    background:radial-gradient(circle at 50% 40%,var(--emerald),var(--emerald-deep));
-    box-shadow:0 0 0 6px rgba(5,150,105,.12),0 0 26px rgba(5,150,105,.5);animation:pulse 3.4s ease-in-out infinite}
-  .emblem .core::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(167,243,208,.6)}
+  /* number-ring emblem (Soul Code logo, rotating dial) */
+  .emblem{position:relative;width:150px;height:150px;margin:0 auto 30px}
+  .emblem-svg{width:100%;height:100%;display:block}
+  .hero-dial{transform-box:fill-box;transform-origin:center;animation:spin 48s linear infinite}
+  .hero-pulse{transform-box:fill-box;transform-origin:center;animation:heropulse 3.4s ease-in-out infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 6px rgba(5,150,105,.10),0 0 22px rgba(5,150,105,.4)}50%{box-shadow:0 0 0 10px rgba(5,150,105,.05),0 0 34px rgba(5,150,105,.65)}}
+  @keyframes heropulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.12;transform:scale(1.22)}}
 
   .eyebrow{font-family:"Space Grotesk";font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--emerald);font-weight:500;margin-bottom:22px}
   h1{font-family:var(--fserif);font-weight:900;font-size:clamp(32px,5.2vw,56px);line-height:1.24;letter-spacing:.01em;margin:0 auto 26px;max-width:100%}
@@ -141,7 +139,7 @@
     section{padding:60px 0}
   }
   @media(max-width:520px){ .grid,.steps{grid-template-columns:1fr} }
-  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} .ring{animation:none} .core{animation:none} *{scroll-behavior:auto} }
+  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} .hero-dial{animation:none} .hero-pulse{animation:none} *{scroll-behavior:auto} }
   html[lang="en"] .card .en{display:none}
 
   /* mobile nav menu */
@@ -187,8 +185,7 @@
   <div class="binary" id="binary"></div>
   <div class="wrap">
     <div class="emblem" aria-hidden="true">
-      <div class="ring" id="ring"></div>
-      <div class="core"></div>
+      <svg class="emblem-svg" viewBox="0 0 256 256" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="heroSun"><circle cx="128" cy="128" r="40"/></clipPath></defs><circle cx="128" cy="128" r="92" fill="none" stroke="#059669" stroke-width="2"/><circle cx="128" cy="128" r="68" fill="none" stroke="#059669" stroke-width="2"/><g class="hero-dial"><polygon points="114.55,86.11 128.0,62.0 141.45,86.11" fill="#059669"/><polygon points="141.74,86.2 166.79,74.6 163.51,102.01" fill="#059669"/><polygon points="163.69,102.26 190.77,107.6 172.0,127.85" fill="#059669"/><polygon points="172.0,128.15 190.77,148.4 163.69,153.74" fill="#059669"/><polygon points="163.51,153.99 166.79,181.4 141.74,169.8" fill="#059669"/><polygon points="141.45,169.89 128.0,194.0 114.55,169.89" fill="#059669"/><polygon points="114.26,169.8 89.21,181.4 92.49,153.99" fill="#059669"/><polygon points="92.31,153.74 65.23,148.4 84.0,128.15" fill="#059669"/><polygon points="84.0,127.85 65.23,107.6 92.31,102.26" fill="#059669"/><polygon points="92.49,102.01 89.21,74.6 114.26,86.2" fill="#059669"/><text x="128.0" y="49.0" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">0</text><text x="174.44" y="64.09" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">1</text><text x="203.13" y="103.59" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">2</text><text x="203.13" y="152.41" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">3</text><text x="174.44" y="191.91" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">4</text><text x="128.0" y="207.0" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">5</text><text x="81.56" y="191.91" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">6</text><text x="52.87" y="152.41" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">7</text><text x="52.87" y="103.59" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">8</text><text x="81.56" y="64.09" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">9</text></g><circle class="hero-pulse" cx="128" cy="128" r="40" fill="none" stroke="#059669" stroke-width="2"/><circle cx="128" cy="128" r="40" fill="#ffffff"/><circle cx="146" cy="146" r="40" fill="#059669" opacity="0.18" clip-path="url(#heroSun)"/><circle cx="114" cy="114" r="10" fill="#059669" opacity="0.28"/><circle cx="128" cy="128" r="40" fill="none" stroke="#059669" stroke-width="3"/></svg>
     </div>
     <div class="eyebrow" data-zh="靈魂解碼 · Soul Code System" data-en="Soul Code System">靈魂解碼 · Soul Code System</div>
     <h1 class="bp" data-zh="解開你的靈魂密碼，成為真正最好的你"
@@ -320,18 +317,6 @@
       +'<div class="hook" data-zh="'+c.zh+'" data-en="'+c.enh+'">'+c.zh+'</div>';
     grid.appendChild(d);
   });
-
-  // number ring
-  const ring=document.getElementById('ring');
-  for(let i=1;i<=9;i++){
-    const a=(i-1)/9*2*Math.PI - Math.PI/2;
-    const R=52;
-    const x=Math.cos(a)*R, y=Math.sin(a)*R;
-    const s=document.createElement('div');
-    s.className='n'; s.textContent=i;
-    s.style.transform='translate('+x+'px,'+y+'px)';
-    ring.appendChild(s);
-  }
 
   function mkbin(el,cols,rows){let b="";for(let i=0;i<rows;i++){let r="";for(let j=0;j<cols;j++){r+=Math.random()>.5?"1":"0";}b+=r+"\n";}el.textContent=b;}
   mkbin(document.getElementById('binary'),140,60);

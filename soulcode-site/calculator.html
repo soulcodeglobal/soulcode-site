@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
+  <link rel="apple-touch-icon" href="/assets/soulcode-icon-256.png">
 <meta name="color-scheme" content="light only">
 <title data-zh="靈魂解碼系統 · Soul Code Academy" data-en="Soul Code System · Soul Code Academy">靈魂解碼系統 · Soul Code Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,6 +115,18 @@
   #subToast .st-txt{flex:1;font-size:14px;line-height:1.5}
   #subToast .st-act{background:#fff;color:var(--emerald-deep);border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit;flex-shrink:0;white-space:nowrap}
   #subToast .st-close{background:transparent;border:0;color:#bfe9d8;font-size:20px;cursor:pointer;flex-shrink:0;line-height:1;padding:0 4px}
+  .res-cta{display:flex;gap:10px;max-width:420px;margin:18px auto 6px;padding:0 18px}
+  .res-cta button{flex:1;border-radius:12px;padding:13px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .1s}
+  .res-cta button:active{transform:scale(.97)}
+  .res-cta .save{border:none}
+  .res-cta .share{background:#fff}
+  .res-cta-note{text-align:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
+  .share-dock{position:fixed;left:0;right:0;bottom:0;z-index:600;background:rgba(255,255,255,.96);border-top:1px solid var(--line);padding:9px 14px;display:none;gap:8px;align-items:center}
+  .share-dock .lab{font-size:11.5px;color:var(--ink-soft);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .share-dock button{border-radius:10px;padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:4px}
+  .share-dock .save{border:none}
+  .share-dock .share{background:#fff}
+  @media(max-width:820px){ body.result-active .share-dock{display:flex} }
 </style>
 </head>
 <body>
@@ -165,7 +180,17 @@
       <span class="pill" id="rAxis">心悅臣服</span>
     </div>
   </div>
+  <div class="res-cta">
+    <button class="save" id="saveTop"><span class="arr">⬇</span> <span data-zh="儲存圖片" data-en="Save image">儲存圖片</span></button>
+    <button class="share" id="shareTop"><span data-zh="分享" data-en="Share">分享</span> <span class="arr">↗</span></button>
+  </div>
+  <div class="res-cta-note" data-zh="把你的結果儲存或分享給朋友" data-en="Save your result or share it with friends">把你的結果儲存或分享給朋友</div>
   <div class="report" id="report"></div>
+  <div class="share-dock" id="shareDock">
+    <span class="lab" id="dockLab"></span>
+    <button class="save" id="saveDock"><span class="arr">⬇</span> <span data-zh="儲存" data-en="Save">儲存</span></button>
+    <button class="share" id="shareDock2"><span data-zh="分享" data-en="Share">分享</span></button>
+  </div>
   <div class="actions">
     <div class="act-box">
       <h4 data-zh="把你的 Soul Code 分享出去" data-en="Share your Soul Code">把你的 Soul Code 分享出去</h4>
@@ -224,7 +249,7 @@ $('calcBtn').addEventListener('click',()=>{
   const test=new Date(y,m-1,d); if(test.getMonth()!==m-1||test.getDate()!==d){$('err').textContent=curErr('這個日期不存在，請檢查。','That date doesn\'t exist — please check.');return;}
   if(!nt){ if(isNaN(hh)||isNaN(mm)||hh<0||hh>23||mm<0||mm>59){$('err').textContent=curErr('請輸入正確的時間，或勾選「不確定出生時間」。','Enter a valid time, or tick \u201CI\'m not sure of my birth time.\u201D');return;} }
   curSC=soulCore(y,m,d,hh,mm,nt);
-  $('formCard').style.display='none'; document.querySelector('header').style.display='none'; $('result').style.display='block';
+  $('formCard').style.display='none'; document.querySelector('header').style.display='none'; $('result').style.display='block'; document.body.classList.add('result-active');
   paintResult(); window.scrollTo({top:0,behavior:'smooth'});
 });
 function paintResult(){
@@ -247,9 +272,18 @@ function paintResult(){
   window.__shareText = en
     ? 'My Soul Code is '+curSC+' '+r.nameEn+', guarded by '+beastEnMap[r.beastZh]+'. Find yours →'
     : loc('我的 Soul Code 是 '+curSC+' '+r.nameZh+'（'+r.nameEn+'），守護神獸是'+r.beastZh+'。來算算你的 →');
+  applyCtaColors(r.accent);
+  $('dockLab').textContent = 'SC '+curSC+' · '+(en? r.nameEn : loc(r.nameZh));
+}
+function _lum(hex){var n=parseInt(hex.slice(1),16);var R=(n>>16)&255,G=(n>>8)&255,B=n&255;return (0.299*R+0.587*G+0.114*B)/255;}
+function _darken(hex,f){var n=parseInt(hex.slice(1),16);var R=(n>>16)&255,G=(n>>8)&255,B=n&255;R=Math.round(R*f);G=Math.round(G*f);B=Math.round(B*f);return '#'+((1<<24)+(R<<16)+(G<<8)+B).toString(16).slice(1);}
+function applyCtaColors(ac){
+  var solid = _lum(ac) > 0.62 ? _darken(ac,0.62) : ac;   // 淺色 accent 自動加深，確保白字清
+  ['saveTop','saveDock'].forEach(function(id){var b=document.getElementById(id);if(b){b.style.background=solid;b.style.color='#fff';}});
+  ['shareTop','shareDock2'].forEach(function(id){var b=document.getElementById(id);if(b){b.style.background='#fff';b.style.border='1.5px solid '+solid;b.style.color=solid;}});
 }
 $('recalcBtn').addEventListener('click',()=>{
-  $('result').style.display='none'; $('formCard').style.display='block'; document.querySelector('header').style.display='block';
+  $('result').style.display='none'; document.body.classList.remove('result-active'); $('formCard').style.display='block'; document.querySelector('header').style.display='block';
   $('couponDone').style.display='none'; $('emailIn').disabled=false; $('emailBtn').disabled=false; $('emailIn').value='';
   $('y').value='';$('m').value='';$('d').value='';$('hh').value='';$('mm').value=''; noTime.checked=false; $('hh').disabled=false; $('mm').disabled=false; $('err').textContent=''; curSC=null;
   window.scrollTo({top:0,behavior:'smooth'});
@@ -343,13 +377,15 @@ function showShareModal(blob,cap){
   ov.addEventListener('click',(e)=>{ if(e.target===ov) close(); });
   card.appendChild(img); card.appendChild(row); ov.appendChild(card); document.body.appendChild(ov);
 }
-$('shareBtn').addEventListener('click',async()=>{
+function _cardBlob(cb){
   if(curSC==null) return;
-  try{ if(document.fonts && document.fonts.ready){ await document.fonts.ready; } }catch(e){}
-  var canvas=makeShareCard();
-  var cap=window.__shareText||'';
-  canvas.toBlob((blob)=>{ if(!blob) return; showShareModal(blob,cap); },'image/png');
-});
+  var ready=(document.fonts && document.fonts.ready)? document.fonts.ready : Promise.resolve();
+  ready.then(function(){ try{ makeShareCard().toBlob(function(b){ if(b) cb(b); },'image/png'); }catch(e){} });
+}
+function doSave(){ _cardBlob(function(blob){ var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='soulcode-'+curSC+'.png';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},3000); }); }
+function doShare(){ var cap=window.__shareText||''; _cardBlob(function(blob){ showShareModal(blob,cap); }); }
+['saveTop','saveDock'].forEach(function(id){var b=document.getElementById(id);if(b)b.addEventListener('click',doSave);});
+['shareTop','shareDock2','shareBtn'].forEach(function(id){var b=document.getElementById(id);if(b)b.addEventListener('click',doShare);});
 $('emailBtn').addEventListener('click',async()=>{
   const e=$('emailIn').value.trim();
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){alert(curLang==='en'?'Please enter a valid email.':loc('請輸入正確的 email。'));return;}
