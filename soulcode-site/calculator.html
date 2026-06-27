@@ -127,17 +127,36 @@
   .share-dock .save{border:none}
   .share-dock .share{background:#fff}
   @media(max-width:820px){ body.result-active .share-dock{display:flex} }
+  /* CJK line-break quality: avoid orphan last lines, balance headings */
+  h1,h2,h3{text-wrap:balance}
+  p,li,.hero-lede,.member-bio,.pintro,.member-points li,.pcard p,.corp p,.c-line{text-wrap:pretty}
+
+  /* report loop-closer CTA */
+  .loop-cta{max-width:680px;margin:30px auto 0;background:linear-gradient(135deg,#063b2c,#04231a);color:#eafff6;border-radius:22px;padding:34px 30px;text-align:center}
+  .loop-cta h3{font-family:var(--fserif);font-weight:700;font-size:clamp(20px,2.6vw,25px);color:#fff;margin-bottom:8px}
+  .loop-cta p{font-size:15px;color:#bfe9d8;max-width:42ch;margin:0 auto 22px;line-height:1.7}
+  .loop-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .loop-cta a{display:inline-flex;align-items:center;gap:7px;padding:13px 24px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;font-family:inherit;transition:transform .15s}
+  .lc-primary{background:#fff;color:#064e3b}
+  .lc-primary:hover{transform:translateY(-2px)}
+  .lc-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.42)}
+  .lc-ghost:hover{border-color:#fff}
+  .loop-cta .arr{font-family:"Space Grotesk";transition:transform .2s}
+  .loop-cta a:hover .arr{transform:translateX(3px)}
+  .lc-perk{margin-top:16px;font-size:12.5px;color:#a7f3d0;font-family:"Space Grotesk";letter-spacing:.02em}
 </style>
 </head>
 <body>
 <nav>
   <div class="wrap nav-in">
-    <a href="index.html" class="brand"><span class="b-main">Soul Code Academy</span><span class="b-sub" data-zh="靈魂解碼學院">靈魂解碼學院</span></a>
+    <a href="index.html" class="brand"><span class="b-main">Soul Code Academy</span><span class="b-sub" data-zh="靈魂解碼學院" data-en="">靈魂解碼學院</span></a>
     <div class="nav-links">
       <a href="index.html" data-zh="首頁" data-en="Home">首頁</a>
       <a href="about.html" data-zh="關於" data-en="About">關於</a>
       <a href="calculator.html" class="active" data-zh="靈魂解碼系統" data-en="Decode Your Soul">靈魂解碼系統</a>
+      <a href="team.html" data-zh="團隊" data-en="Team">團隊</a>
       <a href="booking.html" data-zh="預約" data-en="Book">預約</a>
+      <a href="courses.html" data-zh="課程" data-en="Courses">課程</a>
       <a href="cooperation.html" data-zh="合作機會" data-en="Cooperation">合作機會</a>
     </div>
     <div class="lang"><button id="zhtBtn" class="on" onclick="setLang('zht')">繁</button><button id="zhsBtn" onclick="setLang('zhs')">简</button><button id="enBtn" onclick="setLang('en')">EN</button></div>
@@ -147,7 +166,7 @@
 <header>
   <div class="binary" id="binary"></div>
   <div class="wrap">
-    <div class="eyebrow" data-zh="靈魂解碼系統 · Soul Code System">靈魂解碼系統 · Soul Code System</div>
+    <div class="eyebrow" data-zh="靈魂解碼系統 · Soul Code System" data-en="Soul Code System">靈魂解碼系統 · Soul Code System</div>
     <h1 class="bp" data-zh="輸入你的出生資料　看你的靈魂密碼" data-en="Enter your birth details to reveal your soul code">輸入你的出生資料　看你的靈魂密碼</h1>
     <p class="hero-lede bp" data-zh="只需年、月、日、時間，系統即時為你計算。" data-en="Just your date and time of birth — the system calculates instantly.">只需年、月、日、時間，系統即時為你計算。</p>
   </div>
@@ -186,6 +205,15 @@
   </div>
   <div class="res-cta-note" data-zh="把你的結果儲存或分享給朋友" data-en="Save your result or share it with friends">把你的結果儲存或分享給朋友</div>
   <div class="report" id="report"></div>
+  <div class="loop-cta reveal" id="loopCta">
+    <h3 data-zh="課題，你已經看見了。" data-en="You've seen your lesson.">課題，你已經看見了。</h3>
+    <p data-zh="答案不是一句話，而是一條可以一步步走的路。" data-en="The answer isn't a single line — it's a path you can walk, step by step.">答案不是一句話，而是一條可以一步步走的路。</p>
+    <div class="loop-btns">
+      <a href="booking.html" class="lc-primary"><span data-zh="預約一對一解讀" data-en="Book a one-on-one reading">預約一對一解讀</span> <span class="arr">→</span></a>
+      <a href="courses.html" class="lc-ghost"><span data-zh="報讀課程" data-en="Join the course">報讀課程</span></a>
+    </div>
+    <div class="lc-perk" data-zh="報讀課程後，諮詢輸入 COURSE 享 8 折。" data-en="After joining a course, use code COURSE for 20% off consultations.">報讀課程後，諮詢輸入 COURSE 享 8 折。</div>
+  </div>
   <div class="share-dock" id="shareDock">
     <span class="lab" id="dockLab"></span>
     <button class="save" id="saveDock"><span class="arr">⬇</span> <span data-zh="儲存" data-en="Save">儲存</span></button>
@@ -409,6 +437,7 @@ function applyText(el,l){
   else{el.textContent=t;}
 }
 function setLang(l){
+    try{localStorage.setItem('sc_lang',l);}catch(e){}
   curLang=l; document.documentElement.lang = l==='en'?'en':(l==='zhs'?'zh-Hans':'zh-Hant');
   zhtBtn.classList.toggle('on',l==='zht'); zhsBtn.classList.toggle('on',l==='zhs'); enBtn.classList.toggle('on',l==='en');
   document.querySelectorAll('[data-zh]').forEach(el=>applyText(el,l));
@@ -476,7 +505,7 @@ function setupFigToast(){
   t.querySelector('.st-close').addEventListener('click',function(){ hideToast(); window.__toastDone=true; });
 })();
 
-setLang('zht');
+setLang((function(){try{return localStorage.getItem('sc_lang')||'zht';}catch(e){return 'zht';}})());
 </script>
 
 <script>

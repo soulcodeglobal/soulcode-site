@@ -147,6 +147,9 @@
     .nav-links a{padding:14px 28px;font-size:16px;border-bottom:1px solid var(--line,#dce8e2)}
     .nav-links a:last-child{border-bottom:0}
   }
+  /* CJK line-break quality: avoid orphan last lines, balance headings */
+  h1,h2,h3{text-wrap:balance}
+  p,li,.hero-lede,.member-bio,.pintro,.member-points li,.pcard p,.corp p,.c-line{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -161,7 +164,9 @@
       <a href="index.html" data-zh="首頁" data-en="Home">首頁</a>
       <a href="about.html" data-zh="關於" data-en="About">關於</a>
       <a href="calculator.html" data-zh="靈魂解碼系統" data-en="Decode Your Soul">靈魂解碼系統</a>
+      <a href="team.html" data-zh="團隊" data-en="Team">團隊</a>
       <a href="booking.html" data-zh="預約" data-en="Book">預約</a>
+      <a href="courses.html" data-zh="課程" data-en="Courses">課程</a>
       <a href="cooperation.html" data-zh="合作機會" data-en="Cooperation">合作機會</a>
     </div>
     <div class="lang">
@@ -233,6 +238,63 @@
       <p class="note" data-zh="其餘條款與一次性諮商相同。" data-en="All other terms are the same as for single consultations.">其餘條款與一次性諮商相同。</p>
     </div>
 
+  </div>
+
+  <div class="legal-sep"></div>
+
+  <div class="legal" id="course-terms" style="scroll-margin-top:90px">
+    <h2 data-zh="課程條款" data-en="Course Terms">課程條款</h2>
+
+    <div class="grp">
+      <h3 data-zh="報名與付款" data-en="Enrollment &amp; Payment">報名與付款</h3>
+      <ol>
+        <li data-zh="報名於完成付款後生效；名額有限，額滿即止。" data-en="Enrollment is confirmed upon payment. Places are limited and allocated on a first-come basis.">報名於完成付款後生效；名額有限，額滿即止。</li>
+        <li data-zh="本課程由 Soul Code Academy Pty Ltd（澳洲）收款，所有報名均提供付款平台之電子收據。" data-en="Payment is processed by Soul Code Academy Pty Ltd (Australia); an electronic receipt is provided for every enrollment.">本課程由 Soul Code Academy Pty Ltd（澳洲）收款，所有報名均提供付款平台之電子收據。</li>
+      </ol>
+    </div>
+
+    <div class="grp">
+      <h3 data-zh="場地" data-en="Venue">場地</h3>
+      <ol>
+        <li data-zh="標示「場地待定」之場次，最終地點將於開課前以電郵通知；主辦方保留調整場地之權利，恕不影響已確認之報名。" data-en="For sessions marked &#34;Venue TBC,&#34; the final location is confirmed by email before the course. The organiser may adjust the venue without affecting confirmed enrollments.">標示「場地待定」之場次，最終地點將於開課前以電郵通知；主辦方保留調整場地之權利，恕不影響已確認之報名。</li>
+      </ol>
+    </div>
+
+    <div class="grp">
+      <h3 data-zh="改期與退款" data-en="Reschedule &amp; Refund">改期與退款</h3>
+      <ol>
+        <li data-zh="開課前 14 日或以上申請，可全額退款或轉至其他場次。" data-en="Requests 14 days or more before the start date: full refund or transfer to another session.">開課前 14 日或以上申請，可全額退款或轉至其他場次。</li>
+        <li data-zh="其後恕不退款，但可轉讓名額予他人，或保留至下一場次。" data-en="After that, the fee is non-refundable, but your place may be transferred to another person or held for a future session.">其後恕不退款，但可轉讓名額予他人，或保留至下一場次。</li>
+        <li data-zh="退款將扣除實際產生之付款平台及財務機構手續費。" data-en="Refunds are subject to deduction of the actual payment-processing and financial institution fees incurred.">退款將扣除實際產生之付款平台及財務機構手續費。</li>
+        <li data-zh="若主辦方取消或改期，你可選擇全額退款或轉至其他場次。" data-en="If the organiser cancels or reschedules, you may choose a full refund or a transfer.">若主辦方取消或改期，你可選擇全額退款或轉至其他場次。</li>
+      </ol>
+    </div>
+
+    <div class="grp">
+      <h3 data-zh="進階訂金與套裝" data-en="Advanced Deposit &amp; Bundle">進階訂金與套裝</h3>
+      <ol>
+        <li data-zh="進階課程日期暫定 10 月初，尚未最終確認。" data-en="Advanced Course dates are tentatively early October and not yet finally confirmed.">進階課程日期暫定 10 月初，尚未最終確認。</li>
+        <li data-zh="套裝之進階訂金用以鎖定早鳥 8 折及保留名額，可轉讓、不可退款；尾數於日期確認後以發票收取。" data-en="The Advanced deposit in the bundle locks the early-bird price (20% off) and reserves your place; it is transferable but non-refundable. The balance is invoiced once dates are confirmed.">套裝之進階訂金用以鎖定早鳥 8 折及保留名額，可轉讓、不可退款；尾數於日期確認後以發票收取。</li>
+        <li data-zh="如最終日期未能配合，訂金可轉至其他場次，或保留為課程信用額。" data-en="If the final dates don&#39;t suit you, the deposit may be transferred to another session or kept as course credit.">如最終日期未能配合，訂金可轉至其他場次，或保留為課程信用額。</li>
+      </ol>
+    </div>
+
+    <div class="grp">
+      <h3 data-zh="學員專屬諮詢優惠" data-en="Student Consultation Offer">學員專屬諮詢優惠</h3>
+      <ol>
+        <li data-zh="完成報名之學員可使用一對一諮詢 8 折優惠碼 COURSE。" data-en="Enrolled students may use the 20%-off one-on-one consultation code COURSE.">完成報名之學員可使用一對一諮詢 8 折優惠碼 COURSE。</li>
+        <li data-zh="優惠碼自發出起有效，恕不另設限期；主辦方保留調整之權利。不可兌換現金，不可與其他優惠並用。" data-en="The code is valid from the date of issue with no fixed expiry; the organiser reserves the right to adjust it. It has no cash value and cannot be combined with other offers.">優惠碼自發出起有效，恕不另設限期；主辦方保留調整之權利。不可兌換現金，不可與其他優惠並用。</li>
+      </ol>
+    </div>
+
+    <div class="grp">
+      <h3 data-zh="課堂錄影與私隱" data-en="Recording &amp; Privacy">課堂錄影與私隱</h3>
+      <ol>
+        <li data-zh="課堂可能進行錄影或拍照，作教學與宣傳用途；如不願入鏡，請於課前告知。" data-en="Sessions may be recorded or photographed for teaching and promotion; if you prefer not to appear, please let us know before the course.">課堂可能進行錄影或拍照，作教學與宣傳用途；如不願入鏡，請於課前告知。</li>
+        <li data-zh="個人資料之處理，詳見本網站私隱政策。" data-en="Personal data is handled in accordance with our site privacy policy.">個人資料之處理，詳見本網站私隱政策。</li>
+      </ol>
+    </div>
+
     <p class="contact"><span data-zh="如有疑問，請電郵 " data-en="Questions? Email ">如有疑問，請電郵 </span><a href="mailto:booking@soulcodeglobal.com">booking@soulcodeglobal.com</a></p>
     <p class="note" data-zh="生效日期：2026 年 6 月" data-en="Effective: June 2026">生效日期：2026 年 6 月</p>
   </div>
@@ -260,13 +322,14 @@
     el.innerHTML=t;
   }
   function setLang(l){
+    try{localStorage.setItem('sc_lang',l);}catch(e){}
     document.documentElement.lang = l==='en'?'en':(l==='zhs'?'zh-Hans':'zh-Hant');
     zhtBtn.classList.toggle('on',l==='zht');
     zhsBtn.classList.toggle('on',l==='zhs');
     enBtn.classList.toggle('on',l==='en');
     document.querySelectorAll('[data-zh]').forEach(el=>applyText(el,l));
   }
-  setLang('zht');
+  setLang((function(){try{return localStorage.getItem('sc_lang')||'zht';}catch(e){return 'zht';}})());
 </script>
 
 

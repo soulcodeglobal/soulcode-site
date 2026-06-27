@@ -44,6 +44,20 @@
     -webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,transparent 30%,#000 100%);
     mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,transparent 30%,#000 100%)}
   header .wrap{position:relative;z-index:1}
+  /* rotating dial emblem (matches index hero) */
+  .emblem{position:relative;width:128px;height:128px;margin:0 auto 28px}
+  .emblem::after{content:"";position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle,rgba(5,150,105,.16),transparent 68%);z-index:-1}
+  .emblem-svg{width:100%;height:100%;display:block}
+  .hero-dial{transform-box:fill-box;transform-origin:center;animation:spin 48s linear infinite}
+  .hero-pulse{transform-box:fill-box;transform-origin:center;animation:heropulse 3.4s ease-in-out infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes heropulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.12;transform:scale(1.22)}}
+
+  /* decorative concentric-ring glyph */
+  .deco{position:absolute;z-index:0;pointer-events:none;opacity:.5}
+  .deco svg{display:block}
+  section{overflow:hidden}
+
   .eyebrow{font-family:"Space Grotesk";font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--emerald);font-weight:500;margin-bottom:22px}
   h1{font-family:var(--fserif);font-weight:900;font-size:clamp(30px,4.6vw,46px);line-height:1.3;margin:0 auto 22px;max-width:22ch}
   .hero-lede{font-size:clamp(16px,2vw,18px);color:var(--ink-soft);max-width:46ch;margin:0 auto;line-height:1.85}
@@ -76,13 +90,35 @@
   .what .read p strong{color:#fff;font-weight:700}
 
   /* ladder */
-  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+  .ladder{display:flex;gap:16px;margin-top:48px}
+  .ladder .lcard{flex:1}
   .lcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;text-align:left;transition:transform .2s,border-color .2s,box-shadow .2s;border-top:3px solid var(--c)}
   .lcard:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 18px 40px -22px color-mix(in srgb,var(--c) 55%,transparent)}
   .lcard .step{font-family:"Space Grotesk";font-weight:700;font-size:13px;color:var(--c);letter-spacing:.08em;margin-bottom:14px}
   .lcard .lt{font-family:var(--fserif);font-weight:700;font-size:19px;margin-bottom:8px}
   .lcard .ld{font-size:14px;color:var(--ink-soft);line-height:1.7}
   .ladder-close{margin-top:40px;font-family:var(--fserif);font-weight:700;font-size:clamp(17px,2.3vw,21px);color:var(--emerald-deep)}
+  .way-sub{margin:56px auto 0;font-family:var(--fserif);font-weight:700;font-size:clamp(17px,2.4vw,22px);color:var(--emerald-deep)}
+  .way-sub::after{content:"";display:block;width:40px;height:2px;background:var(--emerald);margin:14px auto 0;opacity:.5}
+  .way-sub + .ladder{margin-top:26px}
+
+  /* vision — centered statement */
+  .vision{max-width:660px}
+  .vision p{text-align:center;font-size:clamp(16.5px,2vw,18.5px);color:#243a31;margin-bottom:22px}
+  .vision p:first-child{font-family:var(--fserif);font-weight:700;color:var(--emerald-deep)}
+
+  /* the way — flow */
+  .flow{display:flex;align-items:stretch;justify-content:center;gap:14px;margin-top:48px;flex-wrap:nowrap}
+  .fstep{flex:1;max-width:300px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 22px;text-align:center;border-top:3px solid var(--emerald)}
+  .fstep .fnum{font-family:"Space Grotesk";font-weight:700;font-size:13px;color:var(--emerald);letter-spacing:.1em;margin-bottom:12px}
+  .fstep .ft{font-family:var(--fserif);font-weight:700;font-size:20px;margin-bottom:10px;color:var(--ink)}
+  .fstep .fd{font-size:14px;color:var(--ink-soft);line-height:1.7}
+  .farrow{display:flex;align-items:center;font-family:"Space Grotesk";font-size:24px;color:var(--emerald);opacity:.6;flex-shrink:0}
+  @media(max-width:720px){
+    .flow{flex-direction:column;align-items:center}
+    .fstep{max-width:420px;width:100%}
+    .farrow{transform:rotate(90deg);padding:2px 0}
+  }
 
   /* final */
   .final{background:var(--emerald-deep);color:#fff;overflow:hidden;text-align:center}
@@ -114,13 +150,15 @@
 
   @media(max-width:820px){
     .nav-links{display:none}
-    .ladder{grid-template-columns:1fr 1fr}
+    .ladder{flex-wrap:wrap}.ladder .lcard{flex:1 1 calc(50% - 8px)}
     header{padding:60px 0 52px}
     section{padding:58px 0}
   }
-  @media(max-width:520px){ .ladder{grid-template-columns:1fr} }
-  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} *{scroll-behavior:auto} }
+  @media(max-width:520px){ .ladder .lcard{flex:1 1 100%} }
+  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} .hero-dial{animation:none} .hero-pulse{animation:none} *{scroll-behavior:auto} }
   .fiona-photo{display:block;width:100%;max-width:300px;border-radius:18px;margin:26px auto 0;box-shadow:0 18px 50px -18px rgba(0,0,0,.35)}
+  .fiona-duo{display:flex;gap:14px;max-width:560px;margin:28px auto 0}
+  .fiona-duo img{width:50%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;box-shadow:0 18px 50px -18px rgba(0,0,0,.35);display:block}
 
   /* mobile nav menu */
   .navtoggle{display:none;width:42px;height:42px;border:1px solid var(--line,#dce8e2);border-radius:12px;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0;padding:0;margin-left:6px}
@@ -141,6 +179,9 @@
   .creds ul{list-style:none;margin:0;padding:0}
   .creds li{position:relative;padding-left:18px;font-size:14.5px;color:var(--ink-soft);margin-bottom:7px;line-height:1.65}
   .creds li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--emerald)}
+  /* CJK line-break quality: avoid orphan last lines, balance headings */
+  h1,h2,h3{text-wrap:balance}
+  p,li,.hero-lede,.member-bio,.pintro,.member-points li,.pcard p,.corp p,.c-line{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -155,7 +196,9 @@
       <a href="index.html" data-zh="首頁" data-en="Home">首頁</a>
       <a href="about.html" class="active" data-zh="關於" data-en="About">關於</a>
       <a href="calculator.html" data-zh="靈魂解碼系統" data-en="Decode Your Soul">靈魂解碼系統</a>
+      <a href="team.html" data-zh="團隊" data-en="Team">團隊</a>
       <a href="booking.html" data-zh="預約" data-en="Book">預約</a>
+      <a href="courses.html" data-zh="課程" data-en="Courses">課程</a>
       <a href="cooperation.html" data-zh="合作機會" data-en="Cooperation">合作機會</a>
     </div>
     <div class="lang">
@@ -170,11 +213,39 @@
 <header>
   <div class="binary" id="binary"></div>
   <div class="wrap">
-    <div class="eyebrow" data-zh="關於 · About" data-en="關於 · About">關於 · About</div>
-    <h1 class="bp" data-zh="為什麼是靈魂解碼" data-en="Why Soul Code">為什麼是靈魂解碼</h1>
-    <p class="hero-lede" data-zh="每個人都在尋找答案——關於自己、關於關係、關於這一生為什麼會走成現在這樣。靈魂解碼，是一套幫你親自找到這些答案的方法，而它的源頭，是一個真實走過苦難的人。" data-en="Everyone is looking for answers — about who they are, about their relationships, about why life turned out the way it did. Soul Code is a method for finding those answers yourself. And it began with someone who lived through real suffering.">每個人都在尋找答案——關於自己、關於關係、關於這一生為什麼會走成現在這樣。靈魂解碼，是一套幫你親自找到這些答案的方法，而它的源頭，是一個真實走過苦難的人。</p>
+    <div class="emblem" aria-hidden="true">
+      <svg class="emblem-svg" viewBox="0 0 256 256" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="heroSun"><circle cx="128" cy="128" r="40"/></clipPath></defs><circle cx="128" cy="128" r="92" fill="none" stroke="#059669" stroke-width="2"/><circle cx="128" cy="128" r="68" fill="none" stroke="#059669" stroke-width="2"/><g class="hero-dial"><polygon points="114.55,86.11 128.0,62.0 141.45,86.11" fill="#059669"/><polygon points="141.74,86.2 166.79,74.6 163.51,102.01" fill="#059669"/><polygon points="163.69,102.26 190.77,107.6 172.0,127.85" fill="#059669"/><polygon points="172.0,128.15 190.77,148.4 163.69,153.74" fill="#059669"/><polygon points="163.51,153.99 166.79,181.4 141.74,169.8" fill="#059669"/><polygon points="141.45,169.89 128.0,194.0 114.55,169.89" fill="#059669"/><polygon points="114.26,169.8 89.21,181.4 92.49,153.99" fill="#059669"/><polygon points="92.31,153.74 65.23,148.4 84.0,128.15" fill="#059669"/><polygon points="84.0,127.85 65.23,107.6 92.31,102.26" fill="#059669"/><polygon points="92.49,102.01 89.21,74.6 114.26,86.2" fill="#059669"/><text x="128.0" y="49.0" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">0</text><text x="174.44" y="64.09" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">1</text><text x="203.13" y="103.59" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">2</text><text x="203.13" y="152.41" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">3</text><text x="174.44" y="191.91" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">4</text><text x="128.0" y="207.0" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">5</text><text x="81.56" y="191.91" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">6</text><text x="52.87" y="152.41" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">7</text><text x="52.87" y="103.59" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">8</text><text x="81.56" y="64.09" font-size="17" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,sans-serif" font-weight="700">9</text></g><circle class="hero-pulse" cx="128" cy="128" r="40" fill="none" stroke="#059669" stroke-width="2"/><circle cx="128" cy="128" r="40" fill="#ffffff"/><circle cx="146" cy="146" r="40" fill="#059669" opacity="0.18" clip-path="url(#heroSun)"/><circle cx="114" cy="114" r="10" fill="#059669" opacity="0.28"/><circle cx="128" cy="128" r="40" fill="none" stroke="#059669" stroke-width="3"/></svg>
+    </div>
+    <div class="eyebrow" data-zh="關於 · About" data-en="About">關於 · About</div>
+    <h1 class="bp" data-zh="靈魂解碼學院" data-en="Soul Code Academy">靈魂解碼學院</h1>
+    <p class="hero-lede" data-zh="一套幫你親自找到答案的方法——關於自己、關於關係、關於這一生為什麼會走成現在這樣。它的源頭，是一個真實走過苦難的人。" data-en="A method for finding the answers yourself — about who you are, your relationships, and why life has unfolded the way it has. It began with someone who lived through real suffering.">一套幫你親自找到答案的方法——關於自己、關於關係、關於這一生為什麼會走成現在這樣。它的源頭，是一個真實走過苦難的人。</p>
   </div>
 </header>
+
+<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="deco" style="top:-50px;right:-60px" aria-hidden="true">
+    <svg width="240" height="240" viewBox="0 0 240 240" fill="none">
+      <circle cx="120" cy="120" r="110" stroke="#059669" stroke-width="1.2" opacity=".35"/>
+      <circle cx="120" cy="120" r="82" stroke="#059669" stroke-width="1.2" opacity=".5"/>
+      <circle cx="120" cy="120" r="54" stroke="#059669" stroke-width="1.2" opacity=".7"/>
+      <circle cx="120" cy="10" r="3" fill="#059669"/><circle cx="230" cy="120" r="3" fill="#059669"/>
+      <circle cx="120" cy="230" r="3" fill="#059669"/><circle cx="10" cy="120" r="3" fill="#059669"/>
+      <text x="120" y="124" font-size="22" fill="#059669" opacity=".55" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700">∞</text>
+    </svg>
+  </div>
+  <div class="wrap center reveal">
+    <div class="sec-tag" data-zh="我們的理念 · Our Vision" data-en="Our Vision">我們的理念 · Our Vision</div>
+    <h2 class="bp" data-zh="靈魂解碼學院的起點，是一個答案" data-en="It began as an answer">靈魂解碼學院的起點，是一個答案</h2>
+  </div>
+  <div class="read vision reveal">
+    <p data-zh="那是一個關於人為什麼會受苦、又該如何走出來的答案。" data-en="It is an answer to why we suffer — and how to find our way out.">那是一個關於人為什麼會受苦、又該如何走出來的答案。</p>
+    <p data-zh="我們相信，每一個願意成長的靈魂，都不該獨自面對自己的功課。在這段路上，他值得被陪伴、被理解、被支持。" data-en="We believe every soul willing to grow should never face their lessons alone. They deserve to be accompanied, understood, and supported.">我們相信，每一個願意成長的靈魂，都不該獨自面對自己的功課。在這段路上，他值得被陪伴、被理解、被支持。</p>
+    <p data-zh="我們想陪這些人，一步一步走向真正快樂而豐裕的生活——心靈是安定的，物質是充足的，活得踏實、活得滿足。" data-en="Our work is to walk with them, step by step, toward a life that is genuinely happy and abundant — settled in spirit, secure in the material, lived with a deep sense of enough.">我們想陪這些人，一步一步走向真正快樂而豐裕的生活——心靈是安定的，物質是充足的，活得踏實、活得滿足。</p>
+  </div>
+</section>
 
 <div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
 
@@ -183,7 +254,10 @@
   <div class="wrap center reveal">
     <div class="sec-tag" data-zh="關於 Fiona" data-en="About Fiona">關於 Fiona</div>
     <h2 data-zh="一個真實走過來的人" data-en="A story lived, not told">一個真實走過來的人</h2>
-    <img class="fiona-photo" src="assets/fiona.jpg" alt="Fiona" loading="lazy">
+    <div class="fiona-duo">
+      <img src="assets/about-fiona-1.jpg" alt="Fiona" loading="lazy">
+      <img src="assets/about-fiona-2.jpg" alt="Fiona" loading="lazy">
+    </div>
   </div>
   <div class="read reveal">
     <p class="first" data-zh="Fiona 出生於香港一個普通家庭，七口人擠在一間三十多平方米的公屋裡長大。從小她就被家人說「笨」、說「沒用」，她努力想被愛、想被看見，換來的卻常常是責備。那種「我這麼想對你們好，為什麼還是不被理解」的感覺，跟了她很多年。" data-en="Fiona grew up in an ordinary Hong Kong family — seven people sharing a thirty-square-metre public-housing flat. As a child she was called &ldquo;stupid&rdquo; and &ldquo;useless.&rdquo; She tried so hard to be loved, to be seen, and mostly got criticism in return. That feeling — I'm trying this hard for you, why am I still not understood? — stayed with her for years.">Fiona 出生於香港一個普通家庭，七口人擠在一間三十多平方米的公屋裡長大。從小她就被家人說「笨」、說「沒用」，她努力想被愛、想被看見，換來的卻常常是責備。那種「我這麼想對你們好，為什麼還是不被理解」的感覺，跟了她很多年。</p>
@@ -206,78 +280,98 @@
     <p data-zh="她常說：她不是要你相信她，而是希望你有一天，能像她一樣，親自看懂自己。" data-en="She often says: she doesn't want you to believe her. She wants you, one day, to see yourself as clearly as she now sees herself.">她常說：她不是要你相信她，而是希望你有一天，能像她一樣，親自看懂自己。</p>
   </div>
 
-  <div class="creds reveal">
-    <h3 data-zh="資歷與認證" data-en="Credentials">資歷與認證</h3>
-    <div class="yrs" data-zh="28 年身心靈研究和專業資格包括：" data-en="28 years of mind-body-spirit research and professional qualifications, including:">28 年身心靈研究和專業資格包括：</div>
-    <ul>
-      <li data-zh="澳洲國立大學人類學學士及碩士" data-en="BA &amp; MA in Anthropology, Australian National University">澳洲國立大學人類學學士及碩士</li>
-      <li data-zh="澳洲心理咨詢碩士" data-en="Master of Counselling, Australia">澳洲心理咨詢碩士</li>
-      <li data-zh="澳洲臨床催眠治療國家認證文憑" data-en="Nationally Accredited Diploma of Clinical Hypnotherapy, Australia">澳洲臨床催眠治療國家認證文憑</li>
-      <li data-zh="澳洲策略性心理治療國家認證文憑" data-en="Nationally Accredited Diploma of Strategic Psychotherapy, Australia">澳洲策略性心理治療國家認證文憑</li>
-      <li data-zh="美國生成式催眠治療認證" data-en="Certified in Generative Hypnotherapy (USA)">美國生成式催眠治療認證</li>
-      <li data-zh="日本靈氣導師認證" data-en="Certified Reiki Master (Japan)">日本靈氣導師認證</li>
-    </ul>
-    <div class="yrs" data-zh="10 年網上靈性品牌創立經驗" data-en="10 years building online spiritual brands">10 年網上靈性品牌創立經驗</div>
-    <div class="yrs" data-zh="9 年澳洲／香港身心靈教學經驗" data-en="9 years teaching mind-body-spirit work in Australia &amp; Hong Kong">9 年澳洲／香港身心靈教學經驗</div>
-    <ul>
-      <li data-zh="身心靈成長輔導及諮詢師" data-en="Mind-body-spirit growth coach &amp; counsellor">身心靈成長輔導及諮詢師</li>
-      <li data-zh="Soul Connection 靈魂連結導師" data-en="Soul Connection teacher">Soul Connection 靈魂連結導師</li>
-      <li data-zh="Soul Awakening 靈魂覺醒導師" data-en="Soul Awakening teacher">Soul Awakening 靈魂覺醒導師</li>
-      <li data-zh="Soul Ascension 靈魂揚昇導師" data-en="Soul Ascension teacher">Soul Ascension 靈魂揚昇導師</li>
-      <li data-zh="全球靈修體驗營 Spiritual Retreat 主辦者（澳洲、東南亞、歐洲、中東等地）" data-en="Host of global Spiritual Retreats (Australia, Southeast Asia, Europe, the Middle East and more)">全球靈修體驗營 Spiritual Retreat 主辦者（澳洲、東南亞、歐洲、中東等地）</li>
-      <li data-zh="Mediumship 靈媒教學導師" data-en="Mediumship teacher">Mediumship 靈媒教學導師</li>
-      <li data-zh="Psychic 通靈教學導師" data-en="Psychic development teacher">Psychic 通靈教學導師</li>
-    </ul>
-  </div>
 </section>
 
 <div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
 
-<!-- WHAT IS -->
-<section class="what" id="what">
+<!-- WHAT IS (light) -->
+<section id="what-is">
+  <div class="deco" style="bottom:-70px;left:-50px;opacity:.4" aria-hidden="true">
+    <svg width="260" height="260" viewBox="0 0 260 260" fill="none">
+      <circle cx="130" cy="130" r="120" stroke="#059669" stroke-width="1.1" opacity=".4"/>
+      <circle cx="130" cy="130" r="88" stroke="#059669" stroke-width="1.1" opacity=".55"/>
+      <text x="130" y="22" font-size="15" fill="#059669" opacity=".6" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700">3</text>
+      <text x="238" y="135" font-size="15" fill="#059669" opacity=".6" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700">7</text>
+      <text x="130" y="245" font-size="15" fill="#059669" opacity=".6" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700">5</text>
+      <text x="22" y="135" font-size="15" fill="#059669" opacity=".6" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700">9</text>
+    </svg>
+  </div>
   <div class="wrap center reveal">
     <div class="sec-tag" data-zh="什麼是 Soul Code" data-en="What is Soul Code">什麼是 Soul Code</div>
-    <h2 class="bp" data-zh="答案，來自系統本身" data-en="The answer comes from the system itself">答案，來自系統本身</h2>
+    <h2 class="bp" data-zh="用你的出生數據，看懂與生俱來的你" data-en="See who you were born to be — from your birth data">用你的出生數據，看懂與生俱來的你</h2>
   </div>
   <div class="read reveal">
     <p data-zh="大部分人認識自己，靠的是別人的評價、過去的經驗，或者一次又一次的試錯。Soul Code 提供的是另一條路——用你的出生數據，把你與生俱來的設定計算出來。" data-en="Most of us come to know ourselves through other people's opinions, past experience, or endless trial and error. Soul Code offers another way — using your birth data to calculate the blueprint you were born with.">大部分人認識自己，靠的是別人的評價、過去的經驗，或者一次又一次的試錯。Soul Code 提供的是另一條路——用你的出生數據，把你與生俱來的設定計算出來。</p>
-    <p data-zh="它最特別的地方，是答案來自系統本身的運算，而不是某一位老師當下的感覺或解讀。同樣的出生資料，不論誰來算，得出的結果都一致。這讓 Soul Code 不只是一套靠天賦的玄學，而是一套可以被學習、被驗證、被一代一代傳承下去的方法。" data-en="What makes it different is that the answer comes from the system's own calculation — not from how a particular teacher happens to feel or read it on the day. The same birth details give the same result, no matter who runs them. That's what makes Soul Code more than an intuitive art: it's a method that can be learned, verified, and passed down through generations.">它最特別的地方，是答案來自系統本身的運算，而不是某一位老師當下的感覺或解讀。同樣的出生資料，不論誰來算，得出的結果都一致。這讓 Soul Code 不只是一套靠天賦的玄學，而是一套可以被學習、被驗證、被一代一代傳承下去的方法。</p>
-    <p data-zh="這套系統，是 Fiona 把自己十多年走過的路、看懂的答案，整理成有結構、可複製的框架。它不是要預測你的未來，而是讓你看懂自己本來的樣子——你的天賦、你的功課、你一再卡住的地方——然後，活出真正最好的你。" data-en="The system is Fiona's way of taking the road she walked over more than a decade — and the answers she found along it — and turning it into a structure anyone can follow. It isn't here to predict your future. It's here to help you see who you already are: your gifts, your lessons, the places you keep getting stuck — so you can become the truest, best version of yourself.">這套系統，是 Fiona 把自己十多年走過的路、看懂的答案，整理成有結構、可複製的框架。它不是要預測你的未來，而是讓你看懂自己本來的樣子——你的天賦、你的功課、你一再卡住的地方——然後，活出真正最好的你。</p>
+    <p data-zh="它不是要預測你的未來，而是讓你看懂自己本來的樣子——你的天賦、你的功課、你一再卡住的地方——然後，活出真正最好的你。" data-en="It isn't here to predict your future. It's here to help you see who you already are — your gifts, your lessons, the places you keep getting stuck — so you can become the truest, best version of yourself.">它不是要預測你的未來，而是讓你看懂自己本來的樣子——你的天賦、你的功課、你一再卡住的地方——然後，活出真正最好的你。</p>
+  </div>
+</section>
+
+<!-- THE ANSWER (dark) -->
+<section class="what" id="what">
+  <div class="wrap center reveal">
+    <div class="sec-tag" data-zh="與眾不同之處" data-en="What makes it different">與眾不同之處</div>
+    <h2 class="bp" data-zh="答案，來自系統本身" data-en="The answer comes from the system itself">答案，來自系統本身</h2>
+  </div>
+  <div class="read reveal">
+    <p data-zh="它最特別的地方，是答案來自系統本身的運算，而不是某一位老師當下的感覺或解讀。同樣的出生資料，不論誰來算，得出的結果都一致。" data-en="What makes it different is that the answer comes from the system's own calculation — not from how a particular teacher happens to feel or read it on the day. The same birth details give the same result, no matter who runs them.">它最特別的地方，是答案來自系統本身的運算，而不是某一位老師當下的感覺或解讀。同樣的出生資料，不論誰來算，得出的結果都一致。</p>
+    <p data-zh="這讓 Soul Code 不只是一套靠天賦的玄學，而是一套可以被學習、被驗證、被一代一代傳承下去的方法。老師的角色，是把這些答案連結到你真實的生活裡。" data-en="That makes Soul Code more than an intuitive art — it's a method that can be learned, verified, and passed down through generations. The teacher's role is to connect those answers to your real life.">這讓 Soul Code 不只是一套靠天賦的玄學，而是一套可以被學習、被驗證、被一代一代傳承下去的方法。老師的角色，是把這些答案連結到你真實的生活裡。</p>
   </div>
 </section>
 
 <div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
 
-<!-- LADDER -->
+<!-- THE WAY -->
 <section id="path">
   <div class="wrap center reveal">
-    <div class="sec-tag" data-zh="這只是起點" data-en="Only the beginning">這只是起點</div>
-    <h2 data-zh="看懂自己，是這條路的第一步" data-en="Understanding yourself is the first step">看懂自己，是這條路的第一步</h2>
+    <div class="sec-tag" data-zh="成長之路 · The Way" data-en="The Way">成長之路 · The Way</div>
+    <h2 class="bp" data-zh="從看懂自己，到成為別人的光" data-en="From understanding yourself to becoming a light for others">從看懂自己，到成為別人的光</h2>
   </div>
   <div class="wrap">
+    <div class="flow reveal">
+      <div class="fstep">
+        <div class="fnum">01</div>
+        <div class="ft" data-zh="被陪伴" data-en="Accompanied">被陪伴</div>
+        <div class="fd" data-zh="在這段路的起點，你不必一個人硬撐。" data-en="At the start of the road, you don't have to carry it alone.">在這段路的起點，你不必一個人硬撐。</div>
+      </div>
+      <div class="farrow">→</div>
+      <div class="fstep">
+        <div class="fnum">02</div>
+        <div class="ft" data-zh="看懂自己" data-en="See yourself">看懂自己</div>
+        <div class="fd" data-zh="慢慢地，你開始看懂自己、活出自己。" data-en="Slowly, you come to see yourself clearly, and live as yourself.">慢慢地，你開始看懂自己、活出自己。</div>
+      </div>
+      <div class="farrow">→</div>
+      <div class="fstep">
+        <div class="fnum">03</div>
+        <div class="ft" data-zh="成為別人的光" data-en="Become a light">成為別人的光</div>
+        <div class="fd" data-zh="再往前，你也有能力去理解、陪伴別人。" data-en="Further on, you can understand and walk alongside others too.">再往前，你也有能力去理解、陪伴別人。</div>
+      </div>
+    </div>
+
+    <div class="way-sub center reveal" data-zh="這條路，也可以成為你的事業" data-en="And this path can become your work">這條路，也可以成為你的事業</div>
     <div class="ladder reveal">
       <div class="lcard" style="--c:#059669">
         <div class="step">01</div>
-        <div class="lt" data-zh="基礎班" data-en="Basic Class">基礎班</div>
-        <div class="ld" data-zh="看懂在人生每一個階段，你會遇到的課題，以及對應的答案。" data-en="See the lessons you meet at every stage of life — and the answers that go with them.">看懂在人生每一個階段，你會遇到的課題，以及對應的答案。</div>
+        <div class="lt" data-zh="基礎班" data-en="Foundation">基礎班</div>
+        <div class="ld" data-zh="看懂人生每一個階段的課題與答案，先把自己理順。" data-en="See the lessons and answers at every stage of life — and steady yourself first.">看懂人生每一個階段的課題與答案，先把自己理順。</div>
       </div>
       <div class="lcard" style="--c:#0d9488">
         <div class="step">02</div>
-        <div class="lt" data-zh="進階班" data-en="Advanced Class">進階班</div>
-        <div class="ld" data-zh="深入各個面向的課題與答案，學會把這套工具用在生活裡，讓人際關係更靠近、溝通更順暢。" data-en="Go deeper into the lessons in every area of life, and learn to use the tool to bring people closer and let communication flow.">深入各個面向的課題與答案，學會把這套工具用在生活裡，讓人際關係更靠近、溝通更順暢。</div>
+        <div class="lt" data-zh="進階班" data-en="Advanced">進階班</div>
+        <div class="ld" data-zh="深入各個面向的課題，學會把這套工具用在生活與關係裡。" data-en="Go deeper into every area, and bring the tool into your life and relationships.">深入各個面向的課題，學會把這套工具用在生活與關係裡。</div>
       </div>
       <div class="lcard" style="--c:#c79a3b">
         <div class="step">03</div>
         <div class="lt" data-zh="解讀師" data-en="Practitioner">解讀師</div>
-        <div class="ld" data-zh="用這套工具開展自己的事業，創造收入。" data-en="Use the tool to build your own practice and create an income.">用這套工具開展自己的事業，創造收入。</div>
+        <div class="ld" data-zh="用這套系統幫助別人，開展自己的事業、創造收入。" data-en="Use the system to help others — build your own practice and create an income.">用這套系統幫助別人，開展自己的事業、創造收入。</div>
       </div>
       <div class="lcard" style="--c:#38bdf8">
         <div class="step">04</div>
         <div class="lt" data-zh="講師" data-en="Trainer">講師</div>
-        <div class="ld" data-zh="把這套方法傳承給更多人。" data-en="Pass the method on to more people.">把這套方法傳承給更多人。</div>
+        <div class="ld" data-zh="把這套方法傳承給更多人，讓影響力延伸下去。" data-en="Pass the method on to more people, and let your impact reach further.">把這套方法傳承給更多人，讓影響力延伸下去。</div>
       </div>
     </div>
-    <p class="center ladder-close bp reveal" data-zh="無論你只是想看懂自己，還是想把它變成一生的志業——這條路，都為你而開。" data-en="Whether you simply want to understand yourself, or to make this your life's work — the path is open to you.">無論你只是想看懂自己，還是想把它變成一生的志業——這條路，都為你而開。</p>
+
+    <p class="center ladder-close bp reveal" data-zh="到那個時候，你改變的不只是自己的人生——你會成為別人的光，成為這個世界慢慢變好的過程裡，不可或缺的一部分。" data-en="By then you haven't only changed your own life — you become a light for others, an essential part of how this world slowly becomes better.">到那個時候，你改變的不只是自己的人生——你會成為別人的光，成為這個世界慢慢變好的過程裡，不可或缺的一部分。</p>
   </div>
 </section>
 
@@ -322,13 +416,14 @@
     } else { el.innerHTML=t; }
   }
   function setLang(l){
+    try{localStorage.setItem('sc_lang',l);}catch(e){}
     document.documentElement.lang = l==='en'?'en':(l==='zhs'?'zh-Hans':'zh-Hant');
     zhtBtn.classList.toggle('on',l==='zht');
     zhsBtn.classList.toggle('on',l==='zhs');
     enBtn.classList.toggle('on',l==='en');
     document.querySelectorAll('[data-zh]').forEach(el=>applyText(el,l));
   }
-  setLang('zht');
+  setLang((function(){try{return localStorage.getItem('sc_lang')||'zht';}catch(e){return 'zht';}})());
 
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));

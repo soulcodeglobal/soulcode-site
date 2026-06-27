@@ -123,7 +123,7 @@
 
   /* cooperation */
   .pwrap{max-width:760px;margin:0 auto;padding:0 24px}
-  .pwrap h2{text-align:left;margin:0 0 6px;max-width:none}
+  .pwrap h2{text-align:center;margin:0 0 6px;max-width:none}
   .pgrid{display:grid;gap:22px;margin:30px 0 0}
   .pcard{border:1px solid var(--line);border-radius:14px;padding:22px 24px;background:rgba(255,255,255,.5)}
   .pcard h3{font-family:"Space Grotesk";font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin:0 0 8px;font-weight:700}
@@ -152,6 +152,15 @@
     .nav-links a{padding:14px 28px;font-size:16px;border-bottom:1px solid var(--line,#dce8e2)}
     .nav-links a:last-child{border-bottom:0}
   }
+  .corp{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 30px 32px;margin:28px 0 0;position:relative;overflow:hidden}
+  .corp::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(to bottom,var(--emerald) 0 50%,#c79a3b 50% 100%)}
+  .corp-trio{display:flex;gap:14px;margin:0 0 22px}
+  .corp-trio img{width:33.333%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block;box-shadow:0 12px 28px -16px rgba(0,0,0,.42)}
+  .corp p{margin:0;font-size:15.5px;line-height:1.85;color:#243a31}
+  @media(max-width:600px){.corp-trio{gap:8px}}
+  /* CJK line-break quality: avoid orphan last lines, balance headings */
+  h1,h2,h3{text-wrap:balance}
+  p,li,.hero-lede,.member-bio,.pintro,.member-points li,.pcard p,.corp p,.c-line{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -166,7 +175,9 @@
       <a href="index.html" data-zh="首頁" data-en="Home">首頁</a>
       <a href="about.html" data-zh="關於" data-en="About">關於</a>
       <a href="calculator.html" data-zh="靈魂解碼系統" data-en="Decode Your Soul">靈魂解碼系統</a>
+      <a href="team.html" data-zh="團隊" data-en="Team">團隊</a>
       <a href="booking.html" data-zh="預約" data-en="Book">預約</a>
+      <a href="courses.html" data-zh="課程" data-en="Courses">課程</a>
       <a href="cooperation.html" class="active" data-zh="合作機會" data-en="Cooperation">合作機會</a>
     </div>
     <div class="lang">
@@ -182,8 +193,8 @@
   <div class="binary" id="binary"></div>
   <div class="wrap">
     <div class="eyebrow" data-zh="合作機會 · Cooperation" data-en="合作機會 · Cooperation">合作機會 · Cooperation</div>
-    <h1 data-zh="與我們合作" data-en="Cooperate with Soul Code">與我們合作</h1>
-    <p class="hero-lede" data-zh="如果你經營身心靈中心或場地，歡迎與我們合辦 Soul Code 課程，為你的空間帶來一套系統化、可重複交付的自我探索體驗。" data-en="If you run a wellness centre or studio, work with us to co-host Soul Code courses — a structured, repeatable self-discovery experience for your space.">如果你經營身心靈中心或場地，歡迎與我們合辦 Soul Code 課程，為你的空間帶來一套系統化、可重複交付的自我探索體驗。</p>
+    <h1 data-zh="身心靈中心及導師合作" data-en="Partner With Us — Wellness Centres & Practitioners">身心靈中心及導師合作</h1>
+    <p class="hero-lede" data-zh="我們希望與身心靈中心、導師合作，把靈魂解碼系統的課程帶到你的空間——一套系統化、可重複交付的自我探索體驗。" data-en="We partner with wellness centres and practitioners to bring the Soul Code courses into your space — a structured, repeatable self-discovery experience.">我們希望與身心靈中心、導師合作，把靈魂解碼系統的課程帶到你的空間——一套系統化、可重複交付的自我探索體驗。</p>
   </div>
 </header>
 
@@ -191,7 +202,6 @@
 
 <section>
   <div class="pwrap">
-    <h2 data-zh="為什麼與我們合作" data-en="Why cooperate with us">為什麼與我們合作</h2>
     <div class="pgrid">
       <div class="pcard">
         <h3 data-zh="系統化、交付一致" data-en="Consistent, system-based">系統化、交付一致</h3>
@@ -205,6 +215,16 @@
         <h3 data-zh="彈性合辦模式" data-en="Flexible co-hosting">彈性合辦模式</h3>
         <p data-zh="場地、分潤、排期都可以一起談——我們希望找到對雙方都長久舒服的方式。" data-en="Venue, revenue share, scheduling — all open to discuss. We want a model that works comfortably for both sides, long term.">場地、分潤、排期都可以一起談——我們希望找到對雙方都長久舒服的方式。</p>
       </div>
+    </div>
+
+    <h2 style="margin-top:48px" data-zh="企業合作" data-en="Corporate Partnership">企業合作</h2>
+    <div class="corp reveal">
+      <div class="corp-trio">
+        <img src="assets/coop-jeffrey.jpg" alt="Jeffrey Yip" loading="lazy">
+        <img src="assets/coop-fiona.jpg" alt="Fiona" loading="lazy">
+        <img src="assets/coop-pak.jpg" alt="Judas (Coach Pak)" loading="lazy">
+      </div>
+      <p data-zh="我們把身心靈、心理輔導與商業經驗結合成一個團隊，為企業與不同行業提供合適的課程與活動。由員工的情緒健康、團隊溝通與培訓，到面向客戶的主題講座與工作坊，我們都可以按你的對象與場合度身設計。例如為教育機構舉辦親子溝通講座、為企業安排情緒管理與團隊建立培訓、或為品牌策劃對外的體驗活動——目標都是一樣：帶來實際、貼地、令人有共鳴的內容。" data-en="We bring mind-body-spirit work, psychological coaching and real business experience together as one team, offering courses and events tailored to companies and a range of industries. From staff emotional wellbeing, team communication and training to client-facing talks and workshops, we design around your audience and occasion — a parent-child communication talk for a school, emotional-management and team-building training for a company, or an experiential event for a brand. The goal is always the same: practical, grounded content that genuinely resonates.">我們把身心靈、心理輔導與商業經驗結合成一個團隊，為企業與不同行業提供合適的課程與活動。由員工的情緒健康、團隊溝通與培訓，到面向客戶的主題講座與工作坊，我們都可以按你的對象與場合度身設計。例如為教育機構舉辦親子溝通講座、為企業安排情緒管理與團隊建立培訓、或為品牌策劃對外的體驗活動——目標都是一樣：帶來實際、貼地、令人有共鳴的內容。</p>
     </div>
 
     <h2 style="margin-top:48px" data-zh="直接聯絡我們" data-en="Get in touch directly">直接聯絡我們</h2>
@@ -251,11 +271,12 @@
   function conv(s){ if(!_conv && window.OpenCC){ try{_conv=OpenCC.Converter({from:'hk',to:'cn'});}catch(e){} } return _conv? _conv(s): s; }
   function applyText(el,l){ let t=(l==='en')?el.getAttribute('data-en'):el.getAttribute('data-zh'); if(t===null)return; if(l==='zhs')t=conv(t); el.innerHTML=t; }
   function setLang(l){
+    try{localStorage.setItem('sc_lang',l);}catch(e){}
     document.documentElement.lang = l==='en'?'en':(l==='zhs'?'zh-Hans':'zh-Hant');
     zhtBtn.classList.toggle('on',l==='zht'); zhsBtn.classList.toggle('on',l==='zhs'); enBtn.classList.toggle('on',l==='en');
     document.querySelectorAll('[data-zh]').forEach(el=>applyText(el,l));
   }
-  setLang('zht');
+  setLang((function(){try{return localStorage.getItem('sc_lang')||'zht';}catch(e){return 'zht';}})());
 </script>
 
 
