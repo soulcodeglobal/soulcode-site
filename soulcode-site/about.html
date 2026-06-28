@@ -195,7 +195,7 @@
 
   /* === phase-1 shared additions === */
   :root{--gold:#c9a84c;--gold-soft:#e4cd86;--bg-soft:#f1f8f4}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand{display:flex;flex-direction:row;align-items:center;gap:10px;text-decoration:none}
   .brand img{width:34px;height:34px;display:block}
   .brand .bt{display:flex;flex-direction:column;line-height:1.15}
   .nav-links a.active{color:var(--emerald)}
@@ -214,6 +214,14 @@
   .wxbox .wxsub{font-size:13px;color:var(--ink-soft);margin-top:12px}
   .wxbox .wxclose{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;background:transparent;font-size:24px;line-height:1;color:var(--ink-soft);cursor:pointer}
   .wxbox .wxid{margin-top:8px;font-family:"Space Grotesk";font-size:13px;color:var(--emerald);font-weight:600}
+
+  /* phase-3 about: alternating section bg (梅花間竹) */
+  #vision{background:#faf6ee}
+  #what-is{background:#faf6ee}
+  #fiona{background:var(--bg-soft)}
+  #path{background:var(--bg-soft)}
+  .lcard[href]{cursor:pointer}
+  .lcard[href]:hover{transform:translateY(-4px);border-color:var(--emerald);box-shadow:0 18px 40px -22px rgba(5,150,105,.45)}
 </style>
 </head>
 <body>
@@ -384,26 +392,26 @@
 
     <div class="way-sub center reveal" data-zh="這條路，也可以成為你的事業" data-en="And this path can become your work">這條路，也可以成為你的事業</div>
     <div class="ladder reveal">
-      <div class="lcard" style="--c:#059669">
+      <a class="lcard" href="course-foundation.html" style="--c:#059669;text-decoration:none;color:inherit">
         <div class="step">01</div>
         <div class="lt" data-zh="基礎班" data-en="Foundation">基礎班</div>
         <div class="ld" data-zh="看懂人生每一個階段的課題與答案，先把自己理順。" data-en="See the lessons and answers at every stage of life — and steady yourself first.">看懂人生每一個階段的課題與答案，先把自己理順。</div>
-      </div>
-      <div class="lcard" style="--c:#0d9488">
+      </a>
+      <a class="lcard" href="course-advanced.html" style="--c:#0d9488;text-decoration:none;color:inherit">
         <div class="step">02</div>
         <div class="lt" data-zh="進階班" data-en="Advanced">進階班</div>
         <div class="ld" data-zh="深入各個面向的課題，學會把這套工具用在生活與關係裡。" data-en="Go deeper into every area, and bring the tool into your life and relationships.">深入各個面向的課題，學會把這套工具用在生活與關係裡。</div>
-      </div>
-      <div class="lcard" style="--c:#c79a3b">
+      </a>
+      <a class="lcard" href="courses.html#series" style="--c:#c79a3b;text-decoration:none;color:inherit">
         <div class="step">03</div>
         <div class="lt" data-zh="解讀師" data-en="Practitioner">解讀師</div>
         <div class="ld" data-zh="用這套系統幫助別人，開展自己的事業、創造收入。" data-en="Use the system to help others — build your own practice and create an income.">用這套系統幫助別人，開展自己的事業、創造收入。</div>
-      </div>
-      <div class="lcard" style="--c:#38bdf8">
+      </a>
+      <a class="lcard" href="courses.html#series" style="--c:#38bdf8;text-decoration:none;color:inherit">
         <div class="step">04</div>
         <div class="lt" data-zh="講師" data-en="Trainer">講師</div>
         <div class="ld" data-zh="把這套方法傳承給更多人，讓影響力延伸下去。" data-en="Pass the method on to more people, and let your impact reach further.">把這套方法傳承給更多人，讓影響力延伸下去。</div>
-      </div>
+      </a>
     </div>
 
     <p class="center ladder-close bp reveal" data-zh="到那個時候，你改變的不只是自己的人生——你會成為別人的光，成為這個世界慢慢變好的過程裡，不可或缺的一部分。" data-en="By then you haven't only changed your own life — you become a light for others, an essential part of how this world slowly becomes better.">到那個時候，你改變的不只是自己的人生——你會成為別人的光，成為這個世界慢慢變好的過程裡，不可或缺的一部分。</p>

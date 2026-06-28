@@ -160,7 +160,7 @@
   .vert .pname{margin-top:18px}
   .vert .pintro{max-width:54ch;margin:0 auto}
 
-  /* horizontal block (Jeffrey / Judas) */
+  /* horizontal block (Jeffrey / Pak) */
   .horiz{display:flex;gap:40px;align-items:center}
   .horiz .h-lead{flex:1;min-width:0}
   .horiz .h-lead .pphoto{display:inline-block;margin-bottom:18px}
@@ -196,7 +196,7 @@
 
   /* === phase-1 shared additions === */
   :root{--gold:#c9a84c;--gold-soft:#e4cd86;--bg-soft:#f1f8f4}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand{display:flex;flex-direction:row;align-items:center;gap:10px;text-decoration:none}
   .brand img{width:34px;height:34px;display:block}
   .brand .bt{display:flex;flex-direction:column;line-height:1.15}
   .nav-links a.active{color:var(--emerald)}
@@ -215,6 +215,17 @@
   .wxbox .wxsub{font-size:13px;color:var(--ink-soft);margin-top:12px}
   .wxbox .wxclose{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;background:transparent;font-size:24px;line-height:1;color:var(--ink-soft);cursor:pointer}
   .wxbox .wxid{margin-top:8px;font-family:"Space Grotesk";font-size:13px;color:var(--emerald);font-weight:600}
+
+  /* phase-3 consultation: IG + credentials */
+  .pside .pig{display:inline-flex;align-items:center;gap:6px;color:var(--emerald);text-decoration:none;font-weight:600;font-size:13px;margin-top:10px}
+  .pside .pig svg{width:15px;height:15px}
+  .pside .pcred-toggle{margin-top:12px;background:transparent;border:0;color:var(--ink-soft);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;padding:0;display:inline-flex;align-items:center;gap:5px}
+  .pside .pcred-toggle .ar{display:inline-block;transition:transform .25s}
+  .pside .pcred-toggle.open .ar{transform:rotate(180deg)}
+  .pside .pcred{list-style:none;padding:0;margin:0;max-height:0;overflow:hidden;transition:max-height .3s ease,margin .3s}
+  .pside .pcred.open{max-height:300px;margin-top:10px}
+  .pside .pcred li{font-size:12.5px;color:var(--ink-soft);padding:5px 0 5px 16px;position:relative;line-height:1.55}
+  .pside .pcred li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
 </style>
 </head>
 <body>
@@ -264,6 +275,9 @@
           <div class="pname">Fiona</div>
           <div class="prole" data-zh="靈魂解碼系統創始人" data-en="Creator of the Soul Code System">靈魂解碼系統創始人</div>
           <div class="pintro" data-zh="帶你看懂與生俱來的設定與功課，找到屬於你的方向。" data-en="See the blueprint you were born with, and find your direction.">帶你看懂與生俱來的設定與功課，找到屬於你的方向。</div>
+          <a class="pig" href="https://instagram.com/soulcode_fiona" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg> @soulcode_fiona</a>
+          <button class="pcred-toggle" type="button"><span data-zh="查看資歷與背景" data-en="Credentials & background">查看資歷與背景</span> <span class="ar">▾</span></button>
+          <ul class="pcred"><li data-zh="28 年身心靈研究與專業資格" data-en="28 years of mind-body-spirit research &amp; qualifications">28 年身心靈研究與專業資格</li><li data-zh="澳洲國立大學人類學學士及碩士" data-en="BA &amp; MA in Anthropology, Australian National University">澳洲國立大學人類學學士及碩士</li><li data-zh="澳洲心理諮詢碩士 · 國家認證臨床催眠治療" data-en="Master of Counselling · Nationally Accredited Clinical Hypnotherapy (Australia)">澳洲心理諮詢碩士 · 國家認證臨床催眠治療</li><li data-zh="美國生成式催眠 · 日本靈氣導師 · 靈媒與通靈教學" data-en="Generative Hypnotherapy (USA) · Reiki Master (Japan) · Mediumship &amp; Psychic teaching">美國生成式催眠 · 日本靈氣導師 · 靈媒與通靈教學</li><li data-zh="9 年澳洲／香港教學 · 10 年靈性品牌經營" data-en="9 years teaching (Australia/HK) · 10 years building spiritual brands">9 年澳洲／香港教學 · 10 年靈性品牌經營</li></ul>
         </div>
         <div class="cards three reveal">
       <div class="card">
@@ -319,7 +333,10 @@
           <div class="pphoto"><img src="assets/book-jeffrey.jpg" alt="Jeffrey Yip" loading="lazy"></div>
           <div class="pname">Jeffrey Yip</div>
           <div class="prole" data-zh="NLP 高級教練 · 情緒輔導" data-en="NLP Master Coach · Counselling">NLP 高級教練 · 情緒輔導</div>
-          <div class="pintro" data-zh="陪你在關係、工作、金錢與情緒中，找到實際的轉變。" data-en="Real change in relationships, work, finance and emotions.">陪你在關係、工作、金錢與情緒中，找到實際的轉變。</div>
+          <div class="pintro" data-zh="幫助你在關係、工作、金錢與情緒中，找到實際的轉變。" data-en="Real change in relationships, work, finance and emotions.">幫助你在關係、工作、金錢與情緒中，找到實際的轉變。</div>
+          <a class="pig" href="https://instagram.com/lawofchange" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg> @lawofchange</a>
+          <button class="pcred-toggle" type="button"><span data-zh="查看資歷與背景" data-en="Credentials & background">查看資歷與背景</span> <span class="ar">▾</span></button>
+          <ul class="pcred"><li data-zh="國際認證 NLP 高級教練 · 催眠治療師" data-en="Internationally certified NLP Master Coach · Hypnotherapist">國際認證 NLP 高級教練 · 催眠治療師</li><li data-zh="16 年教學 · 培訓逾 2,000 位執行師與教練" data-en="16 years teaching · 2,000+ practitioners &amp; coaches trained">16 年教學 · 培訓逾 2,000 位執行師與教練</li><li data-zh="企業培訓 · 團隊與溝通 · 個人輔導" data-en="Corporate training · Team &amp; communication · One-on-one counselling">企業培訓 · 團隊與溝通 · 個人輔導</li><li data-zh="服務對象遍及銀行、金融、零售及公營機構" data-en="Clients across banking, finance, retail &amp; public sectors">服務對象遍及銀行、金融、零售及公營機構</li></ul>
         </div>
         <div class="cards three reveal">
       <div class="card">
@@ -370,10 +387,13 @@
     <div class="pblock pb-blue reveal">
       <div class="pbody">
         <div class="pside">
-          <div class="pphoto"><img src="assets/book-pak.jpg" alt="Judas (Coach Pak)" loading="lazy"></div>
-          <div class="pname">Judas（Coach Pak）</div>
+          <div class="pphoto"><img src="assets/book-pak.jpg" alt="Pak" loading="lazy"></div>
+          <div class="pname">Pak</div>
           <div class="prole" data-zh="商業顧問 · 銷售與團隊建立" data-en="Business Consultant · Sales & Team-Building">商業顧問 · 銷售與團隊建立</div>
           <div class="pintro" data-zh="助你理清商業現況，設計可行的下一步。" data-en="Clarify your business reality and design a workable next step.">助你理清商業現況，設計可行的下一步。</div>
+          <a class="pig" href="https://instagram.com/bizcoachpak" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg> @bizcoachpak</a>
+          <button class="pcred-toggle" type="button"><span data-zh="查看資歷與背景" data-en="Credentials & background">查看資歷與背景</span> <span class="ar">▾</span></button>
+          <ul class="pcred"><li data-zh="Macquarie University 市場營銷與管理雙碩士" data-en="Dual Master's in Marketing &amp; Management, Macquarie University">Macquarie University 市場營銷與管理雙碩士</li><li data-zh="香港城市大學工商管理（國際商業）學士" data-en="BBA in International Business, City University of Hong Kong">香港城市大學工商管理（國際商業）學士</li><li data-zh="NLP 高級執行師" data-en="NLP Master Practitioner">NLP 高級執行師</li><li data-zh="12 年直銷實戰 · 九零後最高獎銜" data-en="12 years in direct sales · top post-90s award">12 年直銷實戰 · 九零後最高獎銜</li></ul>
         </div>
         <div class="cards three reveal">
       <div class="card">
@@ -406,13 +426,13 @@
         <div class="badge" data-zh="最完整 · 推薦" data-en="Most complete">最完整 · 推薦</div>
         <div class="c-name" data-zh="成果加速計劃" data-en="Results Accelerator">成果加速計劃</div>
         <div class="c-en">Results Accelerator</div>
-        <div class="c-line" data-zh="真正的成果需要持續推進——由一次個人突破開始，再以三次跟進陪你落地執行。" data-en="Real results need momentum — begin with one breakthrough, then three follow-ups to help you execute.">真正的成果需要持續推進——由一次個人突破開始，再以三次跟進陪你落地執行。</div>
+        <div class="c-line" data-zh="真正的成果需要持續推進——由一次個人突破開始，再以三次跟進幫助你落地執行。" data-en="Real results need momentum — begin with one breakthrough, then three follow-ups to help you execute.">真正的成果需要持續推進——由一次個人突破開始，再以三次跟進幫助你落地執行。</div>
         <div class="c-dur" data-zh="1×突破 + 3×跟進" data-en="1×breakthrough + 3×follow-up">1×突破 + 3×跟進</div>
         <div class="c-price"><span class="cur">USD</span> 1,488</div>
         <ul class="c-incl">
           <li data-zh="一次個人突破諮詢" data-en="One breakthrough session">一次個人突破諮詢</li>
           <li data-zh="三次跟進諮詢" data-en="Three follow-up sessions">三次跟進諮詢</li>
-          <li data-zh="陪你由想通到做到" data-en="From clarity to done">陪你由想通到做到</li>
+          <li data-zh="幫助你由想通到做到" data-en="From clarity to done">幫助你由想通到做到</li>
         </ul>
         <div style="font-size:12px;color:var(--ink-soft);margin:-8px 0 16px" data-zh="* 兩個月內使用完" data-en="* To be used within two months">* 兩個月內使用完</div>
         <a href="https://app.acuityscheduling.com/catalog.php?owner=39649424&action=addCart&clear=1&id=2237412" target="_blank" rel="noopener" class="c-cta solid"><span data-zh="開始計劃" data-en="Get started">開始計劃</span> <span class="arr">→</span></a>
@@ -500,6 +520,9 @@ n.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click
  m.addEventListener('click',function(e){if(e.target===m)cl();});
  document.addEventListener('keydown',function(e){if(e.key==='Escape')cl();});
 })();
+</script>
+<script>
+document.querySelectorAll('.pcred-toggle').forEach(function(t){t.addEventListener('click',function(){t.classList.toggle('open');var u=t.nextElementSibling;if(u)u.classList.toggle('open');});});
 </script>
 </body>
 </html>

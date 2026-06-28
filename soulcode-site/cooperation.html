@@ -174,7 +174,7 @@
 
   /* === phase-1 shared additions === */
   :root{--gold:#c9a84c;--gold-soft:#e4cd86;--bg-soft:#f1f8f4}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand{display:flex;flex-direction:row;align-items:center;gap:10px;text-decoration:none}
   .brand img{width:34px;height:34px;display:block}
   .brand .bt{display:flex;flex-direction:column;line-height:1.15}
   .nav-links a.active{color:var(--emerald)}
@@ -193,6 +193,21 @@
   .wxbox .wxsub{font-size:13px;color:var(--ink-soft);margin-top:12px}
   .wxbox .wxclose{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;background:transparent;font-size:24px;line-height:1;color:var(--ink-soft);cursor:pointer}
   .wxbox .wxid{margin-top:8px;font-family:"Space Grotesk";font-size:13px;color:var(--emerald);font-weight:600}
+
+  /* phase-3 cooperation fixes */
+  .pwrap{max-width:940px}
+  .pgrid{grid-template-columns:repeat(3,1fr);align-items:start}
+  .pcard{cursor:pointer;transition:border-color .2s,box-shadow .2s}
+  .pcard:hover{border-color:var(--emerald)}
+  .pcard .pc-h{font-family:var(--fserif);font-weight:700;font-size:17px;color:var(--ink);margin:0;display:flex;align-items:center;gap:8px;line-height:1.4}
+  .pcard .pc-ar{color:var(--emerald);transition:transform .25s;font-size:13px}
+  .pcard.open .pc-ar{transform:rotate(180deg)}
+  .pcard p{max-height:0;overflow:hidden;opacity:0;margin:0;transition:max-height .35s ease,opacity .3s,margin .3s}
+  .pcard.open p{max-height:240px;opacity:1;margin-top:12px}
+  .corp-sec{background:var(--bg-soft,#f1f8f4);padding:54px 0}
+  .corp-sec .pwrap{max-width:820px}
+  .corp-sec .cs-h{text-align:center}
+  @media(max-width:760px){.pgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -239,25 +254,31 @@
   <div class="pwrap">
     <div class="pgrid">
       <div class="pcard">
-        <h3 data-zh="系統化、交付一致" data-en="Consistent, system-based">系統化、交付一致</h3>
+        <h3 class="pc-h"><span class="pc-ar">▾</span> <span data-zh="系統化、交付一致" data-en="Consistent, system-based">系統化、交付一致</span></h3>
         <p data-zh="Soul Code 的答案由系統本身推導，不依賴單一導師的詮釋——課程內容穩定、可重複交付，品質有保證。" data-en="Soul Code's answers come from the system itself, not one teacher's interpretation — so the course delivers consistently, every time.">Soul Code 的答案由系統本身推導，不依賴單一導師的詮釋——課程內容穩定、可重複交付，品質有保證。</p>
       </div>
       <div class="pcard">
-        <h3 data-zh="為你的空間帶來新內容" data-en="Fresh content for your space">為你的空間帶來新內容</h3>
+        <h3 class="pc-h"><span class="pc-ar">▾</span> <span data-zh="為你的空間帶來新內容" data-en="Fresh content for your space">為你的空間帶來新內容</span></h3>
         <p data-zh="一套現成、完整的課程體系，為你的會員帶來新的體驗與話題，無需你自行開發教材。" data-en="A ready-made, complete curriculum that brings your members a new experience — no material development needed on your side.">一套現成、完整的課程體系，為你的會員帶來新的體驗與話題，無需你自行開發教材。</p>
       </div>
       <div class="pcard">
-        <h3 data-zh="彈性合辦模式" data-en="Flexible co-hosting">彈性合辦模式</h3>
+        <h3 class="pc-h"><span class="pc-ar">▾</span> <span data-zh="彈性合辦模式" data-en="Flexible co-hosting">彈性合辦模式</span></h3>
         <p data-zh="場地、分潤、排期都可以一起談——我們希望找到對雙方都長久舒服的方式。" data-en="Venue, revenue share, scheduling — all open to discuss. We want a model that works comfortably for both sides, long term.">場地、分潤、排期都可以一起談——我們希望找到對雙方都長久舒服的方式。</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <h2 style="margin-top:48px" data-zh="企業合作" data-en="Corporate Partnership">企業合作</h2>
+<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
+
+<section class="corp-sec">
+  <div class="pwrap">
+    <h2 class="cs-h" data-zh="企業合作" data-en="Corporate Partnership">企業合作</h2>
     <div class="corp reveal">
       <div class="corp-trio">
         <img src="assets/coop-jeffrey.jpg" alt="Jeffrey Yip" loading="lazy">
         <img src="assets/coop-fiona.jpg" alt="Fiona" loading="lazy">
-        <img src="assets/coop-pak.jpg" alt="Judas (Coach Pak)" loading="lazy">
+        <img src="assets/coop-pak.jpg" alt="Pak" loading="lazy">
       </div>
       <p data-zh="我們把身心靈、心理輔導與商業經驗結合成一個團隊，為企業與不同行業提供合適的課程與活動。由員工的情緒健康、團隊溝通與培訓，到面向客戶的主題講座與工作坊，我們都可以按你的對象與場合度身設計。例如為教育機構舉辦親子溝通講座、為企業安排情緒管理與團隊建立培訓、或為品牌策劃對外的體驗活動——目標都是一樣：帶來實際、貼地、令人有共鳴的內容。" data-en="We bring mind-body-spirit work, psychological coaching and real business experience together as one team, offering courses and events tailored to companies and a range of industries. From staff emotional wellbeing, team communication and training to client-facing talks and workshops, we design around your audience and occasion — a parent-child communication talk for a school, emotional-management and team-building training for a company, or an experiential event for a brand. The goal is always the same: practical, grounded content that genuinely resonates.">我們把身心靈、心理輔導與商業經驗結合成一個團隊，為企業與不同行業提供合適的課程與活動。由員工的情緒健康、團隊溝通與培訓，到面向客戶的主題講座與工作坊，我們都可以按你的對象與場合度身設計。例如為教育機構舉辦親子溝通講座、為企業安排情緒管理與團隊建立培訓、或為品牌策劃對外的體驗活動——目標都是一樣：帶來實際、貼地、令人有共鳴的內容。</p>
     </div>
@@ -351,6 +372,9 @@ n.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click
  m.addEventListener('click',function(e){if(e.target===m)cl();});
  document.addEventListener('keydown',function(e){if(e.key==='Escape')cl();});
 })();
+</script>
+<script>
+document.querySelectorAll('.pcard').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('open');});});
 </script>
 </body>
 </html>
