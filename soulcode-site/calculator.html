@@ -2,6 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UxHlJ6k-nzJY1Tmlf4vPaV6TDBTqtRZ6MBsy_YmYANU" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
@@ -94,6 +95,9 @@
   .coupon-code{font-family:"Space Grotesk";font-weight:700;font-size:20px;letter-spacing:.08em;color:var(--emerald-deep);background:var(--mint);display:inline-block;padding:8px 18px;border-radius:10px;margin-top:6px}
   .recalc{text-align:center;margin-top:30px}
   .placeholder-tag{font-size:11px;color:#b08900;background:#fff8e1;border:1px solid #f0e0a0;border-radius:6px;padding:2px 7px;margin-left:6px;font-family:"Space Grotesk"}
+  .cal-hint{font-size:12.5px;color:var(--ink-soft,#5b6b63);margin:4px 0 16px;display:flex;align-items:flex-start;gap:6px;line-height:1.6}
+  .cal-hint::before{content:"✻";color:#c9a84c;flex:none}
+  .cal-reassure{font-size:13px;color:var(--emerald-deep,#04231a);background:var(--bg-soft,#f1f8f4);border:1px solid #d7ebe1;border-left:3px solid var(--emerald,#059669);border-radius:10px;padding:11px 14px;margin:12px 0 2px;line-height:1.7}
   footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--ink-soft);font-size:13px}
   footer .mono{font-family:"Space Grotesk";color:var(--emerald)}
   @media(max-width:820px){.nav-links{display:none}header{padding:54px 0 30px}}
@@ -220,11 +224,13 @@
       <div class="field"><label data-zh="月" data-en="Month">月</label><input type="number" id="m" placeholder="1" min="1" max="12"></div>
       <div class="field"><label data-zh="日" data-en="Day">日</label><input type="number" id="d" placeholder="1" min="1" max="31"></div>
     </div>
+    <div class="cal-hint"><span data-zh="請輸入新曆（陽曆）出生日期，並非農曆。" data-en="Please enter your birth date in the solar (Gregorian) calendar, not the lunar calendar.">請輸入新曆（陽曆）出生日期，並非農曆。</span></div>
     <div class="frow time-dim" id="timeRow">
       <div class="field"><label data-zh="時 (24小時制)" data-en="Hour (24h)">時 (24小時制)</label><input type="number" id="hh" placeholder="0" min="0" max="23"></div>
       <div class="field"><label data-zh="分" data-en="Minute">分</label><input type="number" id="mm" placeholder="0" min="0" max="59"></div>
     </div>
     <label class="timetoggle"><input type="checkbox" id="noTime"><span data-zh="我不確定出生時間" data-en="I'm not sure of my birth time">我不確定出生時間</span></label>
+    <div class="cal-reassure"><span data-zh="不確定出生時間？不影響準確度——你所知道的訊息，就是你此刻需要知道的。" data-en="Not sure of your birth time? It won't affect accuracy — what you already know is exactly what you need to know right now.">不確定出生時間？不影響準確度——你所知道的訊息，就是你此刻需要知道的。</span></div>
     <button class="calc-btn bp" id="calcBtn" data-zh="計算我的 Soul Code" data-en="Calculate my Soul Code">計算我的 Soul Code</button>
     <div class="err" id="err"></div>
   </div>

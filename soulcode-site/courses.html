@@ -2,6 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UxHlJ6k-nzJY1Tmlf4vPaV6TDBTqtRZ6MBsy_YmYANU" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
@@ -297,6 +298,25 @@
     .catnav{top:72px}
   }
 
+  /* phase-3b: grouped blocks + positioning */
+  .posbar-sec{padding:28px 0 0}
+  .posbar{background:linear-gradient(135deg,#063b2c,#04231a);color:#eafff6;border-radius:22px;padding:34px 36px;text-align:center;position:relative;overflow:hidden}
+  .posbar-tag{font-family:"Space Grotesk";font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:12px}
+  .posbar h2{font-family:var(--fserif);font-weight:700;font-size:clamp(20px,2.6vw,28px);color:#fff;margin:0 auto 12px;max-width:26ch;line-height:1.4}
+  .posbar p{color:#bfe9d8;font-size:15px;max-width:56ch;margin:0 auto;line-height:1.8}
+  .cblock-head{margin-bottom:6px}
+  .cblock-head .sec-tag{margin-bottom:12px}
+  .cblock-sub{font-size:15px;color:var(--ink-soft);max-width:62ch;margin-top:6px;line-height:1.75}
+  section.cblock.feature{background:var(--bg-deep)}
+  .cblock.feature .sec-tag{color:var(--mint)}.cblock.feature .sec-tag::before{background:var(--mint)}
+  .cblock.feature h2{color:#fff}.cblock.feature .cblock-sub{color:#bfe9d8}
+  .cgrid.b3{grid-template-columns:repeat(3,1fr)}
+  .cgrid.b2{grid-template-columns:repeat(2,1fr);max-width:780px}
+  .sstrip{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .schip{display:inline-flex;flex-direction:column;gap:2px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--emerald);border-radius:10px;padding:12px 18px;text-decoration:none;color:var(--ink);font-weight:700;font-size:14.5px;transition:transform .15s,border-color .2s}
+  .schip:hover{transform:translateY(-2px);border-color:var(--emerald)}
+  .schip small{color:var(--ink-soft);font-weight:500;font-size:12px}
+  @media(max-width:880px){.cgrid.b3,.cgrid.b2{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}}
   /* phase-3 overrides */
   .catnav a{border-radius:8px}
   .backlink{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:6px}
@@ -347,89 +367,152 @@
 
 <div class="catnav">
   <div class="catnav-in">
-    <a href="#series" data-zh="所有課程" data-en="All Courses">所有課程</a>
-    <a href="course-foundation.html" data-zh="基礎工作坊" data-en="Foundation">基礎工作坊</a>
-    <a href="course-advanced.html" data-zh="進階課程" data-en="Advanced">進階課程</a>
+    <a href="#upcoming" data-zh="活動概覽" data-en="Upcoming">活動概覽</a>
+    <a href="#flagship" data-zh="皇牌課程" data-en="Flagship">皇牌課程</a>
+    <a href="#spiritual" data-zh="靈性課程" data-en="Spiritual">靈性課程</a>
+    <a href="#relations" data-zh="親子・兩性" data-en="Family & Love">親子・兩性</a>
+    <a href="#business" data-zh="商業・營銷" data-en="Business">商業・營銷</a>
     <a href="#faq" data-zh="常見問題" data-en="FAQ">常見問題</a>
   </div>
 </div>
 
-<section id="series">
+<!-- POSITIONING BANNER -->
+<section class="posbar-sec">
   <div class="wrap">
-    <div class="sec-tag" data-zh="課程總覽" data-en="All Courses">課程總覽</div>
-    <h2 data-zh="選一個起點" data-en="Choose Where to Begin">選一個起點</h2>
-    <div class="cgrid reveal" style="margin-top:24px">
+    <div class="posbar reveal">
+      <div class="posbar-tag" data-zh="為什麼選擇我們" data-en="Why us">為什麼選擇我們</div>
+      <h2 data-zh="少數能把靈性、心理與商業實戰真正打通的教學機構" data-en="One of the few schools that truly connects the spiritual, the psychological and real-world business">少數能把靈性、心理與商業實戰真正打通的教學機構</h2>
+      <p data-zh="由靈性修行，到心理療癒，到商業世界的落地實踐——我們在靈、心、身每一層，都有理論、方法與實證經驗。" data-en="From spiritual practice, to psychological healing, to grounded execution in the business world — we hold theory, method and proven experience at every layer of spirit, mind and body.">由靈性修行，到心理療癒，到商業世界的落地實踐——我們在靈、心、身每一層，都有理論、方法與實證經驗。</p>
+    </div>
+  </div>
+</section>
 
+<!-- BLOCK 1: UPCOMING -->
+<section id="upcoming">
+  <div class="wrap">
+    <div class="cblock-head">
+      <div class="sec-tag" data-zh="接下來的活動 · Upcoming" data-en="Upcoming">接下來的活動 · Upcoming</div>
+      <h2 data-zh="近期場次" data-en="What's On Soon">近期場次</h2>
+    </div>
+    <div class="sstrip reveal">
+      <a class="schip" href="course-foundation.html#schedule"><span data-zh="基礎・台北" data-en="Foundation · Taipei">基礎・台北</span><small>8/1–8/2</small></a>
+      <a class="schip" href="course-foundation.html#schedule"><span data-zh="基礎・香港" data-en="Foundation · Hong Kong">基礎・香港</span><small>8/8–8/9</small></a>
+      <a class="schip" href="course-foundation.html#schedule"><span data-zh="基礎・悉尼" data-en="Foundation · Sydney">基礎・悉尼</span><small>9/5–9/6</small></a>
+      <a class="schip" href="course-advanced.html"><span data-zh="進階課程・線上" data-en="Advanced · Online">進階課程・線上</span><small data-zh="十月初（待定）" data-en="Early Oct (TBC)">十月初（待定）</small></a>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
+
+<!-- BLOCK 2: FLAGSHIP -->
+<section class="cblock feature" id="flagship">
+  <div class="wrap">
+    <div class="cblock-head">
+      <div class="sec-tag" data-zh="皇牌課程 · Flagship" data-en="Flagship">皇牌課程 · Flagship</div>
+      <h2 data-zh="靈魂解碼皇牌課程" data-en="Soul Code Flagship Courses">靈魂解碼皇牌課程</h2>
+      <p class="cblock-sub" data-zh="我們的核心系統——由認識自己，到專業助人。" data-en="Our core system — from knowing yourself to professionally helping others.">我們的核心系統——由認識自己，到專業助人。</p>
+    </div>
+    <div class="cgrid b3 reveal" style="margin-top:24px">
       <a class="xcard" href="course-foundation.html" style="--cx:#059669;text-decoration:none;color:inherit">
         <h3 data-zh="靈魂解碼基礎工作坊" data-en="Foundation Workshop">靈魂解碼基礎工作坊</h3>
         <div class="xen">Foundation Workshop</div>
-        <p class="xsum" data-zh="兩天面授、線上同步。學懂一套看清人生核心課題的完整系統。近期場次：台北 8/1、香港 8/8、悉尼 9/5。" data-en="Two days in person, streamed live. Learn the full system. Upcoming: Taipei 8/1, HK 8/8, Sydney 9/5.">兩天面授、線上同步。學懂一套看清人生核心課題的完整系統。近期場次：台北 8/1、香港 8/8、悉尼 9/5。</p>
+        <p class="xsum" data-zh="兩天面授、線上同步。學懂一套看清人生核心課題的完整系統。" data-en="Two days in person, streamed live. Learn the full system for seeing your core lesson.">兩天面授、線上同步。學懂一套看清人生核心課題的完整系統。</p>
         <span class="xreg" data-zh="了解更多 →" data-en="Learn more →">了解更多 →</span>
       </a>
-
       <a class="xcard" href="course-advanced.html" style="--cx:#c9a84c;text-decoration:none;color:inherit">
         <h3 data-zh="進階課程" data-en="Advanced Course">進階課程</h3>
         <div class="xen">Advanced Course</div>
-        <p class="xsum" data-zh="把系統帶進金錢、事業、愛情、家庭與使命。設線上同步及海外遊學之旅（日・韓・峇里・澳・紐）。" data-en="Bring the system into money, career, love, family and purpose. Live online or overseas retreat.">把系統帶進金錢、事業、愛情、家庭與使命。設線上同步及海外遊學之旅（日・韓・峇里・澳・紐）。</p>
+        <p class="xsum" data-zh="把系統帶進金錢、事業、愛情、家庭與使命。設線上同步及海外遊學之旅。" data-en="Bring the system into money, career, love, family and purpose. Live online or overseas retreat.">把系統帶進金錢、事業、愛情、家庭與使命。設線上同步及海外遊學之旅。</p>
         <span class="xreg" data-zh="了解更多 →" data-en="Learn more →">了解更多 →</span>
       </a>
-
-      <a class="xcard" href="course-foundation.html#bundle" style="--cx:#D62828;text-decoration:none;color:inherit">
-        <h3 data-zh="基礎＋進階套裝" data-en="Foundation + Advanced Bundle">基礎＋進階套裝</h3>
-        <div class="xen">Bundle · Save up to 20%</div>
-        <p class="xsum" data-zh="一次過報讀基礎與進階，進階即享八折，並保留進階名額。一次付清，最為划算。" data-en="Enroll in both at once — Advanced at 20% off, place reserved. Pay once, save more.">一次過報讀基礎與進階，進階即享八折，並保留進階名額。一次付清，最為划算。</p>
-        <span class="xreg" data-zh="了解更多 →" data-en="Learn more →">了解更多 →</span>
-      </a>
-
       <div class="xcard" style="--cx:#8A93A0">
-        <h3 data-zh="執行師・導師認證" data-en="Practitioner & Trainer">執行師・導師認證</h3>
-        <div class="xen">Certification · Level 6 & 7</div>
-        <p class="xsum" data-zh="走完基礎與進階後，可一路走到能以系統助人、甚至培訓他人的專業資格。課程規劃中。" data-en="Go all the way to certification — to help and train others. In planning.">走完基礎與進階後，可一路走到能以系統助人、甚至培訓他人的專業資格。課程規劃中。</p>
+        <h3 data-zh="執行師・導師認證" data-en="Practitioner & Trainer Certification">執行師・導師認證</h3>
+        <div class="xen">Practitioner &amp; Trainer Certification</div>
+        <p class="xsum" data-zh="走完基礎與進階後，可一路走到能以系統助人、甚至培訓他人的專業資格。課程規劃中。" data-en="After Foundation and Advanced, certify to help and even train others with the system. In planning.">走完基礎與進階後，可一路走到能以系統助人、甚至培訓他人的專業資格。課程規劃中。</p>
         <a href="#" class="xreg reg-interest" data-course="執行師・導師認證" data-zh="登記興趣 →" data-en="Register interest →">登記興趣 →</a>
       </div>
+    </div>
+  </div>
+</section>
 
+<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
+
+<!-- BLOCK 3: SPIRITUAL -->
+<section id="spiritual">
+  <div class="wrap">
+    <div class="cblock-head">
+      <div class="sec-tag" data-zh="靈性課程 · Spiritual" data-en="Spiritual">靈性課程 · Spiritual</div>
+      <h2 data-zh="靈性課程" data-en="Spiritual Courses">靈性課程</h2>
+      <p class="cblock-sub" data-zh="由 Jeffrey 與 Fiona 共同帶領，以「共同成長」為主——一起走過修行與覺察的路。" data-en="Co-led by Jeffrey and Fiona, centred on growing together — walking the path of practice and awareness side by side.">由 Jeffrey 與 Fiona 共同帶領，以「共同成長」為主——一起走過修行與覺察的路。</p>
+    </div>
+    <div class="cgrid b2 reveal" style="margin-top:24px">
       <div class="xcard" style="--cx:#059669">
         <h3 data-zh="靈修・修行課程" data-en="Spiritual Practice">靈修・修行課程</h3>
-        <div class="xen">with Jeffrey</div>
-        <p class="xsum" data-zh="由 Jeffrey 帶領，包括「脫苦六部曲」與「意識地圖」，帶你看清痛苦的來處與出口。" data-en="Led by Jeffrey — the Six Stages Beyond Suffering and the Map of Consciousness.">由 Jeffrey 帶領，包括「脫苦六部曲」與「意識地圖」，帶你看清痛苦的來處與出口。</p>
-        <a href="#" class="xreg reg-interest" data-course="靈修・修行課程（Jeffrey）" data-zh="登記興趣 →" data-en="Register interest →">登記興趣 →</a>
+        <div class="xen">Spiritual Practice</div>
+        <p class="xsum" data-zh="包括「脫苦六部曲」與「意識地圖」，帶你看清痛苦的來處與出口，逐步提升意識。" data-en="Including the Six Stages Beyond Suffering and the Map of Consciousness — see the source and the exit of suffering, and rise step by step.">包括「脫苦六部曲」與「意識地圖」，帶你看清痛苦的來處與出口，逐步提升意識。</p>
+        <a href="#" class="xreg reg-interest" data-course="靈修・修行課程（Jeffrey × Fiona）" data-zh="登記興趣 →" data-en="Register interest →">登記興趣 →</a>
       </div>
-
       <div class="xcard" style="--cx:#F177B2">
         <h3 data-zh="靈力・通靈・療癒" data-en="Psychic · Mediumship · Healing">靈力・通靈・療癒</h3>
-        <div class="xen">with Fiona</div>
-        <p class="xsum" data-zh="由 Fiona 帶領，從感知的開啟、訊息的接收，到能量療癒的實作，循序漸進。" data-en="Led by Fiona — from opening perception to receiving, to hands-on energy healing.">由 Fiona 帶領，從感知的開啟、訊息的接收，到能量療癒的實作，循序漸進。</p>
-        <a href="#" class="xreg reg-interest" data-course="靈力・通靈・療癒（Fiona）" data-zh="登記興趣 →" data-en="Register interest →">登記興趣 →</a>
+        <div class="xen">Psychic · Mediumship · Healing</div>
+        <p class="xsum" data-zh="從感知的開啟、訊息的接收，到能量療癒的實作，循序漸進，一起鍛鍊內在感知。" data-en="From opening perception, to receiving, to hands-on energy healing — train your inner senses, together.">從感知的開啟、訊息的接收，到能量療癒的實作，循序漸進，一起鍛鍊內在感知。</p>
+        <a href="#" class="xreg reg-interest" data-course="靈力・通靈・療癒（Jeffrey × Fiona）" data-zh="登記興趣 →" data-en="Register interest →">登記興趣 →</a>
       </div>
+    </div>
+  </div>
+</section>
 
+<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
+
+<!-- BLOCK 4: FAMILY & RELATIONSHIPS -->
+<section id="relations">
+  <div class="wrap">
+    <div class="cblock-head">
+      <div class="sec-tag" data-zh="親子・兩性 · Relationships" data-en="Family & Relationships">親子・兩性 · Relationships</div>
+      <h2 data-zh="親子及兩性關係" data-en="Family & Relationships">親子及兩性關係</h2>
+      <p class="cblock-sub" data-zh="把對人的理解，帶回最親近的關係裡——與孩子，與伴侶。" data-en="Bring your understanding of people back to your closest bonds — with your child, with your partner.">把對人的理解，帶回最親近的關係裡——與孩子，與伴侶。</p>
+    </div>
+    <div class="cgrid b2 reveal" style="margin-top:24px">
       <div class="xcard" style="--cx:#0f9cb0">
         <span class="xsoon" data-zh="即將推出" data-en="Coming soon">即將推出</span>
         <h3 data-zh="親子溝通與天賦解碼" data-en="Family & Talent">親子溝通與天賦解碼</h3>
         <div class="xen">Family & Talent Decoding</div>
         <p class="xsum" data-zh="用靈魂解碼看懂孩子與生俱來的天賦與課題，找到最適合的溝通與引導方式。" data-en="Decode your child's gifts and lessons, and find how to connect and guide.">用靈魂解碼看懂孩子與生俱來的天賦與課題，找到最適合的溝通與引導方式。</p>
       </div>
-
       <div class="xcard" style="--cx:#D62828">
         <span class="xsoon" data-zh="即將推出" data-en="Coming soon">即將推出</span>
         <h3 data-zh="兩性關係" data-en="Relationships">兩性關係</h3>
         <div class="xen">Relationships</div>
-        <p class="xsum" data-zh="看懂你在關係裡反覆遇到的模式與課題，走向你真正想要的連結。" data-en="See the patterns you keep meeting, and move toward the connection you want.">看懂你在關係裡反覆遇到的模式與課題，走向你真正想要的連結。</p>
+        <p class="xsum" data-zh="看懂你在關係裡反覆遇到的模式與課題，走向你真正想要的連結。" data-en="See the patterns you keep meeting in love, and move toward the connection you want.">看懂你在關係裡反覆遇到的模式與課題，走向你真正想要的連結。</p>
       </div>
+    </div>
+  </div>
+</section>
 
+<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
+
+<!-- BLOCK 5: BUSINESS -->
+<section id="business">
+  <div class="wrap">
+    <div class="cblock-head">
+      <div class="sec-tag" data-zh="商業・營銷 · Business" data-en="Business">商業・營銷 · Business</div>
+      <h2 data-zh="商業及銷售市場營銷" data-en="Business, Sales & Marketing">商業及銷售市場營銷</h2>
+      <p class="cblock-sub" data-zh="把對人的洞察帶到商業世界——這正是「靈心身」合一的最後一塊：在現實裡落地、實戰。" data-en="Bring your insight into people into the business world — the final piece of spirit-mind-body integration: grounded, real-world execution.">把對人的洞察帶到商業世界——這正是「靈心身」合一的最後一塊：在現實裡落地、實戰。</p>
+    </div>
+    <div class="cgrid b2 reveal" style="margin-top:24px">
       <div class="xcard" style="--cx:#EAB308">
         <span class="xsoon" data-zh="即將推出" data-en="Coming soon">即將推出</span>
-        <h3 data-zh="商業應用課程" data-en="Business">商業應用課程</h3>
+        <h3 data-zh="商業應用課程" data-en="Business Application">商業應用課程</h3>
         <div class="xen">Business Application</div>
-        <p class="xsum" data-zh="把靈魂解碼用於團隊、領導與決策——看懂人，做對的事。" data-en="Apply Soul Code to teams, leadership and decisions.">把靈魂解碼用於團隊、領導與決策——看懂人，做對的事。</p>
+        <p class="xsum" data-zh="把靈魂解碼用於團隊、領導與決策——看懂人，做對的事。" data-en="Apply Soul Code to teams, leadership and decisions — understand people, do the right things.">把靈魂解碼用於團隊、領導與決策——看懂人，做對的事。</p>
       </div>
-
       <div class="xcard" style="--cx:#38BDF8">
         <span class="xsoon" data-zh="即將推出" data-en="Coming soon">即將推出</span>
         <h3 data-zh="銷售與市場營銷" data-en="Sales & Marketing">銷售與市場營銷</h3>
         <div class="xen">Sales & Marketing</div>
-        <p class="xsum" data-zh="把對人的洞察轉化為銷售與營銷的實戰能力——以人為本的成交之道。" data-en="Turn insight into people into real sales and marketing skill.">把對人的洞察轉化為銷售與營銷的實戰能力——以人為本的成交之道。</p>
+        <p class="xsum" data-zh="把對人的洞察轉化為銷售與營銷的實戰能力——以人為本的成交之道。" data-en="Turn insight into people into real sales and marketing skill — closing, the human way.">把對人的洞察轉化為銷售與營銷的實戰能力——以人為本的成交之道。</p>
       </div>
-
     </div>
   </div>
 </section>
