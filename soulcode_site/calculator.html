@@ -181,10 +181,11 @@
   .wxbox .wxclose{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;background:transparent;font-size:24px;line-height:1;color:var(--ink-soft);cursor:pointer}
   .wxbox .wxid{margin-top:8px;font-family:"Space Grotesk";font-size:13px;color:var(--emerald);font-weight:600}
 </style>
-<style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd:hover .navdd-menu{display:block}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block}.navdd-menu{position:static;display:block;box-shadow:none;border:0;padding:2px 0 2px 14px;min-width:0}}</style>
+<style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-t::after{content:" ▾";font-size:11px;color:var(--emerald,#0f9c6c)}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd.open .navdd-menu{display:block}@media(min-width:861px){.navdd:hover .navdd-menu{display:block}}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block}.navdd-menu{position:static;box-shadow:none;border:0;padding:2px 0 2px 14px;min-width:0}}</style>
 <script>try{var _l=localStorage.getItem('sc_lang');if(_l){document.documentElement.setAttribute('lang',_l==='en'?'en':(_l==='zhs'?'zh-Hans':'zh-Hant'));}}catch(e){}</script>
 <style id="fix-css">
 h1,h2,h3,h4,.wb-hero p,.hero-lede,.wb-card .q,.gate h3,.gate p,.res-head .nm{text-wrap:balance}
+h1,h2,h3,h4{overflow-wrap:break-word}
 p,li,.report p,.ado-hook{text-wrap:pretty}
 .backbar{max-width:760px;margin:10px auto 0;padding:0 20px}
 .backbar a{display:none;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--emerald,#0f9c6c);text-decoration:none;cursor:pointer;background:none;border:0;padding:6px 0}
@@ -469,7 +470,7 @@ function doShare(sc){shareCardBlob(sc,function(b){var file=new File([b],'soulcod
 </script>
 
 <script>
-function applyText(el,l){var t=(l==='en')?el.getAttribute('data-en'):el.getAttribute('data-zh');if(t==null)return;if(l==='zhs')t=conv(t);if(el.classList.contains('bp')&&l!=='en'){var parts=t.split(/(?<=[，。？！、])/).filter(Boolean);el.innerHTML=parts.map(function(p){return '<span class="clz">'+esc(p)+'</span>';}).join('');}else{el.textContent=t;}}
+function applyText(el,l){var t=(l==='en')?el.getAttribute('data-en'):el.getAttribute('data-zh');if(t==null)return;if(l==='zhs')t=conv(t);if(el.classList.contains('bp')&&l!=='en'){var parts=t.split(/(?<=[，。？！、,;；：　])|(?=——)/).filter(Boolean);var _mx=0;parts.forEach(function(p){if(p.length>_mx)_mx=p.length;});if(_mx>11){el.textContent=t;}else{el.innerHTML=parts.map(function(p){return '<span class="clz">'+esc(p)+'</span>';}).join('');}}else{el.textContent=t;}}
 function setLang(l){try{localStorage.setItem('sc_lang',l);}catch(e){}curLang=l;document.documentElement.lang=l==='en'?'en':(l==='zhs'?'zh-Hans':'zh-Hant');var z=document.getElementById('zhtBtn'),s=document.getElementById('zhsBtn'),e=document.getElementById('enBtn');if(z)z.classList.toggle('on',l==='zht');if(s)s.classList.toggle('on',l==='zhs');if(e)e.classList.toggle('on',l==='en');document.querySelectorAll('[data-zh]').forEach(function(el){applyText(el,l);});if(window.__buildWeb)window.__buildWeb();if(window.__rerender)window.__rerender();}
 document.addEventListener('click',function(ev){if(ev.target.classList&&ev.target.classList.contains('modal-close')){var m=ev.target.closest('.modal-ov');if(m)m.classList.remove('open');}if(ev.target.classList&&ev.target.classList.contains('modal-ov')){ev.target.classList.remove('open');}});
 function buildWebPicker(){var box=document.getElementById('webPick');if(!box)return;var en=curLang==='en';var order=[['money','金錢','Money'],['parenting','親子','Parenting'],['relationship','兩性','Relationships']];var h='';order.forEach(function(o){var w=WEBINARS[o[0]];var title=en?w.en:L(w.zh);h+='<div class="pk-theme"><span>'+esc((en?o[2]:L(o[1]))+'｜'+esc(title).slice(0,0)+title)+'</span><small>'+esc(w.date)+'</small></div>';h+='<a href="'+w.man+'" target="_blank" rel="noopener">'+(en?'Mandarin':L('國語場'))+'<small>20:00–21:10 '+(en?TZ_NOTE_EN:TZ_NOTE_ZH)+'</small></a>';h+='<a href="'+w.yue+'" target="_blank" rel="noopener">'+(en?'Cantonese':L('粵語場'))+'<small>21:30–22:40 '+(en?TZ_NOTE_EN:TZ_NOTE_ZH)+'</small></a>';});box.innerHTML=h;}
@@ -511,7 +512,7 @@ setLang(curLang);
 <script>
 (function(){var n=document.querySelector('nav'),t=n&&n.querySelector('.navtoggle');if(!t)return;
 t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});
-n.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');t.setAttribute('aria-expanded','false');});});
+n.querySelectorAll('.nav-links a:not(.navdd-t)').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');t.setAttribute('aria-expanded','false');});});
 })();
 </script>
 <script>
@@ -524,5 +525,6 @@ n.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click
 })();
 </script>
 <script>(function(){var b=document.getElementById('backBtn');if(!b)return;var ref='';try{ref=document.referrer;}catch(e){}var same=false;try{same=ref&&new URL(ref).origin===location.origin;}catch(e){}if(window.history.length>1&&same)b.classList.add('show');})();</script>
+<script id="navdd-js">(function(){document.querySelectorAll('.navdd-t').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var d=a.parentNode;document.querySelectorAll('.navdd.open').forEach(function(x){if(x!==d)x.classList.remove('open');});d.classList.toggle('open');});});document.addEventListener('click',function(e){if(!e.target.closest('.navdd'))document.querySelectorAll('.navdd.open').forEach(function(x){x.classList.remove('open');});});})();</script>
 </body>
 </html>
