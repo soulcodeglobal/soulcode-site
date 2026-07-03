@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" role="img" xmlns="http://www.w3.org/2000/svg"><title>Soul Code</title><desc>Soul Code 標誌圖標</desc><style>@media (prefers-color-scheme:dark){text{fill:#34d399 !important}}</style><defs><clipPath id="sdi"><circle cx="256" cy="256" r="119"/></clipPath></defs>
+<circle cx="256" cy="256" r="236.16923076923075" fill="none" stroke="#059669" stroke-width="3.2038461538461536"/>
+<circle cx="256" cy="256" r="194.06153846153845" fill="none" stroke="#059669" stroke-width="3.2038461538461536"/>
+<polygon points="217.38,135.72 256.0,61.94 294.62,135.72" fill="#059669"/>
+<polygon points="295.46,136.0 370.07,99.0 357.94,181.39" fill="#059669"/>
+<polygon points="358.46,182.11 440.56,196.03 382.32,255.56" fill="#059669"/>
+<polygon points="382.32,256.44 440.56,315.97 358.46,329.89" fill="#059669"/>
+<polygon points="357.94,330.61 370.07,413.0 295.46,376.0" fill="#059669"/>
+<polygon points="294.62,376.28 256.0,450.06 217.38,376.28" fill="#059669"/>
+<polygon points="216.54,376.0 141.93,413.0 154.06,330.61" fill="#059669"/>
+<polygon points="153.54,329.89 71.44,315.97 129.68,256.44" fill="#059669"/>
+<polygon points="129.68,255.56 71.44,196.03 153.54,182.11" fill="#059669"/>
+<polygon points="154.06,181.39 141.93,99.0 216.54,136.0" fill="#059669"/>
+<text x="256.0" y="40.88" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">0</text>
+<text x="382.44" y="81.97" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">1</text>
+<text x="460.59" y="189.53" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">2</text>
+<text x="460.59" y="322.47" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">3</text>
+<text x="382.44" y="430.03" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">4</text>
+<text x="256.0" y="471.12" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">5</text>
+<text x="129.56" y="430.03" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">6</text>
+<text x="51.41" y="322.47" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">7</text>
+<text x="51.41" y="189.53" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">8</text>
+<text x="129.56" y="81.97" font-size="33.0" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">9</text>
+<circle cx="256" cy="256" r="119" fill="#ffffff"/>
+<circle cx="299.9" cy="299.9" r="119" fill="#059669" opacity="0.18" clip-path="url(#sdi)"/>
+<circle cx="219.4" cy="219.4" r="29.3" fill="#059669" opacity="0.28"/>
+<circle cx="256" cy="256" r="119" fill="none" stroke="#059669" stroke-width="7.3"/>
+</svg>

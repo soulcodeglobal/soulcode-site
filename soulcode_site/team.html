@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+  <meta name="google-site-verification" content="UxHlJ6k-nzJY1Tmlf4vPaV6TDBTqtRZ6MBsy_YmYANU" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
+  <link rel="apple-touch-icon" href="/assets/soulcode-icon-256.png">
+<meta name="color-scheme" content="light only">
+<title data-zh="團隊 · Soul Code Academy 靈魂解碼學院" data-en="Team · Soul Code Academy">團隊 · Soul Code Academy 靈魂解碼學院</title>
+<meta name="description" content="認識 Soul Code 靈魂解碼學院的專業團隊——系統創造者、課程導師與營運夥伴，陪你把答案連結回真實人生。">
+<link rel="canonical" href="https://soulcodeglobal.com/team.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="專業團隊｜Soul Code 靈魂解碼學院">
+<meta property="og:description" content="認識 Soul Code 靈魂解碼學院的專業團隊——系統創造者、課程導師與營運夥伴，陪你把答案連結回真實人生。">
+<meta property="og:url" content="https://soulcodeglobal.com/team.html">
+<meta property="og:image" content="https://soulcodeglobal.com/assets/soulcode-icon-256.png">
+<meta property="og:site_name" content="Soul Code Academy 靈魂解碼學院">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script>
+<style>
+  :root{--fsans:"Noto Sans TC","Noto Sans SC",system-ui,sans-serif;--fserif:"Noto Serif TC","Noto Serif SC",serif;
+    --ink:#0a1a14;--ink-soft:#3f5249;--emerald:#059669;--emerald-deep:#064e3b;
+    --mint:#a7f3d0;--bg:#fafdfb;--bg-deep:#04231a;--line:#dce8e2;--r:18px;
+    color-scheme:light only;
+  }
+  html[lang="zh-Hans"]{--fsans:"Noto Sans SC","Noto Sans TC",system-ui,sans-serif;--fserif:"Noto Serif SC","Noto Serif TC",serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%}
+  body{font-family:var(--fsans);color:var(--ink);background:var(--bg);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .clz{display:inline-block;white-space:nowrap}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,253,251,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;flex-direction:column;line-height:1.15;text-decoration:none}
+  .brand .b-main{font-family:"Space Grotesk";font-weight:700;font-size:17px;letter-spacing:.01em;color:var(--ink)}
+  .brand .b-sub{font-size:12.5px;color:var(--emerald);font-weight:500;letter-spacing:.04em}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--emerald)}
+  .nav-links a.active{color:var(--emerald)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:"Space Grotesk";font-size:13px;font-weight:500;flex-shrink:0}
+  .lang button{border:0;background:transparent;padding:7px 13px;cursor:pointer;color:var(--ink-soft);transition:all .2s;font-family:inherit}
+  .lang button.on{background:var(--emerald);color:#fff}
+
+  /* hero opener */
+  header{position:relative;padding:88px 0 72px;overflow:hidden;text-align:center}
+  .binary{position:absolute;inset:0;z-index:0;pointer-events:none;font-family:"Space Grotesk";font-size:13px;line-height:1.9;color:var(--emerald);opacity:.07;white-space:pre;user-select:none;overflow:hidden;
+    -webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,transparent 30%,#000 100%);
+    mask-image:radial-gradient(ellipse 70% 80% at 50% 40%,transparent 30%,#000 100%)}
+  header .wrap{position:relative;z-index:1}
+  /* rotating dial emblem (matches index hero) */
+  .emblem{position:relative;width:128px;height:128px;margin:0 auto 28px}
+  .emblem::after{content:"";position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle,rgba(5,150,105,.16),transparent 68%);z-index:-1}
+  .emblem-svg{width:100%;height:100%;display:block}
+  .hero-dial{transform-box:fill-box;transform-origin:center;animation:spin 48s linear infinite}
+  .hero-pulse{transform-box:fill-box;transform-origin:center;animation:heropulse 3.4s ease-in-out infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes heropulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.12;transform:scale(1.22)}}
+
+  /* decorative concentric-ring glyph */
+  .deco{position:absolute;z-index:0;pointer-events:none;opacity:.5}
+  .deco svg{display:block}
+  section{overflow:hidden}
+
+  .eyebrow{font-family:"Space Grotesk";font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--emerald);font-weight:500;margin-bottom:22px}
+  h1{font-family:var(--fserif);font-weight:900;font-size:clamp(30px,4.6vw,46px);line-height:1.3;margin:0 auto 22px;max-width:22ch}
+  .hero-lede{font-size:clamp(16px,2vw,18px);color:var(--ink-soft);max-width:46ch;margin:0 auto;line-height:1.85}
+
+  section{padding:80px 0;position:relative}
+  .sec-tag{font-family:"Space Grotesk";font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald);font-weight:500;margin-bottom:18px;display:inline-flex;align-items:center;gap:10px;justify-content:center}
+  .sec-tag::before,.sec-tag::after{content:"";width:24px;height:1px;background:var(--emerald)}
+  .center{text-align:center}
+  h2{font-family:var(--fserif);font-weight:700;font-size:clamp(26px,3.4vw,36px);line-height:1.34;margin:0 auto 14px;max-width:24ch}
+
+  /* reading column for the story */
+  .read{max-width:720px;margin:36px auto 0;padding:0 24px}
+  .read p{font-size:clamp(16px,1.9vw,17.5px);color:#243a31;margin-bottom:22px;text-align:left}
+  .read p.first::first-letter{font-family:var(--fserif);font-weight:900;font-size:3.1em;float:left;line-height:.86;margin:6px 12px 0 0;color:var(--emerald)}
+
+  /* pull quote (the voice) */
+  .voice{margin:44px auto;max-width:680px;text-align:center;position:relative}
+  .voice .q{font-family:var(--fserif);font-weight:700;font-size:clamp(22px,3.2vw,30px);line-height:1.5;color:var(--emerald-deep)}
+  .voice .mark{font-family:"Space Grotesk";color:var(--emerald);font-size:40px;line-height:1;opacity:.5;margin-bottom:6px}
+  .voice::before,.voice::after{content:"";position:absolute;left:50%;width:1px;height:24px;background:linear-gradient(var(--emerald),transparent);transform:translateX(-50%)}
+  .voice::before{top:-34px;background:linear-gradient(transparent,var(--emerald))}
+  .voice::after{bottom:-34px}
+
+  /* what is — dark */
+  .what{background:var(--bg-deep);color:#eafff6}
+  .what .sec-tag{color:var(--mint)}
+  .what .sec-tag::before,.what .sec-tag::after{background:var(--mint)}
+  .what h2{color:#fff}
+  .what .read p{color:#bfe9d8;text-align:left}
+  .what .read p strong{color:#fff;font-weight:700}
+
+  /* ladder */
+  .ladder{display:flex;gap:16px;margin-top:48px}
+  .ladder .lcard{flex:1}
+  .lcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;text-align:left;transition:transform .2s,border-color .2s,box-shadow .2s;border-top:3px solid var(--c)}
+  .lcard:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 18px 40px -22px color-mix(in srgb,var(--c) 55%,transparent)}
+  .lcard .step{font-family:"Space Grotesk";font-weight:700;font-size:13px;color:var(--c);letter-spacing:.08em;margin-bottom:14px}
+  .lcard .lt{font-family:var(--fserif);font-weight:700;font-size:19px;margin-bottom:8px}
+  .lcard .ld{font-size:14px;color:var(--ink-soft);line-height:1.7}
+  .ladder-close{margin-top:40px;font-family:var(--fserif);font-weight:700;font-size:clamp(17px,2.3vw,21px);color:var(--emerald-deep)}
+  .way-sub{margin:56px auto 0;font-family:var(--fserif);font-weight:700;font-size:clamp(17px,2.4vw,22px);color:var(--emerald-deep)}
+  .way-sub::after{content:"";display:block;width:40px;height:2px;background:var(--emerald);margin:14px auto 0;opacity:.5}
+  .way-sub + .ladder{margin-top:26px}
+
+  /* vision — centered statement */
+  .vision{max-width:660px}
+  .vision p{text-align:center;font-size:clamp(16.5px,2vw,18.5px);color:#243a31;margin-bottom:22px}
+  .vision p:first-child{font-family:var(--fserif);font-weight:700;color:var(--emerald-deep)}
+
+  /* the way — flow */
+  .flow{display:flex;align-items:stretch;justify-content:center;gap:14px;margin-top:48px;flex-wrap:nowrap}
+  .fstep{flex:1;max-width:300px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 22px;text-align:center;border-top:3px solid var(--emerald)}
+  .fstep .fnum{font-family:"Space Grotesk";font-weight:700;font-size:13px;color:var(--emerald);letter-spacing:.1em;margin-bottom:12px}
+  .fstep .ft{font-family:var(--fserif);font-weight:700;font-size:20px;margin-bottom:10px;color:var(--ink)}
+  .fstep .fd{font-size:14px;color:var(--ink-soft);line-height:1.7}
+  .farrow{display:flex;align-items:center;font-family:"Space Grotesk";font-size:24px;color:var(--emerald);opacity:.6;flex-shrink:0}
+  @media(max-width:720px){
+    .flow{flex-direction:column;align-items:center}
+    .fstep{max-width:420px;width:100%}
+    .farrow{transform:rotate(90deg);padding:2px 0}
+  }
+
+  /* final */
+  .final{background:var(--emerald-deep);color:#fff;overflow:hidden;text-align:center}
+  .final .binary2{position:absolute;inset:0;font-family:"Space Grotesk";font-size:13px;line-height:1.9;color:var(--mint);opacity:.06;white-space:pre;pointer-events:none;overflow:hidden}
+  .final .wrap{position:relative;z-index:1}
+  .final h2{color:#fff}
+  .final p{color:#bfe9d8;max-width:44ch;margin:0 auto 8px}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;border:0;transition:transform .15s,box-shadow .2s;font-family:inherit;line-height:1.2}
+  .btn-primary{background:#fff;color:var(--emerald-deep);box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .btn-ghost:hover{border-color:#fff}
+  .btn .arr{font-family:"Space Grotesk";transition:transform .2s}
+  .btn:hover .arr{transform:translateX(3px)}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--ink-soft);font-size:13px}
+  footer .mono{font-family:"Space Grotesk";color:var(--emerald)}
+
+  /* two-tone divider */
+  .sep{padding:0}
+  .sep .wrap{position:relative;height:40px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px}
+  .sep .l1{height:2px;width:100%;background:linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--emerald) 70%,transparent) 50%,transparent 100%)}
+  .sep .l2{height:2px;width:46%;background:linear-gradient(90deg,transparent,#c9a84c,transparent)}
+  .sep .node{position:absolute;width:9px;height:9px;background:#c9a84c;transform:rotate(45deg);box-shadow:0 0 0 5px var(--bg)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:820px){
+    .nav-links{display:none}
+    .ladder{flex-wrap:wrap}.ladder .lcard{flex:1 1 calc(50% - 8px)}
+    header{padding:60px 0 52px}
+    section{padding:58px 0}
+  }
+  @media(max-width:520px){ .ladder .lcard{flex:1 1 100%} }
+  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} .hero-dial{animation:none} .hero-pulse{animation:none} *{scroll-behavior:auto} }
+  .fiona-photo{display:block;width:100%;max-width:300px;border-radius:18px;margin:26px auto 0;box-shadow:0 18px 50px -18px rgba(0,0,0,.35)}
+
+  /* mobile nav menu */
+  .navtoggle{display:none;width:42px;height:42px;border:1px solid var(--line,#dce8e2);border-radius:12px;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0;padding:0;margin-left:6px}
+  .navtoggle span{display:block;width:18px;height:2px;background:var(--ink,#0a1a14);border-radius:2px;transition:transform .25s,opacity .2s}
+  nav.open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  nav.open .navtoggle span:nth-child(2){opacity:0}
+  nav.open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media(max-width:820px){
+    .navtoggle{display:flex}
+    .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg,#fafdfb);border-bottom:1px solid var(--line,#dce8e2);box-shadow:0 14px 26px -18px rgba(0,0,0,.35);padding:6px 0;display:none;z-index:60}
+    nav.open .nav-links{display:flex}
+    .nav-links a{padding:14px 28px;font-size:16px;border-bottom:1px solid var(--line,#dce8e2)}
+    .nav-links a:last-child{border-bottom:0}
+  }
+  .creds{max-width:680px;margin:40px auto 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 30px;text-align:left}
+  .creds h3{font-family:var(--fserif);font-weight:700;font-size:18px;color:var(--emerald-deep);margin:0}
+  .creds .yrs{font-weight:700;color:var(--ink);margin:20px 0 8px;font-size:15.5px}
+  .creds ul{list-style:none;margin:0;padding:0}
+  .creds li{position:relative;padding-left:18px;font-size:14.5px;color:var(--ink-soft);margin-bottom:7px;line-height:1.65}
+  .creds li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--emerald)}
+
+  :root{--gold:#c79a3b;--cream:#faf6ee}
+  #team{position:relative}
+  .member{position:relative;display:flex;gap:42px;align-items:center;max-width:940px;margin:0 auto 34px;padding:42px 44px;background:var(--cream);border:1px solid #ece2cf;border-radius:22px;box-shadow:0 22px 56px -30px rgba(90,70,25,.30);overflow:hidden;z-index:1}
+  .member::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--emerald),var(--gold))}
+  .member:nth-child(even){flex-direction:row-reverse}
+  .member-photo{position:relative;flex-shrink:0;width:236px}
+  .member-photo img{width:100%;border-radius:16px;box-shadow:0 16px 40px -20px rgba(0,0,0,.45);display:block}
+  .member-photo::after{content:"";position:absolute;left:-12px;right:auto;bottom:-12px;width:46px;height:46px;background:url("assets/dial-gold.svg") center/contain no-repeat;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18))}
+  .member:nth-child(even) .member-photo::after{left:auto;right:-12px}
+  .ph-box{width:236px;aspect-ratio:3/4;border-radius:16px;border:1.5px dashed var(--emerald);background:repeating-linear-gradient(135deg,#f1f8f4,#f1f8f4 14px,#e9f3ee 14px,#e9f3ee 28px);display:flex;align-items:center;justify-content:center;color:var(--emerald);font-family:"Space Grotesk";font-size:12.5px;text-align:center;padding:14px}
+  .member-body{flex:1;min-width:0}
+  .member-name{font-family:var(--fserif);font-weight:700;font-size:clamp(22px,3vw,28px);color:var(--ink);margin-bottom:7px}
+  .member-role{font-family:"Space Grotesk";font-size:13px;letter-spacing:.04em;color:var(--gold);font-weight:700;margin-bottom:18px}
+  .member-bio{font-size:15.5px;color:#3a3320;line-height:1.85;margin-bottom:12px}
+  .member-points{border-top:1px solid #e6dcc7;padding-top:16px}
+  .member-points{list-style:none;margin:18px 0 0}
+  .member-points li{position:relative;padding-left:18px;font-size:14px;color:#5a5238;margin-bottom:7px;line-height:1.6}
+  .member-points li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  @media(max-width:720px){
+    .member,.member:nth-child(even){flex-direction:column;align-items:center;text-align:left;gap:24px;padding:30px 24px}
+    .member-photo,.ph-box{width:200px}
+    .member-body{width:100%}
+  }
+  /* CJK line-break quality: avoid orphan last lines, balance headings */
+  h1,h2,h3{text-wrap:balance}
+  p,li,.hero-lede,.member-bio,.pintro,.member-points li,.pcard p,.corp p,.c-line{text-wrap:pretty}
+
+  /* === phase-1 shared additions === */
+  :root{--gold:#c9a84c;--gold-soft:#e4cd86;--bg-soft:#f1f8f4}
+  .brand{display:flex;flex-direction:row;align-items:center;gap:10px;text-decoration:none}
+  .brand img{width:34px;height:34px;display:block}
+  .brand .bt{display:flex;flex-direction:column;line-height:1.15}
+  .nav-links a.active{color:var(--emerald)}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:#3a2e10;box-shadow:0 8px 22px -8px rgba(201,168,76,.6)}
+  .btn-gold:hover{transform:translateY(-2px)}
+  .footlinks{display:flex;gap:14px;justify-content:center;align-items:center;margin-bottom:18px}
+  .iconbtn{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--emerald-deep);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s,border-color .2s,color .2s,background .2s;text-decoration:none;padding:0}
+  .iconbtn:hover{transform:translateY(-2px);border-color:var(--emerald);color:var(--emerald);background:var(--bg-soft)}
+  .iconbtn svg{width:21px;height:21px}
+  footer .cprt{font-family:"Space Grotesk";letter-spacing:.02em}
+  .wxmodal{position:fixed;inset:0;z-index:200;background:rgba(4,35,26,.55);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:24px}
+  .wxmodal.open{display:flex}
+  .wxbox{position:relative;background:#fff;border-radius:20px;padding:26px 26px 22px;max-width:320px;width:100%;text-align:center;box-shadow:0 30px 70px -20px rgba(0,0,0,.5)}
+  .wxbox img{width:100%;max-width:240px;border-radius:12px}
+  .wxbox .wxttl{font-family:var(--fserif);font-weight:700;font-size:17px;margin-bottom:14px;color:var(--ink)}
+  .wxbox .wxsub{font-size:13px;color:var(--ink-soft);margin-top:12px}
+  .wxbox .wxclose{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;background:transparent;font-size:24px;line-height:1;color:var(--ink-soft);cursor:pointer}
+  .wxbox .wxid{margin-top:8px;font-family:"Space Grotesk";font-size:13px;color:var(--emerald);font-weight:600}
+</style>
+<style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd:hover .navdd-menu{display:block}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block}.navdd-menu{position:static;display:block;box-shadow:none;border:0;padding:2px 0 2px 14px;min-width:0}}</style>
+<script>try{var _l=localStorage.getItem('sc_lang');if(_l){document.documentElement.setAttribute('lang',_l==='en'?'en':(_l==='zhs'?'zh-Hans':'zh-Hant'));}}catch(e){}</script>
+<style id="fix-css">
+h1,h2,h3,h4,.wb-hero p,.hero-lede,.wb-card .q,.gate h3,.gate p,.res-head .nm{text-wrap:balance}
+p,li,.report p,.ado-hook{text-wrap:pretty}
+.backbar{max-width:760px;margin:10px auto 0;padding:0 20px}
+.backbar a{display:none;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--emerald,#0f9c6c);text-decoration:none;cursor:pointer;background:none;border:0;padding:6px 0}
+.backbar a.show{display:inline-flex}
+.backbar a:hover{opacity:.75}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <img src="/assets/soulcode-icon.svg" alt="Soul Code">
+      <span class="bt">
+        <span class="b-main">Soul Code Academy</span>
+        <span class="b-sub" data-zh="靈魂解碼學院" data-en="">靈魂解碼學院</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" data-zh="首頁" data-en="Home">首頁</a>
+      <a href="about.html" data-zh="關於我們" data-en="About Us">關於我們</a>
+      <a href="calculator.html" data-zh="靈魂解碼系統" data-en="Decode Your Soul">靈魂解碼系統</a>
+      <a href="team.html" class="active" data-zh="專業團隊" data-en="Our Team">專業團隊</a>
+      <a href="booking.html" data-zh="一對一諮詢" data-en="Consultations">一對一諮詢</a>
+      <div class="navdd"><a href="courses.html" class="navdd-t" data-zh="課程" data-en="Courses">課程</a><div class="navdd-menu"><a href="courses.html" data-zh="課程總覽" data-en="All Courses">課程總覽</a><a href="course-foundation.html" data-zh="基礎工作坊" data-en="Foundation Workshop">基礎工作坊</a><a href="course-advanced.html" data-zh="進階課程" data-en="Advanced">進階課程</a><a href="webinar.html" data-zh="免費公益線上講座" data-en="Free Online Talks">免費公益線上講座</a></div></div>
+      <a href="cooperation.html" data-zh="合作" data-en="Partner">合作</a>
+    </div>
+    <div class="lang">
+      <button id="zhtBtn" class="on" onclick="setLang('zht')">繁</button>
+      <button id="zhsBtn" onclick="setLang('zhs')">简</button>
+      <button id="enBtn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="navtoggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="backbar"><a id="backBtn" onclick="history.back();return false;" href="#"><span aria-hidden="true">←</span> <span data-zh="返回" data-en="Back">返回</span></a></div>
+<header>
+  <div class="binary" id="binary"></div>
+  <div class="wrap">
+    <div class="eyebrow" data-zh="團隊 · Our Team" data-en="Our Team">團隊 · Our Team</div>
+    <h1 class="bp" data-zh="我們的團隊" data-en="Our Team">我們的團隊</h1>
+    <p class="hero-lede" data-zh="靈魂解碼背後，是一群真實走過、並且仍在路上的人。" data-en="Behind Soul Code is a group of people who have walked the road themselves — and are still walking it.">靈魂解碼背後，是一群真實走過、並且仍在路上的人。</p>
+  </div>
+</header>
+
+<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
+
+<section id="team">
+  <!-- FIONA -->
+  <div class="member reveal">
+    <div class="member-photo"><img src="assets/fiona.jpg" alt="Fiona" loading="lazy"></div>
+    <div class="member-body">
+      <div class="member-name" data-zh="鄧芷敏" data-en="Fiona Tang">鄧芷敏</div>
+      <div class="member-role" data-zh="創辦人 · 靈魂解碼系統創始人" data-en="Founder · Creator of the Soul Code System">創辦人 · 靈魂解碼系統創始人</div>
+      <p class="member-bio" data-zh="走過破產、背叛與低谷，在最黑暗時收到一套關於「離苦」的答案，並整理成有系統、可傳承的方法。從事身心靈教學與一對一諮詢逾十年，至今仍透過幫助別人維生，活出豐盛而滿足的人生。" data-en="After living through bankruptcy, betrayal and her lowest point, she received an answer to suffering and shaped it into a structured method that can be passed on. She has taught and given one-on-one consultations for over a decade — and still makes her living today by helping others.">走過破產、背叛與低谷，在最黑暗時收到一套關於「離苦」的答案，並整理成有系統、可傳承的方法。從事身心靈教學與一對一諮詢逾十年，至今仍透過幫助別人維生，活出豐盛而滿足的人生。</p>
+      <ul class="member-points">
+        <li data-zh="28 年身心靈研究與專業資格" data-en="28 years of mind-body-spirit research &amp; qualifications">28 年身心靈研究與專業資格</li>
+        <li data-zh="澳洲國立大學人類學學士及碩士" data-en="BA &amp; MA in Anthropology, Australian National University">澳洲國立大學人類學學士及碩士</li>
+        <li data-zh="澳洲心理諮詢碩士 · 國家認證臨床催眠治療" data-en="Master of Counselling · Nationally Accredited Clinical Hypnotherapy (Australia)">澳洲心理諮詢碩士 · 國家認證臨床催眠治療</li>
+        <li data-zh="美國生成式催眠 · 日本靈氣導師 · 靈媒與通靈教學" data-en="Generative Hypnotherapy (USA) · Reiki Master (Japan) · Mediumship &amp; Psychic teaching">美國生成式催眠 · 日本靈氣導師 · 靈媒與通靈教學</li>
+        <li data-zh="9 年澳洲／香港教學 · 10 年靈性品牌經營" data-en="9 years teaching (Australia/HK) · 10 years building spiritual brands">9 年澳洲／香港教學 · 10 年靈性品牌經營</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JEFFREY -->
+  <div class="member reveal">
+    <div class="member-photo"><img src="assets/jeffrey.jpg" alt="Jeffrey Ip" loading="lazy"></div>
+    <div class="member-body">
+      <div class="member-name" data-zh="葉子文" data-en="Jeffrey Ip">葉子文</div>
+      <div class="member-role" data-zh="共同講師 · NLP 及情緒輔導導師" data-en="Co-Lecturer · NLP &amp; Counselling">共同講師 · NLP 及情緒輔導導師</div>
+      <p class="member-bio" data-zh="國際認證 NLP 高級教練、催眠治療師，從事教學與培訓逾 16 年，於香港及內地培訓超過 2,000 位 NLP 執行師與教練。他擅長把 NLP、溝通與輔導工具帶入生活，協助人在關係、情緒與自我成長上，看到實際的改變。" data-en="An internationally certified NLP Master Coach and hypnotherapist with over 16 years in training, Jeffrey has certified more than 2,000 NLP practitioners and coaches across Hong Kong and Mainland China. He brings NLP, communication and counselling tools into everyday life, helping people see real change in their relationships, emotions and growth.">國際認證 NLP 高級教練、催眠治療師，從事教學與培訓逾 16 年，於香港及內地培訓超過 2,000 位 NLP 執行師與教練。他擅長把 NLP、溝通與輔導工具帶入生活，協助人在關係、情緒與自我成長上，看到實際的改變。</p>
+      <ul class="member-points">
+        <li data-zh="國際認證 NLP 高級教練 · 催眠治療師" data-en="Internationally certified NLP Master Coach · Hypnotherapist">國際認證 NLP 高級教練 · 催眠治療師</li>
+        <li data-zh="16 年教學 · 培訓逾 2,000 位執行師與教練" data-en="16 years teaching · 2,000+ practitioners &amp; coaches trained">16 年教學 · 培訓逾 2,000 位執行師與教練</li>
+        <li data-zh="企業培訓 · 團隊與溝通 · 個人輔導" data-en="Corporate training · Team &amp; communication · One-on-one counselling">企業培訓 · 團隊與溝通 · 個人輔導</li>
+        <li data-zh="服務對象遍及銀行、金融、零售及公營機構" data-en="Clients across banking, finance, retail &amp; public sectors">服務對象遍及銀行、金融、零售及公營機構</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PAK -->
+  <div class="member reveal">
+    <div class="member-photo"><img src="assets/pak-leather.jpg" alt="Pak" loading="lazy"></div>
+    <div class="member-body">
+      <div class="member-name" data-zh="白駿琿" data-en="Pak">白駿琿</div>
+      <div class="member-role" data-zh="商業顧問 · 銷售與團隊建立教練" data-en="Business Consultant · Sales &amp; Team-Building Coach">商業顧問 · 銷售與團隊建立教練</div>
+      <p class="member-bio" data-zh="香港出生的創業者，擁有 12 年直銷實戰經驗。曾任職全球排名第一的直銷公司，獲香港區九零後最高獎銜，並於 30 歲將自己一手建立的銷售團隊組織套現賣盤、功成身退，正式離場。他擅長把實戰經驗化為可複製的系統，協助個人與品牌建立團隊、設計商業模式與培訓內容。" data-en="A Hong Kong–born entrepreneur with 12 years of hands-on direct-sales experience. He earned the top post-90s award at the world's number-one direct-sales company, and and at 30 cashed out — selling the sales organisation he had built from the ground up and exiting the industry. He turns real-world experience into repeatable systems, helping individuals and brands build teams, design business models and create training content.">香港出生的創業者，擁有 12 年直銷實戰經驗。曾任職全球排名第一的直銷公司，獲香港區九零後最高獎銜，並於 30 歲將自己一手建立的銷售團隊組織套現賣盤、功成身退，正式離場。他擅長把實戰經驗化為可複製的系統，協助個人與品牌建立團隊、設計商業模式與培訓內容。</p>
+      <ul class="member-points">
+        <li data-zh="Macquarie University 市場營銷與管理雙碩士" data-en="Dual Master's in Marketing &amp; Management, Macquarie University">Macquarie University 市場營銷與管理雙碩士</li>
+        <li data-zh="香港城市大學工商管理（國際商業）學士" data-en="BBA in International Business, City University of Hong Kong">香港城市大學工商管理（國際商業）學士</li>
+        <li data-zh="NLP 高級執行師" data-en="NLP Master Practitioner">NLP 高級執行師</li>
+        <li data-zh="12 年直銷實戰 · 九零後最高獎銜" data-en="12 years in direct sales · top post-90s award">12 年直銷實戰 · 九零後最高獎銜</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footlinks">
+      <a class="iconbtn" href="mailto:hello@soulcodeglobal.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+      </a>
+      <a class="iconbtn" href="https://www.instagram.com/soulcodeglobal?igsh=M3o4NWoyejlwaGk=" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="iconbtn" href="https://wa.me/61400302808" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.8c2.16 0 4.19.84 5.72 2.37a8.06 8.06 0 0 1 2.37 5.74c0 4.46-3.63 8.09-8.1 8.09a8.2 8.2 0 0 1-4.13-1.13l-.3-.18-3.12.82.83-3.04-.19-.31a8.04 8.04 0 0 1-1.26-4.35c0-4.46 3.63-8.09 8.1-8.09zm4.7 10.49c-.06-.11-.24-.18-.5-.31-.26-.13-1.53-.76-1.77-.84-.24-.09-.41-.13-.59.13-.17.26-.67.84-.82 1.01-.15.18-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.28-.77-.69-1.29-1.53-1.44-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.18.04-.33-.02-.46-.07-.13-.59-1.42-.81-1.94-.21-.51-.43-.44-.59-.45l-.5-.01c-.18 0-.46.07-.7.33-.24.26-.92.9-.92 2.19 0 1.29.94 2.54 1.07 2.71.13.18 1.85 2.82 4.48 3.96.63.27 1.11.43 1.49.55.63.2 1.2.17 1.65.1.5-.07 1.53-.62 1.75-1.23.21-.61.21-1.13.15-1.24z"/></svg>
+      </a>
+      <button class="iconbtn" id="wxBtn" aria-label="WeChat">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.69 4C4.62 4 1.3 6.74 1.3 10.13c0 1.96 1.12 3.71 2.86 4.84l-.62 1.92 2.2-1.13c.79.16 1.43.32 2.22.32.2 0 .4-.01.6-.03a4.5 4.5 0 0 1-.18-1.25c0-2.95 2.81-5.3 6.22-5.3.2 0 .4.01.6.03C14.7 6.03 12 4 8.69 4zM6.3 8.6a.92.92 0 1 1 0-1.84.92.92 0 0 1 0 1.84zm4.78 0a.92.92 0 1 1 0-1.84.92.92 0 0 1 0 1.84zm11.62 5.7c0-2.83-2.81-5.13-5.96-5.13-3.32 0-5.95 2.3-5.95 5.13s2.63 5.13 5.95 5.13c.66 0 1.33-.16 1.99-.32l1.82.99-.5-1.65c1.33-.99 2.65-2.3 2.65-4.15zm-7.78-.82a.76.76 0 1 1 0-1.52.76.76 0 0 1 0 1.52zm3.64 0a.76.76 0 1 1 0-1.52.76.76 0 0 1 0 1.52z"/></svg>
+      </button>
+    </div>
+    <span class="cprt" data-zh="Soul Code Academy Pty Ltd 靈魂解碼學院 · © 2026 All Rights Reserved" data-en="Soul Code Academy Pty Ltd · © 2026 All Rights Reserved">Soul Code Academy Pty Ltd 靈魂解碼學院 · © 2026 All Rights Reserved</span>
+  </div>
+</footer>
+
+<div class="wxmodal" id="wxModal">
+  <div class="wxbox">
+    <button class="wxclose" id="wxClose" aria-label="Close">×</button>
+    <div class="wxttl" data-zh="加我們的 WeChat" data-en="Add us on WeChat">加我們的 WeChat</div>
+    <img src="/assets/wechat-qr.png" alt="WeChat QR Code">
+    <div class="wxid">ID：soulcodeglobal</div>
+    <div class="wxsub" data-zh="掃描 QR Code，新增我們為朋友。" data-en="Scan the QR code to add us.">掃描 QR Code，新增我們為朋友。</div>
+  </div>
+</div>
+
+<script>
+  function mkbin(el,cols,rows){let b="";for(let i=0;i<rows;i++){let r="";for(let j=0;j<cols;j++){r+=Math.random()>.5?"1":"0";}b+=r+"\n";}el.textContent=b;}
+  mkbin(document.getElementById('binary'),140,46);
+  var _b2=document.getElementById('binary2'); if(_b2) mkbin(_b2,140,38);
+
+  const zhtBtn=document.getElementById('zhtBtn'),zhsBtn=document.getElementById('zhsBtn'),enBtn=document.getElementById('enBtn');
+  let _conv=null;
+  function conv(s){ if(!_conv && window.OpenCC){ try{_conv=OpenCC.Converter({from:'hk',to:'cn'});}catch(e){} } return _conv? _conv(s): s; }
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function applyText(el,l){
+    let t = (l==='en')? el.getAttribute('data-en') : el.getAttribute('data-zh');
+    if(t===null) return;
+    if(l==='zhs') t=conv(t);
+    if(el.classList.contains('bp') && l!=='en'){
+      const parts=t.split(/(?<=[，。？！、])/).filter(Boolean);
+      el.innerHTML=parts.map(p=>'<span class="clz">'+esc(p)+'</span>').join('');
+    } else { el.innerHTML=t; }
+  }
+  function setLang(l){
+    try{localStorage.setItem('sc_lang',l);}catch(e){}
+    document.documentElement.lang = l==='en'?'en':(l==='zhs'?'zh-Hans':'zh-Hant');
+    zhtBtn.classList.toggle('on',l==='zht');
+    zhsBtn.classList.toggle('on',l==='zhs');
+    enBtn.classList.toggle('on',l==='en');
+    document.querySelectorAll('[data-zh]').forEach(el=>applyText(el,l));
+  }
+  setLang((function(){try{return localStorage.getItem('sc_lang')||'zht';}catch(e){return 'zht';}})());
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<script>
+(function(){var n=document.querySelector('nav'),t=n&&n.querySelector('.navtoggle');if(!t)return;
+t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});
+n.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');t.setAttribute('aria-expanded','false');});});
+})();
+</script>
+<script>
+(function(){var b=document.getElementById('wxBtn'),m=document.getElementById('wxModal'),c=document.getElementById('wxClose');
+ if(!b||!m)return;
+ function op(){m.classList.add('open');} function cl(){m.classList.remove('open');}
+ b.addEventListener('click',op); if(c)c.addEventListener('click',cl);
+ m.addEventListener('click',function(e){if(e.target===m)cl();});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')cl();});
+})();
+</script>
+<script>(function(){var b=document.getElementById('backBtn');if(!b)return;var ref='';try{ref=document.referrer;}catch(e){}var same=false;try{same=ref&&new URL(ref).origin===location.origin;}catch(e){}if(window.history.length>1&&same)b.classList.add('show');})();</script>
+</body>
+</html>
