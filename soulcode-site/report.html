@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
   <link rel="apple-touch-icon" href="/assets/soulcode-icon-256.png">
 <meta name="color-scheme" content="light only">
-<title data-zh="靈魂解碼系統 · Soul Code Academy" data-en="Soul Code System · Soul Code Academy">靈魂解碼系統 · Soul Code Academy</title>
+<title data-zh="你的完整報告 · Soul Code Academy" data-en="Your Full Report · Soul Code Academy">你的完整報告 · Soul Code Academy</title>
 <meta name="description" content="輸入出生年、月、日、時間，系統即時計算你的靈魂密碼。免費、無需解讀，一次看懂你的天賦與人生課題。">
 <link rel="canonical" href="https://soulcodeglobal.com/calculator.html">
 <meta property="og:type" content="website">
@@ -37,7 +37,7 @@
   .brand .b-main{font-family:"Space Grotesk";font-weight:700;font-size:17px;color:var(--ink)}
   .brand .b-sub{font-size:12.5px;color:var(--emerald);font-weight:500;letter-spacing:.04em}
   .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s;white-space:nowrap}
   .nav-links a:hover,.nav-links a.active{color:var(--emerald)}
   .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:"Space Grotesk";font-size:13px;font-weight:500;flex-shrink:0}
   .lang button{border:0;background:transparent;padding:7px 11px;cursor:pointer;color:var(--ink-soft);font-family:inherit}
@@ -490,13 +490,23 @@ window.__buildWeb=buildWebPicker;
 
 <script>
 var $=function(id){return document.getElementById(id);};var qp=new URLSearchParams(location.search);
-var _has=qp.get('sc');var curSC=parseInt(qp.get('sc')||'9'),curAD=parseInt(qp.get('ad')||'1');var lp=qp.get('lang');if(lp){try{localStorage.setItem('sc_lang',lp);}catch(e){}curLang=lp;}
+var curSC=parseInt(qp.get('sc')||''),curAD=parseInt(qp.get('ad')||'1');var lp=qp.get('lang');if(lp){try{localStorage.setItem('sc_lang',lp);}catch(e){}curLang=lp;}
+function scMissing(){
+  var hdr=document.querySelector('header');if(hdr)hdr.style.display='';
+  var en=curLang==='en';
+  var box=document.createElement('div');
+  box.style.cssText='max-width:520px;margin:80px auto;padding:36px 28px;text-align:center;border:1px solid #d8ded9;border-radius:16px;background:#fff';
+  box.innerHTML='<h2 style="margin:0 0 12px;font-size:20px">'+(en?'We couldn\'t load your report':'讀取不到你的報告')+'</h2>'+
+    '<p style="color:#5b665f;font-size:14px;line-height:1.8;margin:0 0 22px">'+(en?'The link is missing your Soul Code details. Please recalculate — it only takes a minute.':'這條連結缺少你的靈魂密碼資料。請重新計算一次，只需一分鐘。')+'</p>'+
+    '<a href="calculator.html" style="display:inline-block;padding:12px 28px;border-radius:999px;background:#2E4A3F;color:#fff;text-decoration:none;font-size:15px">'+(en?'Recalculate →':'重新計算 →')+'</a>';
+  document.body.appendChild(box);
+}
 function paint(){if(!SCDATA[String(curSC)])return;paintHead(curSC);var rep=$('report');rep.innerHTML=renderDetail(curSC,curAD);wireFolds(rep);}
 window.__rerender=function(){paint();};
 document.addEventListener('DOMContentLoaded',function(){
   var hdr=document.querySelector('header');if(hdr)hdr.style.display='none';var fc=$('formCard');if(fc)fc.style.display='none';
-  if(!SCDATA[String(curSC)]||!ADO[String(curAD)]){curSC=9;curAD=1;}
-  
+  if(!SCDATA[String(curSC)]){scMissing();return;}
+  if(!ADO[String(curAD)])curAD=1;
   $('result').style.display='block';document.body.classList.add('result-active');
   $('imBtn').addEventListener('click',openIM);$('webBtn').addEventListener('click',openWeb);
   $('saveIco').addEventListener('click',function(){doSave(curSC);});$('shareIco').addEventListener('click',function(){doShare(curSC);});

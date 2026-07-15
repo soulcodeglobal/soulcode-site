@@ -8,8 +8,8 @@
   <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
   <link rel="apple-touch-icon" href="/assets/soulcode-icon-256.png">
 <meta name="color-scheme" content="light only">
-<title data-zh="靈魂解碼系統 · Soul Code Academy" data-en="Soul Code System · Soul Code Academy">靈魂解碼系統 · Soul Code Academy</title>
-<meta name="description" content="輸入出生年、月、日、時間，系統即時計算你的靈魂密碼。免費、無需解讀，一次看懂你的天賦與人生課題。">
+<title data-zh="免費線上公益講座 · Soul Code Academy" data-en="Free Online Webinars · Soul Code Academy">免費線上公益講座 · Soul Code Academy</title>
+<meta name="description" content="三場免費線上講座：金錢、親子、兩性關係。從出生日期裡的青少年靈魂密碼，看懂成年後不斷重複的模式從哪裡來。Zoom 直播，國語與粵語場次。">
 <link rel="canonical" href="https://soulcodeglobal.com/calculator.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="靈魂解碼系統｜免費計算 Soul Code">
@@ -37,7 +37,7 @@
   .brand .b-main{font-family:"Space Grotesk";font-weight:700;font-size:17px;color:var(--ink)}
   .brand .b-sub{font-size:12.5px;color:var(--emerald);font-weight:500;letter-spacing:.04em}
   .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s;white-space:nowrap}
   .nav-links a:hover,.nav-links a.active{color:var(--emerald)}
   .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:"Space Grotesk";font-size:13px;font-weight:500;flex-shrink:0}
   .lang button{border:0;background:transparent;padding:7px 11px;cursor:pointer;color:var(--ink-soft);font-family:inherit}
@@ -242,6 +242,19 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
 .wb-contact .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .wb-contact .row a{padding:11px 20px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
 .wb-contact .row a:hover{border-color:var(--emerald)}
+.wb-past .q,.wb-past .wb-desc{opacity:.55}
+.wb-ended{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px dashed var(--line);border-radius:12px;padding:14px 16px;flex-wrap:wrap}
+.wb-ended span{color:#8A93A0;font-size:14px;font-weight:600}
+.wb-interest{border-top:1px solid var(--line);margin-top:34px;padding-top:26px;text-align:center}
+.wb-interest h3{font-size:19px;color:var(--ink);margin:0 0 6px}
+.wb-interest p{color:#5A6B62;font-size:14px;margin:0 0 16px}
+.wb-interest .irow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:460px;margin:0 auto}
+.wb-interest input{flex:1;min-width:200px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;font-size:14px}
+.wb-interest select{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:#fff;color:var(--ink);min-width:150px}
+.wb-interest .iconsent{color:#8A93A0;font-size:11.5px;line-height:1.7;max-width:460px;margin:12px auto 0}
+.wb-interest .iconsent a{color:#8A93A0}
+.wb-interest button{padding:12px 22px;border:0;border-radius:12px;background:var(--emerald,#2E4A3F);color:#fff;font-weight:600;font-size:14px;cursor:pointer}
+.wb-interest .idone{display:none;color:#2E4A3F;font-size:14px;margin-top:12px;font-weight:600}
 @media(max-width:560px){}
 </style>
 <main class="wb-wrap">
@@ -251,6 +264,31 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
   </div>
   <div id="wbCards"></div>
   <div class="wb-note" data-zh="所有時間為香港／台北時間 (GMT+8)。報名後，Zoom 會以電郵發送你的專屬加入連結；開場前並有提醒信。" data-en="All times are Hong Kong / Taipei time (GMT+8). After you register, Zoom emails your personal join link, with a reminder before the session.">所有時間為香港／台北時間 (GMT+8)。報名後，Zoom 會以電郵發送你的專屬加入連結；開場前並有提醒信。</div>
+  <div class="wb-interest" id="wbInterest">
+    <h3 data-zh="錯過了，或者名額已滿？" data-en="Missed it, or session full?">錯過了，或者名額已滿？</h3>
+    <p data-zh="留下 email，下次開場我們第一時間通知你。" data-en="Leave your email and we'll let you know the moment the next sessions open.">留下 email，下次開場我們第一時間通知你。</p>
+    <div class="irow">
+      <input type="email" id="wiEmail" placeholder="you@email.com" autocomplete="email">
+      <select id="wiRegion">
+        <option value="" data-zh="你所在的地區" data-en="Your region">你所在的地區</option>
+        <option value="香港" data-zh="香港" data-en="Hong Kong">香港</option>
+        <option value="台灣" data-zh="台灣" data-en="Taiwan">台灣</option>
+        <option value="澳門" data-zh="澳門" data-en="Macau">澳門</option>
+        <option value="新加坡" data-zh="新加坡" data-en="Singapore">新加坡</option>
+        <option value="馬來西亞" data-zh="馬來西亞" data-en="Malaysia">馬來西亞</option>
+        <option value="澳洲" data-zh="澳洲" data-en="Australia">澳洲</option>
+        <option value="紐西蘭" data-zh="紐西蘭" data-en="New Zealand">紐西蘭</option>
+        <option value="日本" data-zh="日本" data-en="Japan">日本</option>
+        <option value="加拿大" data-zh="加拿大" data-en="Canada">加拿大</option>
+        <option value="美國" data-zh="美國" data-en="United States">美國</option>
+        <option value="英國／歐洲" data-zh="英國／歐洲" data-en="UK / Europe">英國／歐洲</option>
+        <option value="其他" data-zh="其他" data-en="Other">其他</option>
+      </select>
+      <button id="wiBtn" data-zh="通知我" data-en="Notify me">通知我</button>
+    </div>
+    <p class="iconsent" data-zh="按下即表示你同意接收 Soul Code 的開課通知及課程／活動電郵，你可隨時取消訂閱。詳見私隱政策。" data-en="By continuing, you agree to receive Soul Code class notifications and course/event emails. You can unsubscribe anytime. See our Privacy Policy.">按下即表示你同意接收 Soul Code 的開課通知及課程／活動電郵，你可隨時取消訂閱。詳見<a href="privacy.html" target="_blank">私隱政策</a>。</p>
+    <div class="idone" id="wiDone" data-zh="已登記！下次開場會第一時間通知你。" data-en="You're on the list — we'll email you when the next sessions open.">已登記！下次開場會第一時間通知你。</div>
+  </div>
   <div class="wb-contact">
     <h3 data-zh="時間撞了，或想先了解？" data-en="Times don't fit, or want to ask first?">時間撞了，或想先了解？</h3>
     <p data-zh="就算這幾場你都趕不上，也歡迎直接聯絡我們，我們會安排適合你的方式。" data-en="Even if none of these fit, reach out — we'll find a way that works for you.">就算這幾場你都趕不上，也歡迎直接聯絡我們，我們會安排適合你的方式。</p>
@@ -414,14 +452,20 @@ function buildCards(){
   var box=document.getElementById('wbCards');if(!box)return;var en=curLang==='en';
   var order=[['parenting','親子','Parenting'],['money','金錢','Money'],['relationship','兩性關係','Relationships']];
   var h='';
-  order.forEach(function(o){var w=WEBINARS[o[0]];var title=en?w.en:L(w.zh);
-    h+='<div class="wb-card"><div class="q">'+esc(title)+'</div>';
+  function isPast(dstr){var p=dstr.split('/');var end=new Date(+p[0],+p[1]-1,+p[2],23,59,59);return new Date()>end;}
+  order.forEach(function(o){var w=WEBINARS[o[0]];var title=en?w.en:L(w.zh);var past=isPast(w.date);
+    h+='<div class="wb-card'+(past?' wb-past':'')+'"><div class="q">'+esc(title)+'</div>';
     h+='<div class="meta">'+esc((en?o[2]:L(o[1]))+' · '+w.date+' · '+(en?'Online via Zoom':L('線上 Zoom'))+' · '+(en?TZ_NOTE_EN:TZ_NOTE_ZH))+'</div>';
     h+='<p class="wb-desc">'+esc(en?w.den:L(w.dzh))+'</p>';
-    h+='<div class="wb-sessions">';
-    h+='<div class="wb-sess"><div class="sinfo"><div class="wb-lang">'+(en?'Mandarin':L('國語場'))+'</div><div class="time">'+w.mt+'</div></div><a class="btn btn-primary" href="'+w.man+'" target="_blank" rel="noopener">'+(en?'Register →':L('報名 →'))+'</a></div>';
-    h+='<div class="wb-sess"><div class="sinfo"><div class="wb-lang">'+(en?'Cantonese':L('粵語場'))+'</div><div class="time">'+w.yt+'</div></div><a class="btn btn-primary" href="'+w.yue+'" target="_blank" rel="noopener">'+(en?'Register →':L('報名 →'))+'</a></div>';
-    h+='</div></div>';
+    if(past){
+      h+='<div class="wb-ended"><span>'+(en?'This session has ended':L('本場已結束'))+'</span><a class="btn btn-primary" href="#wbInterest">'+(en?'Notify me next time →':L('下次開場通知我 →'))+'</a></div>';
+    }else{
+      h+='<div class="wb-sessions">';
+      h+='<div class="wb-sess"><div class="sinfo"><div class="wb-lang">'+(en?'Mandarin':L('國語場'))+'</div><div class="time">'+w.mt+'</div></div><a class="btn btn-primary" href="'+w.man+'" target="_blank" rel="noopener">'+(en?'Register →':L('報名 →'))+'</a></div>';
+      h+='<div class="wb-sess"><div class="sinfo"><div class="wb-lang">'+(en?'Cantonese':L('粵語場'))+'</div><div class="time">'+w.yt+'</div></div><a class="btn btn-primary" href="'+w.yue+'" target="_blank" rel="noopener">'+(en?'Register →':L('報名 →'))+'</a></div>';
+      h+='</div>';
+    }
+    h+='</div>';
   });
   box.innerHTML=h;
 }
@@ -429,6 +473,19 @@ window.__buildWeb=buildCards;
 </script>
 
 
+<script>
+(function(){var b=document.getElementById('wiBtn');if(!b)return;
+b.addEventListener('click',function(){
+  var inp=document.getElementById('wiEmail');var e=inp.value.trim();
+  var sel=document.getElementById('wiRegion');var rg=sel?sel.value:'';
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){alert(curLang==='en'?'Please enter a valid email.':L('請輸入正確的 email。'));return;}
+  if(!rg){alert(curLang==='en'?'Please choose your region.':L('請選擇你所在的地區。'));return;}
+  b.disabled=true;inp.disabled=true;if(sel)sel.disabled=true;
+  document.getElementById('wiDone').style.display='block';
+  fetch('/.netlify/functions/webinar-interest',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e,region:rg,source:'webinar',language:curLang==='en'?'en':'zh'})}).catch(function(){});
+});
+})();
+</script>
 <script>
 (function(){var n=document.querySelector('nav'),t=n&&n.querySelector('.navtoggle');if(!t)return;
 t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});

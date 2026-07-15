@@ -1,41 +1,40 @@
-// netlify/functions/report-lead.js
+// netlify/functions/webinar-interest.js
 //
-// 免費版 → 詳細報告 email gate → MailerLite「深度報告 Leads」group
-// 前端 POST { email, soul_core, adolescent, language } 過嚟，
-// 寫入 soul_core / adolescent / language 三個 custom field，並加入「深度報告 Leads」group。
-// MailerLite automation（trigger = 加入呢個 group）會自動寄一封含詳細報告連結的 email：
-//   https://soulcodeglobal.com/report.html?sc={$soul_core}&ad={$adolescent}&lang={$language}
+// 開課通知（Register of Interest）→ MailerLite「課程資訊訂閱」group
+// 前端 POST { email, region, source, language } 過嚟：
+//   region  = 香港 / 台灣 / 澳門 / 新加坡 / 馬來西亞 / 澳洲 / 紐西蘭 / 日本 / 加拿大 / 美國 / 英國／歐洲 / 其他
+//   source  = webinar（講座頁）或 course（課程頁）
+// 全部落「課程資訊訂閱」group，用 region 欄做地區統計（例如 segment: region = 台灣）。
 //
 // 需要嘅 Netlify 環境變數：
-//   MAILERLITE_API_KEY       （已有）
-//   MAILERLITE_GROUP_REPORT  「深度報告 Leads」group 的 ID（新增）
+//   MAILERLITE_API_KEY      （已有）
+//   MAILERLITE_GROUP_NEWS   「課程資訊訂閱」group ID（已有：191075802309198930）
 //
-// 注意：前端即使呢個 function 失敗都會照樣轉去 report.html（即時開啟報告），
-//       所以呢度只負責入 CRM，唔阻用戶睇報告。
+// MailerLite 要開兩個 custom field（Text）：region、source
 //
-// 部署後 endpoint：https://soulcodeglobal.com/.netlify/functions/report-lead
+// 部署後 endpoint：https://soulcodeglobal.com/.netlify/functions/webinar-interest
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return resp(405, { error: "Method not allowed" });
 
   const key = process.env.MAILERLITE_API_KEY;
-  const group = process.env.MAILERLITE_GROUP_REPORT;
+  const group = process.env.MAILERLITE_GROUP_NEWS;
   if (!key) { console.error("Missing MAILERLITE_API_KEY"); return resp(500, { error: "Not configured" }); }
 
   let body;
   try { body = JSON.parse(event.body || "{}"); } catch { return resp(400, { error: "Bad JSON" }); }
 
   const email = String(body.email || "").trim().toLowerCase();
-  const soul = String(body.soul_core || "").trim();
-  const ado = String(body.adolescent || "").trim();
+  const region = String(body.region || "").trim().slice(0, 30);
+  const source = String(body.source || "").trim().slice(0, 20);
   const rawLang = String(body.language || "").trim().toLowerCase();
   const language = rawLang === "en" ? "en" : (rawLang ? "zh" : "");
 
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return resp(400, { error: "Invalid email" });
 
   const payload = { email, status: "active", fields: {} };
-  if (soul) payload.fields.soul_core = soul;
-  if (ado)  payload.fields.adolescent = ado;
+  if (region) payload.fields.region = region;
+  if (source) payload.fields.source = source;
   if (language) payload.fields.language = language;
   if (group) payload.groups = [group];
 
@@ -50,7 +49,7 @@ exports.handler = async (event) => {
       body: JSON.stringify(payload),
     });
     if (!r.ok) {
-      console.error("MailerLite report-lead error", r.status, await r.text());
+      console.error("MailerLite error", r.status, await r.text());
       return resp(502, { error: "Subscribe failed" });
     }
     return resp(200, { ok: true });
@@ -63,7 +62,7 @@ exports.handler = async (event) => {
 function resp(statusCode, obj) {
   return {
     statusCode,
-    headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(obj),
   };
 }
