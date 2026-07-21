@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>舊生專屬安排｜Soul Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6EE;
+    --green: #17563C;
+    --gold: #C9A84C;
+    --ink: #2C2C2A;
+    --muted: #6B6A64;
+    --line: #E2DCCE;
+    --card: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 72px; }
+
+  header { text-align: center; padding: 56px 0 36px; }
+  .eyebrow { font-size: 12px; letter-spacing: 6px; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-size: 30px; font-weight: 600; color: var(--green); letter-spacing: 2px; }
+  .sub { margin-top: 10px; font-size: 14px; color: var(--muted); }
+
+  .section-title {
+    display: flex; align-items: baseline; gap: 12px;
+    margin: 52px 0 18px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+  }
+  .section-title h2 { font-size: 19px; font-weight: 600; color: var(--green); letter-spacing: 1px; }
+  .section-title .tag { font-size: 12px; color: var(--muted); }
+
+  .banner {
+    background: var(--green);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 40px 0 18px;
+  }
+  .banner strong { color: var(--gold); font-weight: 500; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px;
+    display: flex; flex-direction: column;
+  }
+  .card h3 { font-size: 16px; font-weight: 600; color: var(--green); }
+  .card .meta { font-size: 12.5px; color: var(--muted); margin: 4px 0 14px; }
+  .price {
+    font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+    font-size: 30px; font-weight: 600; color: var(--green); line-height: 1.1;
+  }
+  .price .cur { font-size: 15px; font-weight: 500; margin-right: 3px; }
+  .price .per { font-size: 13px; color: var(--muted); font-family: 'Noto Serif TC', serif; font-weight: 400; }
+  .fx { font-size: 11.5px; color: #9C978A; margin-top: 3px; }
+  .worth { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+  .worth s { color: #9C978A; }
+  .save {
+    display: inline-block; margin-top: 8px;
+    background: #F3ECD9; color: #7A6320;
+    font-size: 12.5px; padding: 3px 10px; border-radius: 20px;
+  }
+  .save .fx-inline { font-size: 11px; color: #9C8A50; }
+  .card .note { font-size: 12.5px; color: var(--muted); margin: 12px 0 16px; flex: 1; }
+  .card .note strong { color: var(--green); font-weight: 500; }
+  .btn {
+    display: block; text-align: center; text-decoration: none;
+    background: var(--green); color: var(--cream);
+    border-radius: 8px; padding: 11px; font-size: 14px; letter-spacing: 2px;
+    transition: opacity .2s;
+  }
+  .btn:hover { opacity: .88; }
+  .btn.ghost { background: transparent; color: var(--green); border: 1px solid var(--green); }
+
+  .fine {
+    background: #F3EFE4;
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 13px;
+    color: #55534B;
+    margin-top: 16px;
+  }
+  .fine h4 { font-size: 13.5px; color: var(--green); font-weight: 600; margin-bottom: 6px; }
+
+  .cycle { font-size: 13px; color: var(--muted); margin: 2px 0 12px; }
+  .cycle strong { color: var(--green); font-weight: 500; }
+
+  .terms { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .terms h4 { font-size: 14px; color: var(--green); font-weight: 600; margin-bottom: 8px; }
+  .terms p { font-size: 12.5px; color: var(--muted); line-height: 1.9; }
+
+  .closed {
+    text-align: center; font-size: 14px; color: var(--muted);
+    background: #F3EFE4; border-radius: 10px; padding: 22px; margin-top: 18px;
+  }
+  footer { text-align: center; margin-top: 64px; font-size: 12px; color: #9C978A; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">SOUL CODE</div>
+    <h1>舊生專屬安排</h1>
+    <p class="sub">2026 年 8 月 1 日起價格調整・以下安排只限現有學員</p>
+  </header>
+
+  <!-- 套裝優惠（7 月 31 日截止，8 月 1 日 00:00 香港時間自動隱藏） -->
+  <div id="offerSection">
+    <div class="banner">套裝優惠　<strong>7 月 31 日截止</strong>　以舊價鎖定諮詢時數</div>
+    <div class="grid">
+      <div class="card">
+        <h3>480 分鐘套裝</h3>
+        <p class="meta">約 8 節 60 分鐘，或自由組合 60／120 分鐘</p>
+        <div class="price"><span class="cur">US$</span>1,759.50</div>
+        <p class="fx" data-usd="1759.5"></p>
+        <p class="worth">單次總值 <s>US$1,992</s> <span class="fx-w" data-usd="1992"></span></p>
+        <span class="save">節省 US$232.50 <span class="fx-inline" data-usd="232.5"></span></span>
+        <p class="note"><strong id="exp480"></strong>前使用完畢。可預約 Zoom 或實體，按實際時長扣除分鐘數。</p>
+        <a class="btn" href="https://app.acuityscheduling.com/catalog.php?owner=39649424&action=addCart&clear=1&id=2249234">立即購買</a>
+      </div>
+      <div class="card">
+        <h3>960 分鐘套裝</h3>
+        <p class="meta">約 8 節 120 分鐘，或自由組合 60／120 分鐘</p>
+        <div class="price"><span class="cur">US$</span>3,055</div>
+        <p class="fx" data-usd="3055"></p>
+        <p class="worth">單次總值 <s>US$3,984</s> <span class="fx-w" data-usd="3984"></span></p>
+        <span class="save">節省 US$929 <span class="fx-inline" data-usd="929"></span></span>
+        <p class="note"><strong id="exp960"></strong>前使用完畢。可預約 Zoom 或實體，按實際時長扣除分鐘數。</p>
+        <a class="btn" href="https://app.acuityscheduling.com/catalog.php?owner=39649424&action=addCart&clear=1&id=2249238">立即購買</a>
+      </div>
+    </div>
+    <div class="fine">
+      <h4>套裝使用方式</h4>
+      購買後系統會即時以電郵發放兌換碼。之後於任何一款舊生諮詢的預約頁面輸入兌換碼即可使用，系統會自動扣除分鐘數並顯示餘額。逾期未用分鐘作廢，恕不退款。
+    </div>
+  </div>
+  <div id="offerClosed" class="closed" style="display:none">
+    套裝優惠已於 7 月 31 日截止。以下為現行舊生安排。
+  </div>
+
+  <!-- 單次諮詢 -->
+  <div class="section-title"><h2>單次諮詢</h2><span class="tag">8 月 1 日起</span></div>
+  <div class="grid">
+    <div class="card">
+      <h3>60 分鐘・Zoom</h3>
+      <p class="meta">線上進行，預約確認後自動收到會議連結</p>
+      <div class="price"><span class="cur">US$</span>249</div>
+      <p class="fx" data-usd="249"></p>
+      <p class="note"></p>
+      <a class="btn ghost" href="https://app.acuityscheduling.com/schedule.php?owner=39649424&appointmentType=96045691">預約時間</a>
+    </div>
+    <div class="card">
+      <h3>120 分鐘・實體見面</h3>
+      <p class="meta">面對面深入傾談</p>
+      <div class="price"><span class="cur">US$</span>497</div>
+      <p class="fx" data-usd="497"></p>
+      <p class="note"></p>
+      <a class="btn ghost" href="https://app.acuityscheduling.com/schedule.php?owner=39649424&appointmentType=96045975">預約時間</a>
+    </div>
+  </div>
+  <div class="fine">
+    <h4>實體諮詢細則</h4>
+    如於餐廳或咖啡店進行，餐費由學員支付。見面地點範圍：香港以荃灣為中心來回 30 分鐘車程內；澳洲以 Macquarie Park 為中心來回 40 分鐘車程內。
+  </div>
+
+  <!-- 共修課 -->
+  <div class="section-title"><h2>共修課</h2><span class="tag">8 月 1 日起新制</span></div>
+  <div class="grid">
+    <div class="card">
+      <h3>香港・逢週三</h3>
+      <p class="meta">4 堂為一週期・連續上課</p>
+      <p class="cycle">下一期：<strong id="hkCycle">—</strong></p>
+      <div class="price"><span class="cur">US$</span>1,041<span class="per">／週期</span></div>
+      <p class="fx" data-usd="1041"></p>
+      <p class="note">直播上課，另設 30 日回放。付款截止：開課前一日。</p>
+      <a class="btn" href="https://buy.stripe.com/cNieVdcnDcdOb05a391Fe0o">報名下一期</a>
+    </div>
+    <div class="card">
+      <h3>澳洲・逢週五（隔週）</h3>
+      <p class="meta">2 堂為一週期・連續上課</p>
+      <p class="cycle">下一期：<strong id="auCycle">—</strong></p>
+      <div class="price"><span class="cur">US$</span>528<span class="per">／週期</span></div>
+      <p class="fx" data-usd="528"></p>
+      <p class="note">直播上課，另設 30 日回放。付款截止：開課前一日。</p>
+      <a class="btn" href="https://buy.stripe.com/00wdR987n0v6c491wD1Fe0p">報名下一期</a>
+    </div>
+  </div>
+
+  <!-- 條款 -->
+  <div class="terms">
+    <h4>條款</h4>
+    <p>
+      所有價格以美元（USD）結算。諮詢改期須於 24 小時前通知；臨時取消當已使用該節時長。諮詢超時 5 分鐘以上，按每 15 分鐘 US$63（<span class="fx-inline2" data-usd="63"></span>）計算，於課後 48 小時內由 admin 確認。套裝逾期未用分鐘作廢，恕不退款。預約時段：工作日 10:30–18:00、週六 10:30–13:00（以 Fiona 所在地時間為準）。共修課以週期為單位報名，週期內連續上課不可中斷；每期開課前一日為付款截止。
+    </p>
+    <p id="fxNote" style="margin-top:8px;"></p>
+  </div>
+
+  <footer>SOUL CODE ACADEMY</footer>
+</div>
+
+<script>
+(function () {
+  // ===== 匯率換算（僅供參考，實際以 USD 結算）=====
+  var RATE_HKD = 7.8;
+  var RATE_AUD = 1.55;
+  function money(n) { return n.toLocaleString('en-US', { maximumFractionDigits: 0 }); }
+  function fxText(usd) {
+    return '\u2248 HK$' + money(usd * RATE_HKD) + '\uFF0FA$' + money(usd * RATE_AUD);
+  }
+  document.querySelectorAll('[data-usd]').forEach(function (el) {
+    var usd = parseFloat(el.getAttribute('data-usd'));
+    el.textContent = (el.classList.contains('fx-w') || el.classList.contains('fx-inline') || el.classList.contains('fx-inline2'))
+      ? '(' + fxText(usd) + ')'
+      : fxText(usd);
+  });
+  document.getElementById('fxNote').textContent =
+    '\u6E2F\u5143\u53CA\u6FB3\u5143\u91D1\u984D\u6309 US$1 \u2248 HK$' + RATE_HKD + '\uFF0FA$' + RATE_AUD + ' \u63DB\u7B97\uFF0C\u50C5\u4F9B\u53C3\u8003\u3002';
+
+  // ===== 現在時間（以香港時間為基準）=====
+  function nowHKT() {
+    var now = new Date();
+    var utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    return new Date(utc + 8 * 3600000);
+  }
+  function fmt(d) { return (d.getMonth() + 1) + '\u6708' + d.getDate() + '\u65E5'; }
+
+  // ===== 套裝：2026-08-01 00:00 HKT 起自動隱藏 =====
+  var cutoff = new Date(2026, 7, 1, 0, 0, 0);
+  if (nowHKT() >= cutoff) {
+    document.getElementById('offerSection').style.display = 'none';
+    document.getElementById('offerClosed').style.display = 'block';
+  } else {
+    // 有效期：顯示「今日購買」對應嘅實際用完日期
+    var today = nowHKT(); today.setHours(0, 0, 0, 0);
+    var e480 = new Date(today.getTime() + 52 * 86400000);
+    var e960 = new Date(today.getTime() + 94 * 86400000);
+    document.getElementById('exp480').textContent = '\u65BC\u4ECA\u65E5\u8CFC\u8CB7\uFF0C\u9700\u65BC ' + fmt(e480) + ' ';
+    document.getElementById('exp960').textContent = '\u65BC\u4ECA\u65E5\u8CFC\u8CB7\uFF0C\u9700\u65BC ' + fmt(e960) + ' ';
+  }
+
+  // ===== 共修課週期：顯示下一個可報名週期 =====
+  function nextCycle(startY, startM, startD, gapDays, classes) {
+    var today = nowHKT();
+    today.setHours(0, 0, 0, 0);
+    var first = new Date(startY, startM - 1, startD);
+    while (first <= today) {
+      first = new Date(first.getTime() + gapDays * classes * 86400000);
+    }
+    var last = new Date(first.getTime() + gapDays * (classes - 1) * 86400000);
+    return fmt(first) + ' \u958B\u8AB2\uFF08\u81F3 ' + fmt(last) + '\uFF0C\u5171 ' + classes + ' \u5802\uFF09';
+  }
+  document.getElementById('hkCycle').textContent = nextCycle(2026, 8, 5, 7, 4);
+  document.getElementById('auCycle').textContent = nextCycle(2026, 8, 7, 14, 2);
+})();
+</script>
+</body>
+</html>
