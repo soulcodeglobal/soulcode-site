@@ -114,12 +114,16 @@ ul.items li.rv{transition-delay:var(--d,0s);}
 <body>
 
 <!-- ═══════════ 設定區：之後場次只改呢度 ═══════════
-  deadline  : 優惠截止（UTC）。香港 2026-07-21 00:00 = 2026-07-20T16:00:00Z
+  sessions  : 每場一個截止（UTC）。香港 00:00 = 前一日 16:00Z；分享連結帶 ?s=yue / ?s=man
   stripeFull / stripeDeposit : Stripe Payment Link（開好後貼入）
 ═══════════════════════════════════════════════ -->
 <script>
 const CONFIG = {
-  deadline: "2026-07-20T16:00:00Z",
+  /* 分場截止：連結加 ?s=yue（7/25 粵語場）或 ?s=man（7/27 國語場）；無參數時用 man（較後的死線） */
+  sessions: {
+    yue: { deadline: "2026-07-25T16:00:00Z", untilZh: "截止：香港時間 7 月 26 日 00:00" },
+    man: { deadline: "2026-07-27T16:00:00Z", untilZh: "截止：香港時間 7 月 28 日 00:00" }
+  },
   stripeFull: "https://buy.stripe.com/14AaEX73j3Hib053EL1Fe0m",
   stripeDeposit: "https://buy.stripe.com/28EeVdfzP0v6ech2AH1Fe0n",
   whatsapp: "https://wa.me/61400302808",
@@ -132,7 +136,7 @@ const CONFIG = {
   <div class="bar">
     <div class="lbl">限時優惠倒數</div>
     <div class="clock num" id="clock">--:--:--</div>
-    <div class="until">截止：香港時間 7 月 21 日 00:00</div>
+    <div class="until" id="untilTxt">截止：香港時間 7 月 28 日 00:00</div>
   </div>
 
   <div class="wrap">
@@ -175,7 +179,7 @@ const CONFIG = {
         </div>
 
         <a class="cta main" id="btnFull" href="#">立即全額支付 USD 998</a>
-        <p class="cta-note hot">今晚全額付款，額外加送「金錢天命諮詢 15 分鐘」（不公開發售）</p>
+        <p class="cta-note hot">今晚全額付款，額外加送「愛情天命諮詢 15 分鐘」（不公開發售）</p>
 
         <a class="cta sub" id="btnDeposit" href="#">先付 USD 99 訂位</a>
         <p class="cta-note">3 天內補付全額；逾期訂金不設退還</p>
@@ -202,14 +206,10 @@ const CONFIG = {
     </div>
 
     <div class="next">
-      <div class="eyebrow">下一場免費講座・7 月 25 日（星期六）</div>
-      <h2 class="serif">愛情解碼</h2>
-      <p class="q">為什麼你總是遇到同一種人？<br>用 Soul Code 看你的愛情天命。</p>
-      <div class="times">
-        🕗 國語場：香港時間 20:00–21:10<br>
-        🕤 廣東話場：香港時間 21:30–22:40
-      </div>
-      <a class="cta" href="https://soulcodeglobal.com/webinar">立即報名</a>
+      <div class="eyebrow">下一場免費講座・日期即將公布</div>
+      <h2 class="serif">事業天命場</h2>
+      <p class="q">這份工作不開心，卻不敢走？<br>用 Soul Code 看你的事業天命。</p>
+      <a class="cta" href="https://soulcodeglobal.com/webinar">留位通知我</a>
     </div>
 
     <div class="foot">Soul Code Academy 靈魂解碼學院</div>
@@ -218,7 +218,10 @@ const CONFIG = {
 
 <script>
 (function(){
-  var end = new Date(CONFIG.deadline).getTime();
+  var s = (new URLSearchParams(location.search).get('s')||'man');
+  var sess = CONFIG.sessions[s] || CONFIG.sessions.man;
+  var end = new Date(sess.deadline).getTime();
+  var u = document.getElementById('untilTxt'); if(u) u.textContent = sess.untilZh;
   var offer = document.getElementById('offer');
   var expired = document.getElementById('expired');
 
