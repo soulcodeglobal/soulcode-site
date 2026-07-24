@@ -7,9 +7,13 @@
   <url><loc>https://soulcodeglobal.com/booking.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://soulcodeglobal.com/courses.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://soulcodeglobal.com/course-foundation.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://soulcodeglobal.com/course-advanced.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://soulcodeglobal.com/cooperation.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://soulcodeglobal.com/terms.html</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://soulcodeglobal.com/webinar.html</loc></url>
   <url><loc>https://soulcodeglobal.com/privacy.html</loc></url>
+  <url>
+    <loc>https://soulcodeglobal.com/reports.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

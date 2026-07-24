@@ -303,8 +303,10 @@
   .backlink{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:6px}
   .backlink:hover{color:var(--emerald)}
   .ov-foot{text-align:center;margin-top:40px}
+  .papprox{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
 </style>
-<style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-t::after{content:" ▾";font-size:11px;color:var(--emerald,#0f9c6c)}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd.open .navdd-menu{display:block}@media(min-width:861px){.navdd:hover .navdd-menu{display:block}}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block;width:100%}.navdd-t{display:block;padding:14px 28px;border-bottom:1px solid var(--line,#e2ebe6)}.navdd-t::after{float:right}.navdd-menu{position:static;box-shadow:none;border:0;padding:0;min-width:0}.navdd-menu a{padding:12px 28px 12px 46px;border-bottom:1px solid var(--line,#e2ebe6);color:var(--ink-soft,#5A6B62)}}</style>
+<style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-t::after{content:" ▾";font-size:11px;color:var(--emerald,#0f9c6c)}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd.open .navdd-menu{display:block}@media(min-width:861px){.navdd:hover .navdd-menu{display:block}}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block;width:100%}.navdd-t{display:block;padding:14px 28px;border-bottom:1px solid var(--line,#e2ebe6)}.navdd-t::after{float:right}.navdd-menu{position:static;box-shadow:none;border:0;padding:0;min-width:0}.navdd-menu a{padding:12px 28px 12px 46px;border-bottom:1px solid var(--line,#e2ebe6);color:var(--ink-soft,#5A6B62)}}  .papprox{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+</style>
 <script>try{var _l=localStorage.getItem('sc_lang');if(_l){document.documentElement.setAttribute('lang',_l==='en'?'en':(_l==='zhs'?'zh-Hans':'zh-Hant'));}}catch(e){}</script>
 <style id="fix-css">
 h1,h2,h3,h4,.wb-hero p,.hero-lede,.wb-card .q,.gate h3,.gate p,.res-head .nm{text-wrap:balance}
@@ -314,6 +316,7 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
 .backbar a{display:none;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--emerald,#0f9c6c);text-decoration:none;cursor:pointer;background:none;border:0;padding:6px 0}
 .backbar a.show{display:inline-flex}
 .backbar a:hover{opacity:.75}
+  .papprox{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
 </style>
 </head>
 <body>
@@ -330,9 +333,10 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
       <a href="index.html" data-zh="首頁" data-en="Home">首頁</a>
       <a href="about.html" data-zh="關於我們" data-en="About Us">關於我們</a>
       <a href="calculator.html" data-zh="靈魂解碼系統" data-en="Decode Your Soul">靈魂解碼系統</a>
+      <a href="reports.html" data-zh="天命報告" data-en="Reports">天命報告</a>
       <a href="team.html" data-zh="專業團隊" data-en="Our Team">專業團隊</a>
       <a href="booking.html" data-zh="一對一諮詢" data-en="Consultations">一對一諮詢</a>
-      <div class="navdd"><a href="courses.html" class="active navdd-t" data-zh="課程" data-en="Courses">課程</a><div class="navdd-menu"><a href="courses.html" data-zh="課程總覽" data-en="All Courses">課程總覽</a><a href="course-foundation.html" data-zh="基礎工作坊" data-en="Foundation Workshop">基礎工作坊</a><a href="course-advanced.html" data-zh="進階課程" data-en="Advanced">進階課程</a><a href="webinar.html" data-zh="免費公益線上講座" data-en="Free Online Talks">免費公益線上講座</a></div></div>
+      <div class="navdd"><a href="courses.html" class="active navdd-t" data-zh="課程" data-en="Courses">課程</a><div class="navdd-menu"><a href="courses.html" data-zh="課程總覽" data-en="All Courses">課程總覽</a><a href="course-foundation.html" data-zh="基礎工作坊" data-en="Foundation Workshop">基礎工作坊</a><a href="webinar.html" data-zh="免費公益線上講座" data-en="Free Online Talks">免費公益線上講座</a></div></div>
       <a href="cooperation.html" data-zh="合作" data-en="Partner">合作</a>
     </div>
     <div class="lang">
@@ -351,16 +355,16 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
     <a class="backlink" href="courses.html"><span>←</span> <span data-zh="返回課程總覽" data-en="Back to all courses">返回課程總覽</span></a>
     <div class="eyebrow" data-zh="靈魂解碼系列 · 基礎" data-en="Soul Code Series · Foundation">靈魂解碼系列 · 基礎</div>
     <h1 class="bp" data-zh="靈魂解碼基礎工作坊" data-en="Soul Code Foundation Workshop">靈魂解碼基礎工作坊</h1>
-    <p class="hero-lede" data-zh="兩天面授、線上同步直播，學懂一套能讓你看清人生核心課題的完整系統。" data-en="Two days in person with live online streaming — learn a complete system for seeing the core lesson of your life.">兩天面授、線上同步直播，學懂一套能讓你看清人生核心課題的完整系統。</p>
+    <p class="hero-lede" data-zh="兩天面授、線上同步直播，學懂一套能計算天命、看清人生每個階段的完整系統。" data-en="Two days in person with live online streaming. Learn the full system for calculating your Calling and reading every stage of life.">兩天面授、線上同步直播，學懂一套能計算天命、看清人生每個階段的完整系統。</p>
   </div>
 </header>
 
 <section class="band" id="intro">
   <div class="wrap">
     <div class="sec-tag" data-zh="課程理念" data-en="The Idea">課程理念</div>
-    <h2 data-zh="每個問題，都指向同一個課題" data-en="Every Problem Points to One Lesson">每個問題，都指向同一個課題</h2>
-    <p class="lede" data-zh="若我們願意有意識地觀照，便會發現生活裡大大小小的問題，其實都指向同一個核心——我們這一生最重要的課題。" data-en="Look closely, and the problems in your life — big and small — trace back to one thing: the core lesson you came here to learn.">若我們願意有意識地觀照，便會發現生活裡大大小小的問題，其實都指向同一個核心——我們這一生最重要的課題。</p>
-    <p class="lede" data-zh="而當這個課題被看見、被超越，許多看似糾纏不清的問題，自然便會迎刃而解。" data-en="See it, move through it, and what once felt hopelessly tangled starts to come undone on its own.">而當這個課題被看見、被超越，許多看似糾纏不清的問題，自然便會迎刃而解。</p>
+    <h2 data-zh="每個問題，都指向你的天命" data-en="Every problem points to your Calling">每個問題，都指向你的天命</h2>
+    <p class="lede" data-zh="生活裡大大小小的問題，其實都指向同一個核心——你的天命。" data-en="Every problem in life, big or small, points to the same core — your Calling.">生活裡大大小小的問題，其實都指向同一個核心——你的天命。</p>
+    <p class="lede" data-zh="當你知道自己的天命、開始實踐它，許多看似糾纏不清的問題，自然便會迎刃而解。這個工作坊教你的，就是親手計算和解讀天命的完整系統。" data-en="Once you know your Calling and start living it, tangled problems begin to resolve on their own. This workshop teaches you the complete system for calculating and reading it yourself.">當你知道自己的天命、開始實踐它，許多看似糾纏不清的問題，自然便會迎刃而解。這個工作坊教你的，就是親手計算和解讀天命的完整系統。</p>
   </div>
 </section>
 
@@ -368,7 +372,7 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
   <div class="wrap">
     <div class="sec-tag" data-zh="你會學到什麼" data-en="What You'll Learn">你會學到什麼</div>
     <div class="bcards b3 reveal" style="margin-top:24px">
-      <div class="bcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h3 data-zh="解讀每個數字" data-en="Decode Every Number">解讀每個數字</h3><p data-zh="學懂九大靈魂原型，以及每個生日數字背後的課題與解答。" data-en="Master the nine archetypes and the lesson behind every birth number.">學懂九大靈魂原型，以及每個生日數字背後的課題與解答。</p></div>
+      <div class="bcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h3 data-zh="解讀每個數字" data-en="Decode Every Number">解讀每個數字</h3><p data-zh="學懂九大天命原型，以及每個生日數字背後的課題與解答。" data-en="Master the nine archetypes and the lesson behind every birth number.">學懂九大天命原型，以及每個生日數字背後的課題與解答。</p></div>
       <div class="bcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg></div><h3 data-zh="看懂人生每個階段" data-en="Map Every Stage">看懂人生每個階段</h3><p data-zh="從童年到晚年，每個階段各自的課題與方向。" data-en="From childhood to later years — the lesson and direction of each stage.">從童年到晚年，每個階段各自的課題與方向。</p></div>
       <div class="bcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 1 0 9 9"/></svg></div><h3 data-zh="與自己和解" data-en="Make Peace">與自己和解</h3><p data-zh="不僅是知道課題所在，更能與自己和解，找到答案。" data-en="Not just knowing your lesson — making peace, and getting answers.">不僅是知道課題所在，更能與自己和解，找到答案。</p></div>
     </div>
@@ -389,55 +393,28 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
         <div class="row"><span class="k" data-zh="日期" data-en="Date">日期</span><span>8/8–8/9</span></div>
         <div class="row"><span class="k" data-zh="時間" data-en="Time">時間</span><span>10:00–17:30</span></div>
         <div class="row"><span class="k" data-zh="場地" data-en="Venue">場地</span><span data-zh="Crazy Monkey Cafe・觀塘偉業街泛亞中心 1703 室" data-en="Crazy Monkey Cafe, Unit 1703, Pan Asia Centre, Kwun Tong">Crazy Monkey Cafe・觀塘偉業街泛亞中心 1703 室</span></div>
-        <div class="price"><span class="cur">HKD</span> 3,899</div>
-        <button class="enrollbtn" data-course="靈魂解碼基礎工作坊" data-course-en="Foundation Workshop" data-city="香港場 Hong Kong" data-price="HKD 3,899" data-stripe="found_hk" data-format="1"><span data-zh="報讀" data-en="Enroll">報讀</span> <span class="arr">→</span></button>
+        <div class="price"><span class="cur">USD</span> 528</div>
+        <div class="papprox" data-zh="約 HKD 4,120 / AUD 800" data-en="approx. HKD 4,120 / AUD 800">約 HKD 4,120 / AUD 800</div>
+        <button class="enrollbtn" data-course="靈魂解碼基礎工作坊" data-course-en="Foundation Workshop" data-city="香港場 Hong Kong" data-price="USD 528" data-stripe="found_hk" data-format="1"><span data-zh="報讀" data-en="Enroll">報讀</span> <span class="arr">→</span></button>
       </div>
       <div class="scard">
         <div class="city" data-zh="悉尼場" data-en="Sydney">悉尼場</div>
         <div class="lang-tag" data-zh="國語 · Mandarin" data-en="Mandarin">國語 · Mandarin</div>
-        <div class="row"><span class="k" data-zh="日期" data-en="Date">日期</span><span>9/5–9/6</span></div>
+        <div class="row"><span class="k" data-zh="日期" data-en="Date">日期</span><span data-zh="九月初（確定後通知）" data-en="Early Sep (TBC)">九月初（確定後通知）</span></div>
         <div class="row"><span class="k" data-zh="時間" data-en="Time">時間</span><span>10:00–17:30</span></div>
         <div class="row"><span class="k" data-zh="場地" data-en="Venue">場地</span><span class="venue-tbc" data-zh="待定" data-en="TBC">待定</span></div>
-        <div class="price"><span class="cur">AUD</span> 788</div>
-        <button class="enrollbtn" data-course="靈魂解碼基礎工作坊" data-course-en="Foundation Workshop" data-city="悉尼場 Sydney" data-price="AUD 788" data-stripe="found_syd" data-format="1"><span data-zh="報讀" data-en="Enroll">報讀</span> <span class="arr">→</span></button>
+        <div class="price"><span class="cur">USD</span> 528</div>
+        <div class="papprox" data-zh="約 HKD 4,120 / AUD 800" data-en="approx. HKD 4,120 / AUD 800">約 HKD 4,120 / AUD 800</div>
+        <button class="enrollbtn" data-course="靈魂解碼基礎工作坊" data-course-en="Foundation Workshop" data-city="悉尼場 Sydney" data-price="USD 528" data-stripe="found_syd" data-format="1"><span data-zh="報讀" data-en="Enroll">報讀</span> <span class="arr">→</span></button>
       </div>
     </div>
   </div>
-</section>
-
-<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
-
-<section id="bundle">
-  <div class="wrap">
-    <div class="bundle reveal">
-      <span class="tag" data-zh="基礎 + 進階套裝" data-en="Foundation + Advanced Bundle">基礎 + 進階套裝</span>
-      <h2 data-zh="一次過完成基礎與進階" data-en="Complete Foundation & Advanced Together">一次過完成基礎與進階</h2>
-      <p data-zh="一次過報讀基礎與進階——基礎照原價，進階即享八折，並為你保留進階名額。一次付清，簡單清晰。" data-en="Enroll in both at once — Foundation at full price, Advanced at 20% off, with your Advanced place reserved.">一次過報讀基礎與進階——基礎照原價，進階即享八折，並為你保留進階名額。一次付清，簡單清晰。</p>
-      <div class="bgrid">
-        <div class="bcard2">
-          <div class="bcity" data-zh="香港場" data-en="Hong Kong">香港場</div>
-          <div class="bd"><span data-zh="基礎班" data-en="Foundation">基礎班</span><span class="em">HKD 3,899</span></div>
-          <div class="bd"><span data-zh="進階班（八折）" data-en="Advanced (20% off)">進階班（八折）</span><span><s>HKD 6,888</s><span class="em">HKD 5,510</span></span></div>
-          <div class="bd total"><span data-zh="套裝合計" data-en="Total">套裝合計</span><span class="em">HKD 9,409</span></div>
-          <div class="bsave" data-zh="即省 HKD 1,378" data-en="Save HKD 1,378">即省 HKD 1,378</div>
-          <button class="bbtn" data-course="基礎＋進階套裝" data-course-en="Foundation+Advanced Bundle" data-city="香港場 Hong Kong" data-price="HKD 9,409" data-stripe="bundle_hk" data-format="1"><span data-zh="一次過報名" data-en="Enroll">一次過報名</span> →</button>
-        </div>
-        <div class="bcard2">
-          <div class="bcity" data-zh="悉尼場" data-en="Sydney">悉尼場</div>
-          <div class="bd"><span data-zh="基礎班" data-en="Foundation">基礎班</span><span class="em">AUD 788</span></div>
-          <div class="bd"><span data-zh="進階班（八折）" data-en="Advanced (20% off)">進階班（八折）</span><span><s>AUD 1,388</s><span class="em">AUD 1,110</span></span></div>
-          <div class="bd total"><span data-zh="套裝合計" data-en="Total">套裝合計</span><span class="em">AUD 1,898</span></div>
-          <div class="bsave" data-zh="即省 AUD 278" data-en="Save AUD 278">即省 AUD 278</div>
-          <button class="bbtn" data-course="基礎＋進階套裝" data-course-en="Foundation+Advanced Bundle" data-city="悉尼場 Sydney" data-price="AUD 1,898" data-stripe="bundle_syd" data-format="1"><span data-zh="一次過報名" data-en="Enroll">一次過報名</span> →</button>
-        </div>
-      </div>
+    <div class="note" style="margin-top:26px;text-align:center;font-size:13.5px;color:var(--ink-soft)">
+      <p data-zh="報讀前請參閱 &lt;a href=&quot;terms.html#course-terms&quot; target=&quot;_blank&quot; style=&quot;color:var(--emerald);font-weight:600&quot; data-zh=&quot;課程條款&quot; data-en=&quot;Course Terms&quot;&gt;課程條款&lt;/a&gt;&lt;span data-zh=&quot;。&quot; data-en=&quot;.&quot;&gt;。&lt;/span&gt;" data-en="Before enrolling, please read our  <a href=&quot;terms.html#course-terms&quot; target=&quot;_blank&quot; style=&quot;color:var(--emerald);font-weight:600&quot;>課程條款</a>">報讀前請參閱 <a href="terms.html#course-terms" target="_blank" style="color:var(--emerald);font-weight:600" data-zh="課程條款" data-en="Course Terms">課程條款</a><span data-zh="。" data-en=".">。</span></p>
     </div>
-    <div class="note">
-      <p data-zh="學員專屬：報讀任何課程後，預約一對一諮詢時輸入優惠碼 " data-en="Student perk: after enrolling, use code ">學員專屬：報讀任何課程後，預約一對一諮詢時輸入優惠碼 <span class="code">COURSE</span> <span data-zh="即享八折。" data-en=" for 20% off any consultation.">即享八折。</span></p>
-      <p style="margin-top:10px" data-zh="報讀前請參閱 " data-en="Before enrolling, please read our ">報讀前請參閱 <a href="terms.html#course-terms" target="_blank" data-zh="課程條款" data-en="Course Terms">課程條款</a><span data-zh="。" data-en=".">。</span></p>
-    </div>
-  </div>
-</section>
+  </section>
+
+
 
 <section id="interest">
   <div class="wrap">
@@ -452,7 +429,8 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
     #interest .iconsent{color:#8A93A0;font-size:11.5px;line-height:1.7;max-width:460px;margin:12px auto 0}
     #interest .iconsent a{color:#8A93A0}
     #interest .idone{display:none;color:#2E4A3F;font-size:14px;margin-top:12px;font-weight:600}
-    </style>
+      .papprox{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+</style>
     <div class="ci">
       <h3 data-zh="你所在的城市還沒有場次？" data-en="No session in your city yet?">你所在的城市還沒有場次？</h3>
       <p class="sub" data-zh="留下 email 和地區，你的城市開課時，我們第一時間通知你。" data-en="Leave your email and region — the moment we open a class in your city, you'll be the first to know.">留下 email 和地區，你的城市開課時，我們第一時間通知你。</p>
@@ -475,7 +453,7 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
         </select>
         <button id="ciBtn" data-zh="通知我" data-en="Notify me">通知我</button>
       </div>
-      <p class="iconsent" data-zh="按下即表示你同意接收 Soul Code 的開課通知及課程／活動電郵，你可隨時取消訂閱。詳見私隱政策。" data-en="By continuing, you agree to receive Soul Code class notifications and course/event emails. You can unsubscribe anytime. See our Privacy Policy.">按下即表示你同意接收 Soul Code 的開課通知及課程／活動電郵，你可隨時取消訂閱。詳見<a href="privacy.html" target="_blank">私隱政策</a>。</p>
+      <p class="iconsent" data-zh="按下即表示你同意接收 Soul Code 的開課通知及課程／活動電郵，你可隨時取消訂閱。詳見&lt;a href=&quot;privacy.html&quot; target=&quot;_blank&quot;&gt;私隱政策&lt;/a&gt;。" data-en="By continuing, you agree to receive Soul Code class notifications and course/event emails. You can unsubscribe anytime. See our Privacy Policy. <a href=&quot;privacy.html&quot; target=&quot;_blank&quot; style=&quot;color:var(--emerald);font-weight:600&quot;>私隱政策</a>">按下即表示你同意接收 Soul Code 的開課通知及課程／活動電郵，你可隨時取消訂閱。詳見<a href="privacy.html" target="_blank">私隱政策</a>。</p>
       <div class="idone" id="ciDone" data-zh="已登記！你的城市開課時會第一時間通知你。" data-en="You're on the list — we'll email you the moment a class opens in your city.">已登記！你的城市開課時會第一時間通知你。</div>
     </div>
   </div>
@@ -645,15 +623,9 @@ document.querySelectorAll('.bundle-jump').forEach(function(b){b.addEventListener
 /* ===== Stripe links config — EDIT HERE ===== */
 /* 基礎班：現有連結（價錢未變）。進階／bundle：開好 Stripe 連結後填入；留空＝登記興趣模式（只收資料、不付款）。 */
 var STRIPE = {
-  found_tw:  "https://buy.stripe.com/3cIaEX73j5Pq0lr4IP1Fe0a",
-  found_hk:  "https://buy.stripe.com/bJeaEX5Zf7Xyc49b7d1Fe0b",
-  found_syd: "https://buy.stripe.com/aFadR92N3b9K1pv7V11Fe0c",
-  adv_tw:  "https://buy.stripe.com/eVq3cvcnD6Tuech3EL1Fe0k",
-  adv_hk:  "https://buy.stripe.com/5kQ14n4Vb4Lm4BH0sz1Fe0j",
-  adv_syd: "https://buy.stripe.com/14AfZh5ZfcdO2tz7V11Fe0l",
-  bundle_tw:  "https://buy.stripe.com/5kQbJ1gDT1za2tz3EL1Fe0h",
-  bundle_hk:  "https://buy.stripe.com/4gMfZhfzP3Hib05ejp1Fe0g",
-  bundle_syd: "https://buy.stripe.com/eVq5kDcnD7Xy9W1a391Fe0i"
+  
+  found_hk:  "https://buy.stripe.com/9B66oH9br3Hifgl5MT1Fe0r",
+  found_syd: "https://buy.stripe.com/9B6dR973j3Hi5FL1wD1Fe0s"
 };
 
 (function(){

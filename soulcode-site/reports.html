@@ -8,13 +8,13 @@
   <link rel="icon" type="image/svg+xml" href="/assets/soulcode-icon.svg">
   <link rel="apple-touch-icon" href="/assets/soulcode-icon-256.png">
 <meta name="color-scheme" content="light only">
-<title data-zh="合作機會 · Soul Code Academy 靈魂解碼學院" data-en="Cooperation · Soul Code Academy">合作機會 · Soul Code Academy 靈魂解碼學院</title>
-<meta name="description" content="與身心靈中心、導師及企業合作——Soul Code 提供一套完整、可交付的課程體系，一起合辦，把系統帶進你的空間或團隊。">
-<link rel="canonical" href="https://soulcodeglobal.com/cooperation.html">
+<title data-zh="天命報告 · Soul Code Academy 靈魂解碼學院" data-en="Calling Reports · Soul Code Academy">天命報告 · Soul Code Academy 靈魂解碼學院</title>
+<meta name="description" content="四款天命主題報告（家庭、愛情、財富、事業）與《天命全書》——以你的出生資料計算，深入解讀你這一生注定要活出的方向。">
+<link rel="canonical" href="https://soulcodeglobal.com/reports.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="企業培訓及合作｜Soul Code 靈魂解碼學院">
-<meta property="og:description" content="與身心靈中心、導師及企業合作——Soul Code 提供一套完整、可交付的課程體系，一起合辦，把系統帶進你的空間或團隊。">
-<meta property="og:url" content="https://soulcodeglobal.com/cooperation.html">
+<meta property="og:title" content="天命報告｜Soul Code 靈魂解碼學院">
+<meta property="og:description" content="家庭、愛情、財富、事業四款天命主題報告，以及最完整的《天命全書》。以你的出生資料計算，7 天內電郵交付。">
+<meta property="og:url" content="https://soulcodeglobal.com/reports.html">
 <meta property="og:image" content="https://soulcodeglobal.com/assets/soulcode-icon-256.png">
 <meta property="og:site_name" content="Soul Code Academy 靈魂解碼學院">
 <meta name="twitter:card" content="summary">
@@ -209,8 +209,62 @@
   .corp-sec .pwrap{max-width:820px}
   .corp-sec .cs-h{text-align:center}
   @media(max-width:760px){.pgrid{grid-template-columns:1fr}}
+
+  /* reports page */
+  .rp-hero{padding:64px 0 30px;text-align:center}
+  .rp-hero h1{font-family:var(--fserif);font-weight:900;font-size:clamp(30px,4.6vw,46px);line-height:1.3;margin-bottom:18px}
+  .rp-hero p{color:var(--ink-soft);max-width:56ch;margin:0 auto;font-size:clamp(15px,1.9vw,17.5px)}
+  .rp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:860px;margin:36px auto 0;text-align:left}
+  .rp-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--rc,#059669);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;transition:transform .18s,box-shadow .2s}
+  .rp-card:hover{transform:translateY(-3px);box-shadow:0 20px 44px -26px rgba(5,150,105,.35)}
+  .rp-name{font-family:var(--fserif);font-weight:700;font-size:21px;margin-bottom:2px}
+  .rp-en{font-family:"Space Grotesk";font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+  .rp-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.8;margin-bottom:16px;flex:1}
+  .rp-price{font-family:"Space Grotesk";font-weight:700;font-size:30px;line-height:1}
+  .rp-price .cur{font-size:15px;color:var(--ink-soft);font-weight:500}
+  .rp-approx{font-size:12.5px;color:var(--ink-soft);margin:4px 0 14px}
+  .rp-meta{font-size:12.5px;color:var(--ink-soft);margin-bottom:16px}
+  .rp-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;background:var(--emerald);color:#fff;transition:transform .15s}
+  .rp-cta:hover{transform:translateY(-2px)}
+  .rp-book{max-width:860px;margin:26px auto 0;background:linear-gradient(135deg,#04231a,#0a3d2c);border-radius:22px;padding:38px 32px;color:#eafff5;text-align:left;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  .rp-book h3{font-family:var(--fserif);font-weight:900;font-size:clamp(24px,3vw,32px);margin-bottom:8px;color:#fff}
+  .rp-book p{font-size:14.5px;color:#c9e8da;max-width:52ch;line-height:1.8}
+  .rp-book .bp2{min-width:200px;text-align:center}
+  .rp-book .rp-price{color:#fff;font-size:38px}
+  .rp-book .rp-approx{color:#a8cfc0}
+  .rp-book .rp-cta{background:linear-gradient(135deg,var(--gold-soft,#e5cf8c),var(--gold,#c9a84c));color:#3a2e10}
+  .rp-next{max-width:860px;margin:40px auto 0;text-align:center;font-size:14.5px;color:var(--ink-soft)}
+  .rp-next a{color:var(--emerald);font-weight:600;text-decoration:none}
+  @media(max-width:720px){.rp-grid{grid-template-columns:1fr}.rp-book{flex-direction:column;text-align:center}.rp-book p{max-width:100%}}
 </style>
-<style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-t::after{content:" ▾";font-size:11px;color:var(--emerald,#0f9c6c)}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd.open .navdd-menu{display:block}@media(min-width:861px){.navdd:hover .navdd-menu{display:block}}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block;width:100%}.navdd-t{display:block;padding:14px 28px;border-bottom:1px solid var(--line,#e2ebe6)}.navdd-t::after{float:right}.navdd-menu{position:static;box-shadow:none;border:0;padding:0;min-width:0}.navdd-menu a{padding:12px 28px 12px 46px;border-bottom:1px solid var(--line,#e2ebe6);color:var(--ink-soft,#5A6B62)}}</style>
+<style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-t::after{content:" ▾";font-size:11px;color:var(--emerald,#0f9c6c)}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd.open .navdd-menu{display:block}@media(min-width:861px){.navdd:hover .navdd-menu{display:block}}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block;width:100%}.navdd-t{display:block;padding:14px 28px;border-bottom:1px solid var(--line,#e2ebe6)}.navdd-t::after{float:right}.navdd-menu{position:static;box-shadow:none;border:0;padding:0;min-width:0}.navdd-menu a{padding:12px 28px 12px 46px;border-bottom:1px solid var(--line,#e2ebe6);color:var(--ink-soft,#5A6B62)}}
+  /* reports page */
+  .rp-hero{padding:64px 0 30px;text-align:center}
+  .rp-hero h1{font-family:var(--fserif);font-weight:900;font-size:clamp(30px,4.6vw,46px);line-height:1.3;margin-bottom:18px}
+  .rp-hero p{color:var(--ink-soft);max-width:56ch;margin:0 auto;font-size:clamp(15px,1.9vw,17.5px)}
+  .rp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:860px;margin:36px auto 0;text-align:left}
+  .rp-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--rc,#059669);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;transition:transform .18s,box-shadow .2s}
+  .rp-card:hover{transform:translateY(-3px);box-shadow:0 20px 44px -26px rgba(5,150,105,.35)}
+  .rp-name{font-family:var(--fserif);font-weight:700;font-size:21px;margin-bottom:2px}
+  .rp-en{font-family:"Space Grotesk";font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+  .rp-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.8;margin-bottom:16px;flex:1}
+  .rp-price{font-family:"Space Grotesk";font-weight:700;font-size:30px;line-height:1}
+  .rp-price .cur{font-size:15px;color:var(--ink-soft);font-weight:500}
+  .rp-approx{font-size:12.5px;color:var(--ink-soft);margin:4px 0 14px}
+  .rp-meta{font-size:12.5px;color:var(--ink-soft);margin-bottom:16px}
+  .rp-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;background:var(--emerald);color:#fff;transition:transform .15s}
+  .rp-cta:hover{transform:translateY(-2px)}
+  .rp-book{max-width:860px;margin:26px auto 0;background:linear-gradient(135deg,#04231a,#0a3d2c);border-radius:22px;padding:38px 32px;color:#eafff5;text-align:left;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  .rp-book h3{font-family:var(--fserif);font-weight:900;font-size:clamp(24px,3vw,32px);margin-bottom:8px;color:#fff}
+  .rp-book p{font-size:14.5px;color:#c9e8da;max-width:52ch;line-height:1.8}
+  .rp-book .bp2{min-width:200px;text-align:center}
+  .rp-book .rp-price{color:#fff;font-size:38px}
+  .rp-book .rp-approx{color:#a8cfc0}
+  .rp-book .rp-cta{background:linear-gradient(135deg,var(--gold-soft,#e5cf8c),var(--gold,#c9a84c));color:#3a2e10}
+  .rp-next{max-width:860px;margin:40px auto 0;text-align:center;font-size:14.5px;color:var(--ink-soft)}
+  .rp-next a{color:var(--emerald);font-weight:600;text-decoration:none}
+  @media(max-width:720px){.rp-grid{grid-template-columns:1fr}.rp-book{flex-direction:column;text-align:center}.rp-book p{max-width:100%}}
+</style>
 <script>try{var _l=localStorage.getItem('sc_lang');if(_l){document.documentElement.setAttribute('lang',_l==='en'?'en':(_l==='zhs'?'zh-Hans':'zh-Hant'));}}catch(e){}</script>
 <style id="fix-css">
 h1,h2,h3,h4,.wb-hero p,.hero-lede,.wb-card .q,.gate h3,.gate p,.res-head .nm{text-wrap:balance}
@@ -220,6 +274,33 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
 .backbar a{display:none;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--emerald,#0f9c6c);text-decoration:none;cursor:pointer;background:none;border:0;padding:6px 0}
 .backbar a.show{display:inline-flex}
 .backbar a:hover{opacity:.75}
+
+  /* reports page */
+  .rp-hero{padding:64px 0 30px;text-align:center}
+  .rp-hero h1{font-family:var(--fserif);font-weight:900;font-size:clamp(30px,4.6vw,46px);line-height:1.3;margin-bottom:18px}
+  .rp-hero p{color:var(--ink-soft);max-width:56ch;margin:0 auto;font-size:clamp(15px,1.9vw,17.5px)}
+  .rp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:860px;margin:36px auto 0;text-align:left}
+  .rp-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--rc,#059669);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;transition:transform .18s,box-shadow .2s}
+  .rp-card:hover{transform:translateY(-3px);box-shadow:0 20px 44px -26px rgba(5,150,105,.35)}
+  .rp-name{font-family:var(--fserif);font-weight:700;font-size:21px;margin-bottom:2px}
+  .rp-en{font-family:"Space Grotesk";font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+  .rp-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.8;margin-bottom:16px;flex:1}
+  .rp-price{font-family:"Space Grotesk";font-weight:700;font-size:30px;line-height:1}
+  .rp-price .cur{font-size:15px;color:var(--ink-soft);font-weight:500}
+  .rp-approx{font-size:12.5px;color:var(--ink-soft);margin:4px 0 14px}
+  .rp-meta{font-size:12.5px;color:var(--ink-soft);margin-bottom:16px}
+  .rp-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;background:var(--emerald);color:#fff;transition:transform .15s}
+  .rp-cta:hover{transform:translateY(-2px)}
+  .rp-book{max-width:860px;margin:26px auto 0;background:linear-gradient(135deg,#04231a,#0a3d2c);border-radius:22px;padding:38px 32px;color:#eafff5;text-align:left;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  .rp-book h3{font-family:var(--fserif);font-weight:900;font-size:clamp(24px,3vw,32px);margin-bottom:8px;color:#fff}
+  .rp-book p{font-size:14.5px;color:#c9e8da;max-width:52ch;line-height:1.8}
+  .rp-book .bp2{min-width:200px;text-align:center}
+  .rp-book .rp-price{color:#fff;font-size:38px}
+  .rp-book .rp-approx{color:#a8cfc0}
+  .rp-book .rp-cta{background:linear-gradient(135deg,var(--gold-soft,#e5cf8c),var(--gold,#c9a84c));color:#3a2e10}
+  .rp-next{max-width:860px;margin:40px auto 0;text-align:center;font-size:14.5px;color:var(--ink-soft)}
+  .rp-next a{color:var(--emerald);font-weight:600;text-decoration:none}
+  @media(max-width:720px){.rp-grid{grid-template-columns:1fr}.rp-book{flex-direction:column;text-align:center}.rp-book p{max-width:100%}}
 </style>
 </head>
 <body>
@@ -237,11 +318,11 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
       <a href="index.html" data-zh="首頁" data-en="Home">首頁</a>
       <a href="about.html" data-zh="關於我們" data-en="About Us">關於我們</a>
       <a href="calculator.html" data-zh="靈魂解碼系統" data-en="Decode Your Soul">靈魂解碼系統</a>
-      <a href="reports.html" data-zh="天命報告" data-en="Reports">天命報告</a>
+      <a href="reports.html" class="active" data-zh="天命報告" data-en="Reports">天命報告</a>
       <a href="team.html" data-zh="專業團隊" data-en="Our Team">專業團隊</a>
       <a href="booking.html" data-zh="一對一諮詢" data-en="Consultations">一對一諮詢</a>
       <div class="navdd"><a href="courses.html" class="navdd-t" data-zh="課程" data-en="Courses">課程</a><div class="navdd-menu"><a href="courses.html" data-zh="課程總覽" data-en="All Courses">課程總覽</a><a href="course-foundation.html" data-zh="基礎工作坊" data-en="Foundation Workshop">基礎工作坊</a><a href="webinar.html" data-zh="免費公益線上講座" data-en="Free Online Talks">免費公益線上講座</a></div></div>
-      <a href="cooperation.html" class="active" data-zh="合作" data-en="Partner">合作</a>
+      <a href="cooperation.html" data-zh="合作" data-en="Partner">合作</a>
     </div>
     <div class="lang">
       <button id="zhtBtn" class="on" onclick="setLang('zht')">繁</button>
@@ -254,70 +335,72 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
 <div class="backbar"><a id="backBtn" onclick="history.back();return false;" href="#"><span aria-hidden="true">←</span> <span data-zh="返回" data-en="Back">返回</span></a></div>
 
 <header>
-  <div class="binary" id="binary"></div>
-  <div class="wrap">
-    <div class="eyebrow" data-zh="合作機會 · Cooperation" data-en="合作機會 · Cooperation">合作機會 · Cooperation</div>
-    <h1 data-zh="身心靈中心及導師合作" data-en="Partner With Us — Wellness Centres & Practitioners">身心靈中心及導師合作</h1>
-    <p class="hero-lede" data-zh="我們希望與身心靈中心、導師合作，把靈魂解碼系統的課程帶到你的空間——一套系統化、可重複交付的自我探索體驗。" data-en="We partner with wellness centres and practitioners to bring the Soul Code courses into your space — a structured, repeatable self-discovery experience.">我們希望與身心靈中心、導師合作，把靈魂解碼系統的課程帶到你的空間——一套系統化、可重複交付的自我探索體驗。</p>
-  </div>
 </header>
 
-<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
-
-<section>
-  <div class="pwrap">
-    <div class="pgrid">
-      <div class="pcard">
-        <h3 class="pc-h"><span class="pc-ar">▾</span> <span data-zh="系統化、交付一致" data-en="Consistent, system-based">系統化、交付一致</span></h3>
-        <p data-zh="Soul Code 的答案由系統本身推導，不依賴單一導師的詮釋——課程內容穩定、可重複交付，品質有保證。" data-en="Soul Code's answers come from the system itself, not one teacher's interpretation — so the course delivers consistently, every time.">Soul Code 的答案由系統本身推導，不依賴單一導師的詮釋——課程內容穩定、可重複交付，品質有保證。</p>
-      </div>
-      <div class="pcard">
-        <h3 class="pc-h"><span class="pc-ar">▾</span> <span data-zh="為你的空間帶來新內容" data-en="Fresh content for your space">為你的空間帶來新內容</span></h3>
-        <p data-zh="一套現成、完整的課程體系，為你的會員帶來新的體驗與話題，無需你自行開發教材。" data-en="A ready-made, complete curriculum that brings your members a new experience — no material development needed on your side.">一套現成、完整的課程體系，為你的會員帶來新的體驗與話題，無需你自行開發教材。</p>
-      </div>
-      <div class="pcard">
-        <h3 class="pc-h"><span class="pc-ar">▾</span> <span data-zh="彈性合辦模式" data-en="Flexible co-hosting">彈性合辦模式</span></h3>
-        <p data-zh="場地、分潤、排期都可以一起談——我們希望找到對雙方都長久舒服的方式。" data-en="Venue, revenue share, scheduling — all open to discuss. We want a model that works comfortably for both sides, long term.">場地、分潤、排期都可以一起談——我們希望找到對雙方都長久舒服的方式。</p>
-      </div>
-    </div>
+<section class="rp-hero" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-tag" style="justify-content:center;display:inline-flex" data-zh="天命報告 · Calling Reports" data-en="Calling Reports">天命報告 · Calling Reports</div>
+    <h1 data-zh="你的天命，在每個範疇有不同的展現" data-en="Your Calling shows up differently in every part of life">你的天命，在每個範疇有不同的展現</h1>
+    <p data-zh="四款主題報告，以你的出生資料計算，深入解讀你在該範疇注定要活出的方向——以及不順的時候，卡住你的是什麼。所有報告於付款後 7 天內以電郵交付。" data-en="Four themed reports, calculated from your birth details — the direction you were born to live in each area, and what holds you when things aren't flowing. Delivered by email within 7 days.">四款主題報告，以你的出生資料計算，深入解讀你在該範疇注定要活出的方向——以及不順的時候，卡住你的是什麼。所有報告於付款後 7 天內以電郵交付。</p>
   </div>
 </section>
 
-<div class="sep"><div class="wrap"><span class="l1"></span><span class="l2"></span><span class="node"></span></div></div>
-
-<section class="corp-sec">
-  <div class="pwrap">
-    <h2 class="cs-h" data-zh="企業合作" data-en="Corporate Partnership">企業合作</h2>
-    <div class="corp reveal">
-      <div class="corp-trio">
-        <img src="assets/coop-jeffrey.jpg" alt="Jeffrey Ip" loading="lazy">
-        <img src="assets/coop-fiona.jpg" alt="Fiona" loading="lazy">
-        
+<section style="padding:10px 0 60px">
+  <div class="wrap">
+    <div class="rp-grid reveal">
+      <div class="rp-card" style="--rc:#0F9CB0">
+        <div class="rp-name" data-zh="家庭天命報告" data-en="Family Calling Report">家庭天命報告</div>
+        <div class="rp-en">Family</div>
+        <div class="rp-desc" data-zh="你與父母、伴侶、孩子之間，注定要學會的事——為什麼總在最親近的人身上，遇到最難的功課。" data-en="What you were born to learn with parents, partner and children — and why the hardest lessons come from those closest to you.">你與父母、伴侶、孩子之間，注定要學會的事——為什麼總在最親近的人身上，遇到最難的功課。</div>
+        <div class="rp-price"><span class="cur">USD</span> 18</div>
+        <div class="rp-approx" data-zh="約 HKD 140 / AUD 27" data-en="approx. HKD 140 / AUD 27">約 HKD 140 / AUD 27</div>
+        <a class="rp-cta" href="/go/buy-family" target="_blank" rel="noopener"><span data-zh="立即購買" data-en="Buy now">立即購買</span> <span class="arr">→</span></a>
       </div>
-      <p data-zh="我們把身心靈、心理輔導與商業經驗結合成一個團隊，為企業與不同行業提供合適的課程與活動。由員工的情緒健康、團隊溝通與培訓，到面向客戶的主題講座與工作坊，我們都可以按你的對象與場合度身設計。例如為教育機構舉辦親子溝通講座、為企業安排情緒管理與團隊建立培訓、或為品牌策劃對外的體驗活動——目標都是一樣：帶來實際、貼地、令人有共鳴的內容。" data-en="We bring mind-body-spirit work, psychological coaching and real business experience together as one team, offering courses and events tailored to companies and a range of industries. From staff emotional wellbeing, team communication and training to client-facing talks and workshops, we design around your audience and occasion — a parent-child communication talk for a school, emotional-management and team-building training for a company, or an experiential event for a brand. The goal is always the same: practical, grounded content that genuinely resonates.">我們把身心靈、心理輔導與商業經驗結合成一個團隊，為企業與不同行業提供合適的課程與活動。由員工的情緒健康、團隊溝通與培訓，到面向客戶的主題講座與工作坊，我們都可以按你的對象與場合度身設計。例如為教育機構舉辦親子溝通講座、為企業安排情緒管理與團隊建立培訓、或為品牌策劃對外的體驗活動——目標都是一樣：帶來實際、貼地、令人有共鳴的內容。</p>
+      <div class="rp-card" style="--rc:#F177B2">
+        <div class="rp-name" data-zh="愛情天命報告" data-en="Love Calling Report">愛情天命報告</div>
+        <div class="rp-en">Love</div>
+        <div class="rp-desc" data-zh="你在感情裡反覆遇到的模式，和它背後真正的方向——你天生如何去愛、需要怎樣被愛。" data-en="The pattern that keeps repeating in your relationships, and the direction behind it — how you were made to love, and to be loved.">你在感情裡反覆遇到的模式，和它背後真正的方向——你天生如何去愛、需要怎樣被愛。</div>
+        <div class="rp-price"><span class="cur">USD</span> 18</div>
+        <div class="rp-approx" data-zh="約 HKD 140 / AUD 27" data-en="approx. HKD 140 / AUD 27">約 HKD 140 / AUD 27</div>
+        <a class="rp-cta" href="/go/buy-love" target="_blank" rel="noopener"><span data-zh="立即購買" data-en="Buy now">立即購買</span> <span class="arr">→</span></a>
+      </div>
+      <div class="rp-card" style="--rc:#C9A84C">
+        <div class="rp-name" data-zh="財富天命報告" data-en="Wealth Calling Report">財富天命報告</div>
+        <div class="rp-en">Wealth</div>
+        <div class="rp-desc" data-zh="你與金錢的關係，以及你的財富注定從哪裡來——為什麼努力和收入，有時候不成正比。" data-en="Your relationship with money, and where your wealth was meant to come from — why effort and income don't always match.">你與金錢的關係，以及你的財富注定從哪裡來——為什麼努力和收入，有時候不成正比。</div>
+        <div class="rp-price"><span class="cur">USD</span> 18</div>
+        <div class="rp-approx" data-zh="約 HKD 140 / AUD 27" data-en="approx. HKD 140 / AUD 27">約 HKD 140 / AUD 27</div>
+        <a class="rp-cta" href="/go/buy-wealth" target="_blank" rel="noopener"><span data-zh="立即購買" data-en="Buy now">立即購買</span> <span class="arr">→</span></a>
+      </div>
+      <div class="rp-card" style="--rc:#059669">
+        <div class="rp-name" data-zh="事業天命報告" data-en="Career Calling Report">事業天命報告</div>
+        <div class="rp-en">Career</div>
+        <div class="rp-desc" data-zh="你的天賦適合走的路，和事業一直卡住的真正原因——你這一生的工作，注定為了什麼。" data-en="The path your gifts were made for, and the real reason your career keeps stalling — what your work in this life is for.">你的天賦適合走的路，和事業一直卡住的真正原因——你這一生的工作，注定為了什麼。</div>
+        <div class="rp-price"><span class="cur">USD</span> 18</div>
+        <div class="rp-approx" data-zh="約 HKD 140 / AUD 27" data-en="approx. HKD 140 / AUD 27">約 HKD 140 / AUD 27</div>
+        <a class="rp-cta" href="/go/buy-career" target="_blank" rel="noopener"><span data-zh="立即購買" data-en="Buy now">立即購買</span> <span class="arr">→</span></a>
+      </div>
     </div>
 
-    <h2 style="margin-top:48px" data-zh="直接聯絡我們" data-en="Get in touch directly">直接聯絡我們</h2>
-    <p data-zh="揀一個你習慣的方式，直接和我們對話：" data-en="Pick whichever you prefer and message us directly:">揀一個你習慣的方式，直接和我們對話：</p>
-
-    <div class="channels">
-      <a class="chan" href="https://ig.me/m/soulcodeglobal" target="_blank" rel="noopener">
-        <span class="cn">Instagram<<small data-zh="Instagram 私訊" data-en="Instagram direct message">Instagram 私訊</small></span>
-        <span class="cgo">→</span>
-      </a>
-      <div class="chan" onclick="copyWeChat('soulcodeglobal')">
-        <span class="cn">WeChat<<small data-zh="點此複製 WeChat ID 加我們" data-en="Tap to copy our WeChat ID">點此複製 WeChat ID 加我們</small></span>
-        <span class="cgo" id="wcid">soulcodeglobal</span>
+    <div class="rp-book reveal">
+      <div>
+        <div class="sec-tag" style="color:var(--gold,#c9a84c)" data-zh="最完整 · The Book" data-en="The complete map">最完整 · The Book</div>
+        <h3 data-zh="《天命全書》" data-en="The Book of Calling">《天命全書》</h3>
+        <p data-zh="你一生的完整地圖——四大範疇天命、你的天命一句、由童年到圓滿的人生階段逐段解讀，以及你現正身處的階段。一本屬於你自己的書。" data-en="The complete map of your life — your Calling across all four areas, your life phrase, every stage from childhood to completion, and where you stand right now. A book that belongs only to you.">你一生的完整地圖——四大範疇天命、你的天命一句、由童年到圓滿的人生階段逐段解讀，以及你現正身處的階段。一本屬於你自己的書。</p>
+      </div>
+      <div class="bp2">
+        <div class="rp-price"><span class="cur">USD</span> 180</div>
+        <div class="rp-approx" data-zh="約 HKD 1,400 / AUD 275" data-en="approx. HKD 1,400 / AUD 275">約 HKD 1,400 / AUD 275</div>
+        <a class="rp-cta" href="/go/buy-book" target="_blank" rel="noopener"><span data-zh="立即購買" data-en="Buy now">立即購買</span> <span class="arr">→</span></a>
       </div>
     </div>
 
-    <div class="pemail">
-      <a href="mailto:hello@soulcodeglobal.com?subject=Soul%20Code%20合作查詢%20Cooperation%20enquiry" data-zh="或 email 我們談合作 →" data-en="Or email us about cooperating →">或 email 我們談合作 →</a>
+    <div class="rp-next reveal">
+      <p data-zh="想由一條問題直接開始？ &lt;a href=&quot;booking.html&quot; data-zh=&quot;文字諮詢 USD 68 →&quot; data-en=&quot;Written Consultation USD 68 →&quot;&gt;文字諮詢 USD 68 →&lt;/a&gt;" data-en="Prefer to start with a single question? <a href=&quot;booking.html&quot; target=&quot;_blank&quot; style=&quot;color:var(--emerald);font-weight:600&quot;>文字諮詢 USD 68 →</a>">想由一條問題直接開始？ <a href="booking.html" data-zh="文字諮詢 USD 68 →" data-en="Written Consultation USD 68 →">文字諮詢 USD 68 →</a></p>
+      <p style="margin-top:8px" data-zh="想要最完整的解讀？ &lt;a href=&quot;/go/consult&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; data-zh=&quot;預約一對一深度諮詢 →&quot; data-en=&quot;Book a Deep Dive Session →&quot;&gt;預約一對一深度諮詢 →&lt;/a&gt;" data-en="Want the fullest reading? <a href=&quot;/go/consult&quot; target=&quot;_blank&quot; style=&quot;color:var(--emerald);font-weight:600&quot;>預約一對一深度諮詢 →</a>">想要最完整的解讀？ <a href="/go/consult" target="_blank" rel="noopener" data-zh="預約一對一深度諮詢 →" data-en="Book a Deep Dive Session →">預約一對一深度諮詢 →</a></p>
     </div>
   </div>
 </section>
-
-<div class="ptoast" id="ptoast"></div>
 
 <footer>
   <div class="wrap">
