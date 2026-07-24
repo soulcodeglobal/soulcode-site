@@ -1,0 +1,33 @@
+<svg width="600" height="380" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img"><title>Soul Code 靈魂解碼學院</title>
+<defs><clipPath id="sdl"><circle cx="92" cy="90" r="41"/></clipPath></defs>
+<g transform="translate(208,28)">
+<circle cx="92" cy="90" r="81.36923076923077" fill="none" stroke="#059669" stroke-width="1.103846153846154"/>
+<circle cx="92" cy="90" r="66.86153846153846" fill="none" stroke="#059669" stroke-width="1.103846153846154"/>
+<polygon points="78.7,48.56 92.0,23.14 105.3,48.56" fill="#059669"/>
+<polygon points="105.59,48.65 131.3,35.91 127.12,64.3" fill="#059669"/>
+<polygon points="127.3,64.54 155.59,69.34 135.52,89.85" fill="#059669"/>
+<polygon points="135.52,90.15 155.59,110.66 127.3,115.46" fill="#059669"/>
+<polygon points="127.12,115.7 131.3,144.09 105.59,131.35" fill="#059669"/>
+<polygon points="105.3,131.44 92.0,156.86 78.7,131.44" fill="#059669"/>
+<polygon points="78.41,131.35 52.7,144.09 56.88,115.7" fill="#059669"/>
+<polygon points="56.7,115.46 28.41,110.66 48.48,90.15" fill="#059669"/>
+<polygon points="48.48,89.85 28.41,69.34 56.7,64.54" fill="#059669"/>
+<polygon points="56.88,64.3 52.7,35.91 78.41,48.65" fill="#059669"/>
+<text x="92.0" y="15.88" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">0</text>
+<text x="135.56" y="30.04" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">1</text>
+<text x="162.49" y="67.1" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">2</text>
+<text x="162.49" y="112.9" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">3</text>
+<text x="135.56" y="149.96" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">4</text>
+<text x="92.0" y="164.12" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">5</text>
+<text x="48.44" y="149.96" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">6</text>
+<text x="21.51" y="112.9" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">7</text>
+<text x="21.51" y="67.1" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">8</text>
+<text x="48.44" y="30.04" font-size="11.4" fill="#064e3b" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk,Noto Sans CJK TC,sans-serif" font-weight="600">9</text>
+<circle cx="92" cy="90" r="41" fill="#ffffff"/>
+<circle cx="107.1" cy="105.1" r="41" fill="#059669" opacity="0.18" clip-path="url(#sdl)"/>
+<circle cx="79.4" cy="77.4" r="10.1" fill="#059669" opacity="0.28"/>
+<circle cx="92" cy="90" r="41" fill="none" stroke="#059669" stroke-width="2.5"/>
+</g>
+<text x="300" y="300" text-anchor="middle" font-size="58" fill="#0a1a14" font-family="Noto Serif CJK TC,Georgia,serif" font-weight="500">Soul Code</text>
+<text x="300" y="346" text-anchor="middle" font-size="27" fill="#3f5249" font-family="Noto Serif CJK TC,Georgia,serif" font-weight="500" letter-spacing="2">靈魂解碼學院</text>
+</svg>

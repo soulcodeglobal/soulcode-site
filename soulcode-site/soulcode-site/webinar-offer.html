@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>今晚限定・天命所歸｜Soul Code</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F3E9;
+  --ink:#17563C;
+  --deep:#0D2B20;
+  --jade:#1A7A5E;
+  --gold:#C9A84C;
+  --red:#C22B23;
+  --red-dark:#9E1F19;
+  --tint:#EEF5F1;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Noto Sans TC",system-ui,sans-serif;background:var(--cream);color:var(--deep);line-height:1.7;-webkit-font-smoothing:antialiased;}
+.serif{font-family:"Noto Serif TC",serif;}
+.num{font-family:"Cormorant Garamond",serif;}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px 64px;}
+
+/* ── countdown bar ── */
+.bar{position:sticky;top:0;z-index:10;background:var(--red);color:#fff;text-align:center;padding:10px 12px 12px;box-shadow:0 2px 12px rgba(158,31,25,.35);}
+.bar .lbl{font-size:12px;letter-spacing:.2em;opacity:.9;}
+.bar .clock{font-family:"Cormorant Garamond",serif;font-size:40px;font-weight:700;line-height:1.05;letter-spacing:.04em;}
+.bar .until{font-size:12px;opacity:.85;}
+
+/* ── hero ── */
+.hero{text-align:center;padding:40px 0 8px;}
+.eyebrow{font-size:13px;letter-spacing:.3em;color:var(--jade);margin-bottom:14px;}
+h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:34px;line-height:1.3;color:var(--red);}
+.hero .sub{margin-top:12px;font-size:16px;color:var(--deep);}
+.hero .sub strong{color:var(--red);}
+
+/* ── card ── */
+.card{background:#fff;border:2px solid var(--red);border-radius:18px;margin-top:26px;overflow:hidden;box-shadow:0 6px 24px rgba(13,43,32,.10);}
+.card-head{background:var(--red);color:#fff;text-align:center;padding:14px 16px;}
+.card-head .name{font-family:"Noto Serif TC",serif;font-weight:700;font-size:22px;letter-spacing:.12em;}
+.card-head .tag{font-size:12px;opacity:.9;margin-top:2px;}
+.card-body{padding:22px 22px 26px;}
+.sec-lbl{font-size:13px;letter-spacing:.22em;color:var(--jade);font-weight:700;margin:4px 0 10px;}
+.sec-lbl.gift{color:var(--gold);}
+ul.items{list-style:none;}
+ul.items li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #EDE8DB;font-size:15px;}
+ul.items li:last-child{border-bottom:none;}
+ul.items .v{white-space:nowrap;color:#8a7a60;font-size:14px;}
+ul.items .star{color:var(--red);font-weight:700;}
+.divider{border:none;border-top:2px dashed var(--gold);margin:14px 0 12px;}
+
+/* ── sum row（清單合計）── */
+.sum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:2px solid var(--ink);margin-top:14px;padding-top:14px;}
+.sum .lbl2{font-size:14px;letter-spacing:.14em;font-weight:700;color:var(--ink);}
+.sum .sum-num{font-family:"Noto Serif TC",serif;font-weight:700;font-size:28px;color:var(--ink);white-space:nowrap;}
+
+/* ── price ── */
+.price{background:var(--tint);border-radius:14px;text-align:center;padding:20px 16px 22px;margin-top:18px;}
+.price .now-lbl{font-size:15px;letter-spacing:.14em;color:var(--red);font-weight:700;}
+.price .now{font-family:"Noto Serif TC",serif;font-weight:900;font-size:58px;line-height:1.15;color:var(--red);letter-spacing:.02em;margin-top:4px;}
+.price .now small{font-size:20px;vertical-align:24px;letter-spacing:.08em;font-weight:700;}
+.price .hkd{font-size:13px;color:#8a7a60;margin-top:4px;}
+
+/* ── CTA ── */
+.cta{display:block;width:100%;text-align:center;border-radius:999px;text-decoration:none;font-weight:700;padding:16px 18px;font-size:18px;margin-top:16px;transition:transform .12s ease;}
+.cta:active{transform:scale(.98);}
+.cta.main{background:var(--red);color:#fff;box-shadow:0 6px 18px rgba(194,43,35,.35);font-size:19px;}
+.cta.sub{background:#fff;color:var(--deep);border:2px solid var(--deep);}
+.cta-note{text-align:center;font-size:13px;color:#6b5f4a;margin-top:8px;}
+.cta-note.hot{color:var(--red);font-weight:500;}
+.fine{margin-top:22px;text-align:center;font-size:12px;color:#8a7a60;line-height:1.8;}
+
+/* ── expired ── */
+#expired{display:none;}
+.exp-head{text-align:center;padding:48px 0 10px;}
+.exp-head h1{color:var(--deep);font-size:28px;}
+.exp-head p{margin-top:10px;font-size:15px;color:#5c5442;}
+.contact{display:flex;gap:12px;margin-top:22px;}
+.contact .cta{margin-top:0;flex:1;font-size:16px;padding:14px 10px;}
+.cta.wa{background:var(--jade);color:#fff;}
+.cta.wx{background:#fff;color:var(--deep);border:2px solid var(--jade);}
+.next{background:#fff;border:1px solid #E2DCCB;border-radius:18px;margin-top:30px;padding:26px 22px;text-align:center;box-shadow:0 4px 18px rgba(13,43,32,.06);}
+.next .eyebrow{margin-bottom:8px;}
+.next h2{font-family:"Noto Serif TC",serif;font-weight:900;font-size:26px;color:var(--ink);}
+.next .q{margin-top:10px;font-size:15px;color:#5c5442;}
+.next .times{margin-top:16px;font-size:15px;line-height:2;}
+.next .cta{background:var(--jade);color:#fff;}
+
+.foot{text-align:center;font-size:12px;color:#a3987f;margin-top:40px;letter-spacing:.08em;}
+@media (max-width:400px){h1{font-size:29px;} .bar .clock{font-size:34px;} .price .now{font-size:50px;}}
+
+/* ── scroll reveal ── */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .45s ease, transform .45s ease;}
+.rv.on{opacity:1;transform:none;}
+ul.items li.rv{transition-delay:var(--d,0s);}
+.sec-lbl.rv, .divider.rv{transition-duration:.35s;}
+
+/* price punch：總值先出 → 今晚價彈出 */
+.sum.rv{transition-delay:.1s;}
+.price .now-lbl.rv{transition-delay:.2s;}
+.price .now.rv{transform:translateY(14px) scale(.85);transition:opacity .5s ease .35s, transform .5s cubic-bezier(.2,1.4,.4,1) .35s;}
+.price .now.rv.on{transform:none;}
+.price .hkd.rv{transition-delay:.75s;}
+
+@media (prefers-reduced-motion: reduce){
+  .rv{opacity:1 !important;transform:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ 設定區：之後場次只改呢度 ═══════════
+  sessions  : 每場一個截止（UTC）。香港 00:00 = 前一日 16:00Z；分享連結帶 ?s=yue / ?s=man
+  stripeFull / stripeDeposit : Stripe Payment Link（開好後貼入）
+═══════════════════════════════════════════════ -->
+<script>
+const CONFIG = {
+  /* 分場截止：連結加 ?s=yue（7/25 粵語場）或 ?s=man（7/27 國語場）；無參數時用 man（較後的死線） */
+  sessions: {
+    yue: { deadline: "2026-07-25T16:00:00Z", untilZh: "截止：香港時間 7 月 26 日 00:00" },
+    man: { deadline: "2026-07-27T16:00:00Z", untilZh: "截止：香港時間 7 月 28 日 00:00" }
+  },
+  stripeFull: "https://buy.stripe.com/14AaEX73j3Hib053EL1Fe0m",
+  stripeDeposit: "https://buy.stripe.com/28EeVdfzP0v6ech2AH1Fe0n",
+  whatsapp: "https://wa.me/61400302808",
+  wechatId: "soulcodeglobal"
+};
+</script>
+
+<!-- ════════ 倒數中：優惠頁 ════════ -->
+<div id="offer">
+  <div class="bar">
+    <div class="lbl">限時優惠倒數</div>
+    <div class="clock num" id="clock">--:--:--</div>
+    <div class="until" id="untilTxt">截止：香港時間 7 月 28 日 00:00</div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">SOUL CODE・今晚限定</div>
+      <h1 class="serif">「天命所歸」套裝</h1>
+      <p class="sub">七項內容，價值合計 USD 2,628<br>今晚一個價：<strong>USD 998</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="name serif">天命所歸</div>
+        <div class="tag">找到天命・開啟天命・持續實踐</div>
+      </div>
+      <div class="card-body">
+        <div class="sec-lbl rv">你將獲得</div>
+        <ul class="items">
+          <li class="rv" style="--d:.05s"><span>四份人生天命主題報告（家庭・愛情・財富・事業）</span><span class="v num">USD 72</span></li>
+          <li class="rv" style="--d:.15s"><span>60 分鐘一對一諮詢</span><span class="v num">USD 378</span></li>
+          <li class="rv" style="--d:.25s"><span>文字問題諮詢 × 3 條</span><span class="v num">USD 204</span></li>
+          <li class="rv" style="--d:.35s"><span>Soul Code L1 課程（一年內任何一場均可出席）</span><span class="v num">USD 528</span></li>
+        </ul>
+        <hr class="divider rv">
+        <div class="sec-lbl gift rv">今晚加送</div>
+        <ul class="items">
+          <li class="rv" style="--d:.1s"><span>《天命全書》——你的完整人生天命報告</span><span class="v num">USD 180</span></li>
+          <li class="rv" style="--d:.2s"><span>額外 60 分鐘諮詢（一個月內使用）</span><span class="v num">USD 378</span></li>
+          <li class="rv" style="--d:.3s"><span class="star">天命諮詢 15 分鐘（不公開發售）</span><span class="v num">USD 888</span></li>
+        </ul>
+
+        <div class="sum rv">
+          <span class="lbl2">以上價值合計</span>
+          <span class="sum-num">USD 2,628</span>
+        </div>
+
+        <div class="price">
+          <div class="now-lbl rv">今晚一個價，全部帶走</div>
+          <div class="now num rv"><small>USD</small> 998</div>
+          <div class="hkd rv">約 HK$7,780</div>
+        </div>
+
+        <a class="cta main" id="btnFull" href="#">立即全額支付 USD 998</a>
+        <p class="cta-note hot">今晚全額付款，額外加送「愛情天命諮詢 15 分鐘」（不公開發售）</p>
+
+        <a class="cta sub" id="btnDeposit" href="#">先付 USD 99 訂位</a>
+        <p class="cta-note">3 天內補付全額；逾期訂金不設退還</p>
+      </div>
+    </div>
+
+    <p class="fine">付款完成後，admin 將於 24 小時內透過 WhatsApp 與你聯絡，<br>安排報告交付與諮詢預約。</p>
+    <div class="foot">Soul Code Academy 靈魂解碼學院</div>
+  </div>
+</div>
+
+<!-- ════════ 過期後：自動切換 ════════ -->
+<div id="expired">
+  <div class="wrap">
+    <div class="exp-head">
+      <div class="eyebrow">SOUL CODE</div>
+      <h1 class="serif">本場限時優惠已結束</h1>
+      <p>想了解自己的情況，歡迎直接聯絡我們。</p>
+    </div>
+
+    <div class="contact">
+      <a class="cta wa" id="btnWa" href="#">WhatsApp 聯絡</a>
+      <a class="cta wx" id="btnWx" href="#">複製 WeChat ID</a>
+    </div>
+
+    <div class="next">
+      <div class="eyebrow">下一場免費講座・日期即將公布</div>
+      <h2 class="serif">事業天命場</h2>
+      <p class="q">這份工作不開心，卻不敢走？<br>用 Soul Code 看你的事業天命。</p>
+      <a class="cta" href="https://soulcodeglobal.com/webinar">留位通知我</a>
+    </div>
+
+    <div class="foot">Soul Code Academy 靈魂解碼學院</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var s = (new URLSearchParams(location.search).get('s')||'man');
+  var sess = CONFIG.sessions[s] || CONFIG.sessions.man;
+  var end = new Date(sess.deadline).getTime();
+  var u = document.getElementById('untilTxt'); if(u) u.textContent = sess.untilZh;
+  var offer = document.getElementById('offer');
+  var expired = document.getElementById('expired');
+
+  document.getElementById('btnFull').href = CONFIG.stripeFull;
+  document.getElementById('btnDeposit').href = CONFIG.stripeDeposit;
+  document.getElementById('btnWa').href = CONFIG.whatsapp;
+  document.getElementById('btnWx').addEventListener('click', function(e){
+    e.preventDefault();
+    var done = function(){ e.target.textContent = '已複製：' + CONFIG.wechatId; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(CONFIG.wechatId).then(done, done);
+    } else { done(); }
+  });
+
+  // scroll reveal（CTA/倒數不參與；不支援 IO 就直接全顯示）
+  var rvs = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.15 });
+    rvs.forEach(function(el){ io.observe(el); });
+  } else {
+    rvs.forEach(function(el){ el.classList.add('on'); });
+  }
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function tick(){
+    var left = end - Date.now();
+    if (left <= 0) { offer.style.display = 'none'; expired.style.display = 'block'; return; }
+    var h = Math.floor(left / 3600000);
+    var m = Math.floor(left % 3600000 / 60000);
+    var s = Math.floor(left % 60000 / 1000);
+    document.getElementById('clock').textContent = pad(h) + ' : ' + pad(m) + ' : ' + pad(s);
+    setTimeout(tick, 250);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>
