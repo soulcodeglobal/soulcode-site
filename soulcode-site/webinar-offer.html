@@ -64,6 +64,10 @@ ul.items .star{color:var(--red);font-weight:700;}
 .price .now{font-family:"Noto Serif TC",serif;font-weight:900;font-size:58px;line-height:1.15;color:var(--red);letter-spacing:.02em;margin-top:4px;}
 .price .now small{font-size:20px;vertical-align:24px;letter-spacing:.08em;font-weight:700;}
 .price .hkd{font-size:13px;color:#8a7a60;margin-top:4px;}
+.price .save{display:inline-block;margin-top:14px;background:#FDECEA;border:1.5px solid var(--red);border-radius:999px;padding:9px 20px 10px;}
+.price .save .big{font-family:"Noto Serif TC",serif;font-weight:700;font-size:17px;color:var(--red);letter-spacing:.02em;}
+.price .save .big .n{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:700;letter-spacing:.03em;}
+.price .save .alt{font-size:12.5px;color:var(--red-dark);opacity:.85;margin-top:2px;letter-spacing:.02em;}
 
 /* ── CTA ── */
 .cta{display:block;width:100%;text-align:center;border-radius:999px;text-decoration:none;font-weight:700;padding:16px 18px;font-size:18px;margin-top:16px;transition:transform .12s ease;}
@@ -74,8 +78,8 @@ ul.items .star{color:var(--red);font-weight:700;}
 .cta-note.hot{color:var(--red);font-weight:500;}
 .fine{margin-top:22px;text-align:center;font-size:12px;color:#8a7a60;line-height:1.8;}
 
-/* ── expired ── */
-#expired{display:none;}
+/* ── 三個狀態：全部預設收起，由 JS 決定顯示邊個（避免未跑 JS 前閃出優惠）── */
+#offer,#expired,#notyet{display:none;}
 .exp-head{text-align:center;padding:48px 0 10px;}
 .exp-head h1{color:var(--deep);font-size:28px;}
 .exp-head p{margin-top:10px;font-size:15px;color:#5c5442;}
@@ -105,6 +109,7 @@ ul.items li.rv{transition-delay:var(--d,0s);}
 .price .now.rv{transform:translateY(14px) scale(.85);transition:opacity .5s ease .35s, transform .5s cubic-bezier(.2,1.4,.4,1) .35s;}
 .price .now.rv.on{transform:none;}
 .price .hkd.rv{transition-delay:.75s;}
+.price .save.rv{transition-delay:.95s;}
 
 @media (prefers-reduced-motion: reduce){
   .rv{opacity:1 !important;transform:none !important;transition:none !important;}
@@ -119,15 +124,27 @@ ul.items li.rv{transition-delay:var(--d,0s);}
 ═══════════════════════════════════════════════ -->
 <script>
 const CONFIG = {
-  /* 分場截止：連結加 ?s=yue（7/25 粵語場）或 ?s=man（7/27 國語場）；無參數時用 man（較後的死線） */
+  /* 每場一條短網址（見 _redirects）：/offer-0725 /offer-0727 /offer-0731
+     start    = 優惠開放時間（通常＝講座開場）；未到就顯示「尚未開放」
+     deadline = 優惠截止（香港 00:00 ＝ 前一日 16:00Z）
+     冇 ?s= 參數＝唔顯示任何優惠，直接出聯絡頁 */
   sessions: {
-    yue: { deadline: "2026-07-25T16:00:00Z", untilZh: "截止：香港時間 7 月 26 日 00:00" },
-    man: { deadline: "2026-07-27T16:00:00Z", untilZh: "截止：香港時間 7 月 28 日 00:00" }
+    yue: { start: "2026-07-25T00:00:00Z", deadline: "2026-07-25T16:00:00Z", untilZh: "截止：香港時間 7 月 26 日 00:00" },
+    man: { start: "2026-07-27T12:00:00Z", deadline: "2026-07-27T16:00:00Z", untilZh: "截止：香港時間 7 月 28 日 00:00" },
+    car: { start: "2026-07-31T13:00:00Z", deadline: "2026-07-31T16:00:00Z", untilZh: "截止：香港時間 8 月 1 日 00:00" }
   },
   stripeFull: "https://buy.stripe.com/14AaEX73j3Hib053EL1Fe0m",
   stripeDeposit: "https://buy.stripe.com/28EeVdfzP0v6ech2AH1Fe0n",
   whatsapp: "https://wa.me/61400302808",
-  wechatId: "soulcodeglobal"
+  wechatId: "soulcodeglobal",
+  /* 過期頁下面「下一場」區塊：每次開新場改呢四行就得 */
+  next: {
+    eyebrow: "下一場免費講座 · 7/31（五）21:00 香港時間",
+    title: "事業解碼",
+    q: "換過幾份工作，累的感覺卻一模一樣？<br>用 Soul Code 計算你的事業天命。",
+    cta: "立即免費報名",
+    href: "https://us06web.zoom.us/meeting/register/VfemrGcGQTyORs7mKVcgeg"
+  }
 };
 </script>
 
@@ -176,6 +193,10 @@ const CONFIG = {
           <div class="now-lbl rv">今晚一個價，全部帶走</div>
           <div class="now num rv"><small>USD</small> 998</div>
           <div class="hkd rv">約 HK$7,780</div>
+          <div class="save rv">
+            <div class="big">節省 <span class="n">USD 1,630</span></div>
+            <div class="alt">約 HK$12,780 · AU$2,333</div>
+          </div>
         </div>
 
         <a class="cta main" id="btnFull" href="#">立即全額支付 USD 998</a>
@@ -191,13 +212,31 @@ const CONFIG = {
   </div>
 </div>
 
-<!-- ════════ 過期後：自動切換 ════════ -->
+<!-- ════════ 未到開放時間 ════════ -->
+<div id="notyet" style="display:none">
+  <div class="wrap">
+    <div class="exp-head">
+      <div class="eyebrow">SOUL CODE</div>
+      <h1 class="serif">本場優惠將於講座當晚開放</h1>
+      <p id="notyetWhen"></p>
+    </div>
+    <div class="next">
+      <div class="eyebrow" id="nyEyebrow"></div>
+      <h2 class="serif" id="nyTitle"></h2>
+      <p class="q" id="nyQ"></p>
+      <a class="cta" id="nyCta" href="#" target="_blank" rel="noopener"></a>
+    </div>
+    <div class="foot">Soul Code Academy 靈魂解碼學院</div>
+  </div>
+</div>
+
+<!-- ════════ 過期後／無場次：自動切換 ════════ -->
 <div id="expired">
   <div class="wrap">
     <div class="exp-head">
       <div class="eyebrow">SOUL CODE</div>
-      <h1 class="serif">本場限時優惠已結束</h1>
-      <p>想了解自己的情況，歡迎直接聯絡我們。</p>
+      <h1 class="serif" id="expTitle">本場限時優惠已結束</h1>
+      <p id="expSub">想了解自己的情況，歡迎直接聯絡我們。</p>
     </div>
 
     <div class="contact">
@@ -206,10 +245,10 @@ const CONFIG = {
     </div>
 
     <div class="next">
-      <div class="eyebrow">下一場免費講座・日期即將公布</div>
-      <h2 class="serif">事業天命場</h2>
-      <p class="q">這份工作不開心，卻不敢走？<br>用 Soul Code 看你的事業天命。</p>
-      <a class="cta" href="https://soulcodeglobal.com/webinar">留位通知我</a>
+      <div class="eyebrow" id="nxEyebrow"></div>
+      <h2 class="serif" id="nxTitle"></h2>
+      <p class="q" id="nxQ"></p>
+      <a class="cta" id="nxCta" href="#" target="_blank" rel="noopener"></a>
     </div>
 
     <div class="foot">Soul Code Academy 靈魂解碼學院</div>
@@ -218,17 +257,21 @@ const CONFIG = {
 
 <script>
 (function(){
-  var s = (new URLSearchParams(location.search).get('s')||'man');
-  var sess = CONFIG.sessions[s] || CONFIG.sessions.man;
-  var end = new Date(sess.deadline).getTime();
-  var u = document.getElementById('untilTxt'); if(u) u.textContent = sess.untilZh;
-  var offer = document.getElementById('offer');
-  var expired = document.getElementById('expired');
+  var $ = function(id){ return document.getElementById(id); };
+  var offer = $('offer'), expired = $('expired'), notyet = $('notyet');
 
-  document.getElementById('btnFull').href = CONFIG.stripeFull;
-  document.getElementById('btnDeposit').href = CONFIG.stripeDeposit;
-  document.getElementById('btnWa').href = CONFIG.whatsapp;
-  document.getElementById('btnWx').addEventListener('click', function(e){
+  function fill(pfx){
+    var n = CONFIG.next || {};
+    if ($(pfx+'Eyebrow')) $(pfx+'Eyebrow').innerHTML = n.eyebrow || '';
+    if ($(pfx+'Title'))   $(pfx+'Title').innerHTML   = n.title   || '';
+    if ($(pfx+'Q'))       $(pfx+'Q').innerHTML       = n.q       || '';
+    var c = $(pfx+'Cta');
+    if (c) { c.textContent = n.cta || ''; if (n.href) c.href = n.href; }
+  }
+  fill('nx'); fill('ny');
+
+  $('btnWa').href = CONFIG.whatsapp;
+  $('btnWx').addEventListener('click', function(e){
     e.preventDefault();
     var done = function(){ e.target.textContent = '已複製：' + CONFIG.wechatId; };
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -236,27 +279,73 @@ const CONFIG = {
     } else { done(); }
   });
 
-  // scroll reveal（CTA/倒數不參與；不支援 IO 就直接全顯示）
-  var rvs = document.querySelectorAll('.rv');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.15 });
-    rvs.forEach(function(el){ io.observe(el); });
-  } else {
-    rvs.forEach(function(el){ el.classList.add('on'); });
+  function showOnly(el){
+    offer.style.display  = (el === offer)  ? 'block' : 'none';
+    expired.style.display= (el === expired)? 'block' : 'none';
+    notyet.style.display = (el === notyet) ? 'block' : 'none';
+  }
+
+  /* 冇明確場次 = 冇優惠。唔會 fallback 去任何一場。 */
+  var key = (new URLSearchParams(location.search).get('s') || '').trim().toLowerCase();
+  var sess = CONFIG.sessions[key];
+  if (!sess) {
+    $('expTitle').textContent = '目前沒有進行中的優惠';
+    $('expSub').textContent   = '想了解自己的情況，歡迎直接聯絡我們。';
+    showOnly(expired);
+    return;
+  }
+
+  var startMs = new Date(sess.start).getTime();
+  var endMs   = new Date(sess.deadline).getTime();
+  var u = $('untilTxt'); if (u) u.textContent = sess.untilZh;
+
+  $('btnFull').href = CONFIG.stripeFull;
+  $('btnDeposit').href = CONFIG.stripeDeposit;
+
+  var revealed = false;
+  function reveal(){
+    if (revealed) return; revealed = true;
+    var rvs = document.querySelectorAll('.rv');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.15 });
+      rvs.forEach(function(el){ io.observe(el); });
+    } else {
+      rvs.forEach(function(el){ el.classList.add('on'); });
+    }
   }
 
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
   function tick(){
-    var left = end - Date.now();
-    if (left <= 0) { offer.style.display = 'none'; expired.style.display = 'block'; return; }
+    var now = Date.now();
+
+    if (now < startMs) {
+      var w = $('notyetWhen');
+      if (w) {
+        w.textContent = '優惠將於講座當晚開放。先報名講座，當晚就會收到連結。';
+      }
+      showOnly(notyet);
+      setTimeout(tick, 1000);
+      return;
+    }
+
+    var left = endMs - now;
+    if (left <= 0) {
+      $('expTitle').textContent = '本場限時優惠已結束';
+      showOnly(expired);
+      return;
+    }
+
+    showOnly(offer);
+    reveal();
     var h = Math.floor(left / 3600000);
     var m = Math.floor(left % 3600000 / 60000);
-    var s = Math.floor(left % 60000 / 1000);
-    document.getElementById('clock').textContent = pad(h) + ' : ' + pad(m) + ' : ' + pad(s);
+    var sec = Math.floor(left % 60000 / 1000);
+    $('clock').textContent = pad(h) + ' : ' + pad(m) + ' : ' + pad(sec);
     setTimeout(tick, 250);
   }
   tick();
