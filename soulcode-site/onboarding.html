@@ -247,6 +247,8 @@
   .ob-note{background:#f0faf5;border:1px solid #cdeede;border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--ink-soft);margin-top:22px;line-height:1.8;text-align:left}
   .ob-done{display:none;text-align:center;padding:40px 0}
   .ob-done.show{display:block}
+  .post-only{display:none}
+  body.ob-submitted .post-only{display:block}
 </style>
 <style id="navdd-css">.navdd{position:relative;display:inline-block}.navdd-t::after{content:" ▾";font-size:11px;color:var(--emerald,#0f9c6c)}.navdd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line,#e2ebe6);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.18);padding:6px;min-width:190px;display:none;z-index:200}.navdd.open .navdd-menu{display:block}@media(min-width:861px){.navdd:hover .navdd-menu{display:block}}.navdd-menu a{display:block;padding:9px 12px;border-radius:8px;white-space:nowrap;font-size:14px}.navdd-menu a:hover{background:#f2f7f4}@media(max-width:860px){.navdd{display:block;width:100%}.navdd-t{display:block;padding:14px 28px;border-bottom:1px solid var(--line,#e2ebe6)}.navdd-t::after{float:right}.navdd-menu{position:static;box-shadow:none;border:0;padding:0;min-width:0}.navdd-menu a{padding:12px 28px 12px 46px;border-bottom:1px solid var(--line,#e2ebe6);color:var(--ink-soft,#5A6B62)}}
   /* reports page */
@@ -291,6 +293,8 @@
   .ob-note{background:#f0faf5;border:1px solid #cdeede;border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--ink-soft);margin-top:22px;line-height:1.8;text-align:left}
   .ob-done{display:none;text-align:center;padding:40px 0}
   .ob-done.show{display:block}
+  .post-only{display:none}
+  body.ob-submitted .post-only{display:block}
 </style>
 <script>try{var _l=localStorage.getItem('sc_lang');if(_l){document.documentElement.setAttribute('lang',_l==='en'?'en':(_l==='zhs'?'zh-Hans':'zh-Hant'));}}catch(e){}</script>
 <style id="fix-css">
@@ -344,6 +348,8 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
   .ob-note{background:#f0faf5;border:1px solid #cdeede;border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--ink-soft);margin-top:22px;line-height:1.8;text-align:left}
   .ob-done{display:none;text-align:center;padding:40px 0}
   .ob-done.show{display:block}
+  .post-only{display:none}
+  body.ob-submitted .post-only{display:block}
 </style>
 </head>
 <body>
@@ -384,7 +390,8 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
   <div class="wrap ob-wrap">
     <div class="sec-tag" style="justify-content:center;display:inline-flex" data-zh="付款成功 · Thank You" data-en="Thank you">付款成功 · Thank You</div>
     <h1 data-zh="多謝你的信任" data-en="Thank you for your trust">多謝你的信任</h1>
-    <p data-zh="請完成以下一步，我們就會開始為你準備。<br>你的報告或文字回覆，將於 7 天內發出。" data-en="One more step and we'll begin preparing your order. Your report or written reply will be sent within 7 days.">請完成以下一步，我們就會開始為你準備。<br>你的報告或文字回覆，將於 7 天內發出。</p>
+    <p id="obLede" data-zh="請完成以下一步，我們就會開始為你準備。&#10;你的報告或文字回覆，將於 7 天內發出。" data-en="One more step and we'll begin preparing your order. Your report or written reply will be sent within 7 days." style="white-space:pre-line">請完成以下一步，我們就會開始為你準備。
+你的報告或文字回覆，將於 7 天內發出。</p>
 
     <form class="ob-form" id="obForm" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/onboarding.html?done=1">
       <input type="hidden" name="form-name" value="onboarding">
@@ -438,21 +445,22 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
       <textarea name="questions" rows="4"></textarea>
 
       <button type="submit" class="ob-submit"><span data-zh="提交資料" data-en="Submit">提交資料</span></button>
+      <div class="ob-hint" style="text-align:center;margin-top:12px" data-zh="購買了套裝計劃？同樣請先提交資料，預約連結將於 24 小時內電郵發出。" data-en="Package buyers: please submit your details too — your booking link will be emailed within 24 hours.">購買了套裝計劃？同樣請先提交資料，預約連結將於 24 小時內電郵發出。</div>
     </form>
 
     <div class="ob-done" id="obDone">
-      <h2 data-zh="已收到你的資料！" data-en="We've got your details!">已收到你的資料！</h2>
+      <h2 data-zh="已收到你的資料" data-en="Details received">已收到你的資料</h2>
       <p data-zh="我們會於 7 天內把你的報告發到你的電郵。有任何問題，隨時 WhatsApp 我們。" data-en="Your report will be emailed within 7 days. Message us on WhatsApp any time.">我們會於 7 天內把你的報告發到你的電郵。有任何問題，隨時 WhatsApp 我們。</p>
     </div>
 
-    <div class="ob-note" style="background:#fff;border-color:var(--line)">
+    <div class="ob-note post-only" style="background:#fff;border-color:var(--line)">
       <p style="font-weight:700;margin-bottom:8px" data-zh="你的下一步" data-en="Your next step">你的下一步</p>
       <p data-zh="買了主題報告？《天命全書》是你一生的完整地圖（USD 180）。已有全書？一對一深度諮詢帶你把天命連結回現實（USD 378）。想學會親手計算？看看基礎工作坊（USD 528）。" data-en="Bought a themed report? The Book of Calling is your complete map (USD 180). Already have the Book? A Deep Dive Session connects your Calling to real life (USD 378). Want to learn the system yourself? See the Foundation Workshop (USD 528).">買了主題報告？《天命全書》是你一生的完整地圖（USD 180）。已有全書？一對一深度諮詢帶你把天命連結回現實（USD 378）。想學會親手計算？看看基礎工作坊（USD 528）。</p>
       <p style="margin-top:8px"><a href="/reports.html" style="color:var(--emerald);font-weight:600" data-zh="天命報告 →" data-en="Reports →">天命報告 →</a>　<a href="/go/consult" target="_blank" rel="noopener" style="color:var(--emerald);font-weight:600" data-zh="深度諮詢 →" data-en="Deep Dive →">深度諮詢 →</a>　<a href="/course-foundation.html" style="color:var(--emerald);font-weight:600" data-zh="基礎工作坊 →" data-en="Workshop →">基礎工作坊 →</a></p>
     </div>
 
-    <div class="ob-note">
-      <p data-zh="<strong>購買了套裝計劃？</strong>你的諮詢預約連結，將於 24 小時內以電郵發出（附套裝代碼）。預約時請按你的計劃勾選相應項目：「開啟天命」計劃——直接預約即可；「天命所歸」計劃——第一節請勾選「天命諮詢」；「天命所歸（講座當晚全額）」——另一節請加勾「主題天命諮詢」。" data-en="<strong>Bought a package plan?</strong> Your booking link and package code will be emailed within 24 hours. When booking, tick the items included in your plan."><strong>購買了套裝計劃？</strong>你的諮詢預約連結，將於 24 小時內以電郵發出（附套裝代碼）。預約時請按你的計劃勾選相應項目：「開啟天命」計劃——直接預約即可；「天命所歸」計劃——第一節請勾選「天命諮詢」；「天命所歸（講座當晚全額）」——另一節請加勾「主題天命諮詢」。</p>
+    <div class="ob-note post-only">
+      <p data-zh="<strong>購買了套裝計劃？</strong>你的預約連結與套裝代碼，將於 24 小時內以電郵發出，按電郵指示預約即可。" data-en="<strong>Bought a package plan?</strong> Your booking link and package code will be emailed within 24 hours — just follow the instructions in that email."><strong>購買了套裝計劃？</strong>你的預約連結與套裝代碼，將於 24 小時內以電郵發出，按電郵指示預約即可。</p>
       <p style="margin-top:10px" data-zh="如需 3 天加急（另加 USD 38）、查詢套裝剩餘時數，或任何其他問題：<a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp 我們 →</a>" data-en="For 3-day express (USD 38 extra), package balance enquiries, or anything else: <a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp us →</a>">如需 3 天加急（另加 USD 38）、查詢套裝剩餘時數，或任何其他問題：<a href="/go/ask" target="_blank" rel="noopener" style="color:var(--emerald);font-weight:600">WhatsApp 我們 →</a></p>
     </div>
   </div>
@@ -461,8 +469,10 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
 <script>
 (function(){
   if(location.search.indexOf('done=1')>-1){
-    var f=document.getElementById('obForm'),d=document.getElementById('obDone');
+    document.body.classList.add('ob-submitted');
+    var f=document.getElementById('obForm'),d=document.getElementById('obDone'),l=document.getElementById('obLede');
     if(f)f.style.display='none'; if(d)d.classList.add('show');
+    if(l){l.setAttribute('data-zh','我們已開始為你準備。');l.setAttribute('data-en',"We've started preparing your order.");l.textContent='我們已開始為你準備。';}
     try{window.scrollTo(0,0);}catch(e){}
   }
 })();
