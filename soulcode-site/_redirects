@@ -13,3 +13,8 @@
 /go/express   https://buy.stripe.com/fZuaEXevLelWd8d5MT1Fe0z  302
 /course-advanced.html  /courses.html  301
 /course-advanced       /courses.html  301
+
+# 講座優惠短網址 — 一場一條，必須用 302（200 rewrite 會令 ?s= 傳唔到落 JS）
+/offer-0725   /webinar-offer.html?s=yue  302
+/offer-0727   /webinar-offer.html?s=man  302
+/offer-0731   /webinar-offer.html?s=car  302

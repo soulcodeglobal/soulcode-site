@@ -393,12 +393,22 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
     <p id="obLede" data-zh="請完成以下一步，我們就會開始為你準備。&#10;你的報告或文字回覆，將於 7 天內發出。" data-en="One more step and we'll begin preparing your order. Your report or written reply will be sent within 7 days." style="white-space:pre-line">請完成以下一步，我們就會開始為你準備。
 你的報告或文字回覆，將於 7 天內發出。</p>
 
+    <div id="obOrder" style="display:none;background:#fff;border:1px solid var(--line);border-left:4px solid var(--emerald);border-radius:12px;padding:16px 18px;margin:0 0 22px;text-align:left">
+      <div style="font-size:12px;letter-spacing:.18em;color:var(--emerald);font-weight:700;margin-bottom:6px" data-zh="你的訂單" data-en="Your order">你的訂單</div>
+      <div id="obOrderName" style="font-size:18px;font-weight:700;line-height:1.5"></div>
+      <div id="obOrderEta" style="font-size:13px;color:#6E6A62;margin-top:6px"></div>
+    </div>
+
     <form class="ob-form" id="obForm" name="onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/onboarding.html?done=1">
       <input type="hidden" name="form-name" value="onboarding">
+      <input type="hidden" name="purchased" id="obPurchased" value="">
+      <input type="hidden" name="source_param" id="obSource" value="">
       <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
 
-      <label data-zh="姓名" data-en="Name">姓名</label>
-      <input type="text" name="name" required>
+      <div id="obNameWrap">
+        <label data-zh="姓名" data-en="Name">姓名</label>
+        <input type="text" name="name" required>
+      </div>
 
       <label>Email</label>
       <input type="email" name="email" required>
@@ -410,10 +420,12 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
         <input type="number" name="birth_day" placeholder="日 DD" min="1" max="31" required>
       </div>
 
-      <label data-zh="出生時間 <span class='opt'>（不確定可留空）</span>" data-en="Time of birth <span class='opt'>(leave blank if unsure)</span>">出生時間 <span class="opt">（不確定可留空）</span></label>
-      <div class="ob-row2">
-        <input type="number" name="birth_hour" placeholder="時（24小時制）" min="0" max="23">
-        <input type="number" name="birth_minute" placeholder="分" min="0" max="59">
+      <div id="obTimeWrap">
+        <label data-zh="出生時間 <span class='opt'>（不確定可留空）</span>" data-en="Time of birth <span class='opt'>(leave blank if unsure)</span>">出生時間 <span class="opt">（不確定可留空）</span></label>
+        <div class="ob-row2">
+          <input type="number" name="birth_hour" placeholder="時（24小時制）" min="0" max="23">
+          <input type="number" name="birth_minute" placeholder="分" min="0" max="59">
+        </div>
       </div>
 
       <label data-zh="聯絡方式" data-en="Preferred contact">聯絡方式</label>
@@ -428,24 +440,33 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
       </div>
       <div class="ob-hint" data-zh="電話請加區號（如 +852 / +61）；WeChat／LINE 請填 ID。" data-en="Include country code for phone numbers; use your ID for WeChat/LINE.">電話請加區號（如 +852 / +61）；WeChat／LINE 請填 ID。</div>
 
-      <label data-zh="你購買的項目" data-en="What did you purchase?">你購買的項目</label>
-      <select name="purchased" required>
-        <option value="" data-zh="請選擇" data-en="Please choose">請選擇</option>
-        <option value="家庭天命報告" data-zh="家庭天命報告" data-en="Family Calling Report">家庭天命報告</option>
-        <option value="愛情天命報告" data-zh="愛情天命報告" data-en="Love Calling Report">愛情天命報告</option>
-        <option value="財富天命報告" data-zh="財富天命報告" data-en="Wealth Calling Report">財富天命報告</option>
-        <option value="事業天命報告" data-zh="事業天命報告" data-en="Career Calling Report">事業天命報告</option>
-        <option value="天命全書" data-zh="《天命全書》" data-en="The Book of Calling">《天命全書》</option>
-        <option value="文字諮詢" data-zh="文字諮詢" data-en="Written Consultation">文字諮詢</option>
-        <option value="套裝計劃" data-zh="套裝計劃（講座優惠）" data-en="Package plan">套裝計劃（講座優惠）</option>
-        <option value="其他" data-zh="其他" data-en="Other">其他</option>
-      </select>
+      <div id="obFallbackWrap" style="display:none">
+        <label data-zh="你購買的項目" data-en="What did you purchase?">你購買的項目</label>
+        <select id="obFallbackSel">
+          <option value="" data-zh="請選擇" data-en="Please choose">請選擇</option>
+          <option value="家庭天命報告" data-zh="家庭天命報告" data-en="Family Calling Report">家庭天命報告</option>
+          <option value="愛情天命報告" data-zh="愛情天命報告" data-en="Love Calling Report">愛情天命報告</option>
+          <option value="財富天命報告" data-zh="財富天命報告" data-en="Wealth Calling Report">財富天命報告</option>
+          <option value="事業天命報告" data-zh="事業天命報告" data-en="Career Calling Report">事業天命報告</option>
+          <option value="天命全書" data-zh="《天命全書》" data-en="The Book of Calling">《天命全書》</option>
+          <option value="文字諮詢" data-zh="文字諮詢" data-en="Written Consultation">文字諮詢</option>
+          <option value="其他" data-zh="其他" data-en="Other">其他</option>
+        </select>
+      </div>
 
-      <label data-zh="你最想解開的問題 <span class='opt'>（文字諮詢客必填；其他選填，最多三條）</span>" data-en="Questions on your mind <span class='opt'>(required for Written Consultation; otherwise optional)</span>">你最想解開的問題 <span class="opt">（文字諮詢客必填；其他選填，最多三條）</span></label>
-      <textarea name="questions" rows="4"></textarea>
+      <div id="obQWrap">
+        <label id="obQLabel" data-zh="你最想解開的問題 <span class='opt'>（文字諮詢客必填；其他選填，最多三條）</span>" data-en="Questions on your mind <span class='opt'>(required for Written Consultation; otherwise optional)</span>">你最想解開的問題 <span class="opt">（文字諮詢客必填；其他選填，最多三條）</span></label>
+        <textarea name="questions" rows="4"></textarea>
+      </div>
+
+      <div id="obDepositBox" style="display:none;background:#fff;border:1px solid #C22B23;border-left:4px solid #C22B23;border-radius:12px;padding:16px 18px;margin-top:20px;text-align:left">
+        <div style="font-size:12px;letter-spacing:.18em;color:#C22B23;font-weight:700;margin-bottom:6px" data-zh="補款限期" data-en="Balance due">補款限期</div>
+        <p id="obDepositTxt" style="font-size:14.5px;line-height:1.75;margin:0"></p>
+        <a id="obTopup" href="https://buy.stripe.com/fZu4gz87n1zad8db7d1Fe0A" target="_blank" rel="noopener" style="display:block;text-align:center;background:var(--emerald);color:#fff;text-decoration:none;border-radius:999px;padding:13px;font-weight:700;margin-top:14px" data-zh="前往支付餘額 USD 899" data-en="Pay the balance — USD 899">前往支付餘額 USD 899</a>
+      </div>
 
       <button type="submit" class="ob-submit"><span data-zh="提交資料" data-en="Submit">提交資料</span></button>
-      <div class="ob-hint" style="text-align:center;margin-top:12px" data-zh="購買了套裝計劃？同樣請先提交資料，預約連結將於 24 小時內電郵發出。" data-en="Package buyers: please submit your details too — your booking link will be emailed within 24 hours.">購買了套裝計劃？同樣請先提交資料，預約連結將於 24 小時內電郵發出。</div>
+      <div class="ob-hint" id="obPkgHint" style="display:none;text-align:center;margin-top:12px" data-zh="提交後，你的預約連結將於 24 小時內電郵發出。" data-en="After you submit, your booking link will be emailed within 24 hours.">提交後，你的預約連結將於 24 小時內電郵發出。</div>
     </form>
 
     <div class="ob-done" id="obDone">
@@ -453,27 +474,144 @@ p,li,.report p,.ado-hook{text-wrap:pretty}
       <p data-zh="我們會於 7 天內把你的報告發到你的電郵。有任何問題，隨時 WhatsApp 我們。" data-en="Your report will be emailed within 7 days. Message us on WhatsApp any time.">我們會於 7 天內把你的報告發到你的電郵。有任何問題，隨時 WhatsApp 我們。</p>
     </div>
 
-    <div class="ob-note post-only" style="background:#fff;border-color:var(--line)">
+    <div class="ob-note post-only" id="obNextNote" style="background:#fff;border-color:var(--line)">
       <p style="font-weight:700;margin-bottom:8px" data-zh="你的下一步" data-en="Your next step">你的下一步</p>
       <p data-zh="買了主題報告？《天命全書》是你一生的完整地圖（USD 180）。已有全書？一對一深度諮詢帶你把天命連結回現實（USD 378）。想學會親手計算？看看基礎工作坊（USD 528）。" data-en="Bought a themed report? The Book of Calling is your complete map (USD 180). Already have the Book? A Deep Dive Session connects your Calling to real life (USD 378). Want to learn the system yourself? See the Foundation Workshop (USD 528).">買了主題報告？《天命全書》是你一生的完整地圖（USD 180）。已有全書？一對一深度諮詢帶你把天命連結回現實（USD 378）。想學會親手計算？看看基礎工作坊（USD 528）。</p>
       <p style="margin-top:8px"><a href="/reports.html" style="color:var(--emerald);font-weight:600" data-zh="天命報告 →" data-en="Reports →">天命報告 →</a>　<a href="/go/consult" target="_blank" rel="noopener" style="color:var(--emerald);font-weight:600" data-zh="深度諮詢 →" data-en="Deep Dive →">深度諮詢 →</a>　<a href="/course-foundation.html" style="color:var(--emerald);font-weight:600" data-zh="基礎工作坊 →" data-en="Workshop →">基礎工作坊 →</a></p>
     </div>
 
-    <div class="ob-note post-only">
-      <p data-zh="<strong>購買了套裝計劃？</strong>你的預約連結與套裝代碼，將於 24 小時內以電郵發出，按電郵指示預約即可。" data-en="<strong>Bought a package plan?</strong> Your booking link and package code will be emailed within 24 hours — just follow the instructions in that email."><strong>購買了套裝計劃？</strong>你的預約連結與套裝代碼，將於 24 小時內以電郵發出，按電郵指示預約即可。</p>
-      <p style="margin-top:10px" data-zh="如需 3 天加急（另加 USD 38）、查詢套裝剩餘時數，或任何其他問題：<a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp 我們 →</a>" data-en="For 3-day express (USD 38 extra), package balance enquiries, or anything else: <a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp us →</a>">如需 3 天加急（另加 USD 38）、查詢套裝剩餘時數，或任何其他問題：<a href="/go/ask" target="_blank" rel="noopener" style="color:var(--emerald);font-weight:600">WhatsApp 我們 →</a></p>
+    <div class="ob-note post-only" id="obPkgNote" style="display:none">
+      <p data-zh="你的預約連結與套裝代碼，將於 24 小時內以電郵發出，按電郵指示預約即可。" data-en="Your booking link and package code will be emailed within 24 hours — just follow the instructions in that email.">你的預約連結與套裝代碼，將於 24 小時內以電郵發出，按電郵指示預約即可。</p>
+      <p style="margin-top:10px" data-zh="查詢套裝剩餘時數，或任何其他問題：<a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp 我們 →</a>" data-en="For package balance enquiries or anything else: <a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp us →</a>">查詢套裝剩餘時數，或任何其他問題：<a href="/go/ask" target="_blank" rel="noopener" style="color:var(--emerald);font-weight:600">WhatsApp 我們 →</a></p>
+    </div>
+
+    <div class="ob-note post-only" id="obAskNote">
+      <p data-zh="如需 3 天加急（另加 USD 38），或任何其他問題：<a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp 我們 →</a>" data-en="For 3-day express (USD 38 extra) or anything else: <a href='/go/ask' target='_blank' rel='noopener' style='color:var(--emerald);font-weight:600'>WhatsApp us →</a>">如需 3 天加急（另加 USD 38），或任何其他問題：<a href="/go/ask" target="_blank" rel="noopener" style="color:var(--emerald);font-weight:600">WhatsApp 我們 →</a></p>
     </div>
   </div>
 </section>
 
 <script>
 (function(){
-  if(location.search.indexOf('done=1')>-1){
+  'use strict';
+
+  /* ═══════════ 設定區 ═══════════
+     PRODUCTS：Stripe 每條 Payment Link 的 redirect 後面加 ?p=<key>
+     mode：standard｜question（多問題欄）｜package（多問題欄＋套裝說明）｜deposit（簡化版）
+     訂金補款期＝客人到達當日 +3 天，自動計算，不用逐場改
+  ═══════════════════════════════ */
+  var DEPOSIT_DAYS = 3;
+
+  var PRODUCTS = {
+    family:   {zh:'家庭天命報告 USD 18',    en:'Family Calling Report — USD 18',   mode:'standard', etaZh:'交付時間：7 天內', etaEn:'Delivered within 7 days'},
+    love:     {zh:'愛情天命報告 USD 18',    en:'Love Calling Report — USD 18',     mode:'standard', etaZh:'交付時間：7 天內', etaEn:'Delivered within 7 days'},
+    wealth:   {zh:'財富天命報告 USD 18',    en:'Wealth Calling Report — USD 18',   mode:'standard', etaZh:'交付時間：7 天內', etaEn:'Delivered within 7 days'},
+    career:   {zh:'事業天命報告 USD 18',    en:'Career Calling Report — USD 18',   mode:'standard', etaZh:'交付時間：7 天內', etaEn:'Delivered within 7 days'},
+    lifebook: {zh:'《天命全書》USD 180',    en:'The Book of Calling — USD 180',    mode:'standard', etaZh:'交付時間：7 天內', etaEn:'Delivered within 7 days'},
+    ask:      {zh:'文字問題諮詢 USD 68',    en:'Written Consultation — USD 68',    mode:'question', etaZh:'回覆時間：7 天內', etaEn:'Reply within 7 days'},
+    p2:       {zh:'開啟天命 USD 518',       en:'Opening Your Calling — USD 518',   mode:'package',  etaZh:'預約連結將於 24 小時內電郵發出', etaEn:'Booking link emailed within 24 hours'},
+    p3:       {zh:'天命所歸 USD 998',       en:'Answering Your Calling — USD 998', mode:'package',  etaZh:'預約連結將於 24 小時內電郵發出', etaEn:'Booking link emailed within 24 hours'},
+    p3full:   {zh:'天命所歸・餘額 USD 899', en:'Answering Your Calling — balance USD 899', mode:'package', etaZh:'預約連結將於 24 小時內電郵發出', etaEn:'Booking link emailed within 24 hours'},
+    deposit:  {zh:'天命所歸・訂金 USD 99',  en:'Answering Your Calling — deposit USD 99', mode:'deposit', etaZh:'', etaEn:''}
+  };
+
+  /* ═══════════ 以下不用改 ═══════════ */
+
+  var $ = function(id){ return document.getElementById(id); };
+  var qs;
+  try { qs = new URLSearchParams(location.search); } catch(e){ qs = null; }
+  var get = function(k){ return qs ? (qs.get(k)||'') : ''; };
+
+  var key   = get('p').trim().toLowerCase();
+  var known = Object.prototype.hasOwnProperty.call(PRODUCTS, key);
+  var prod  = known ? PRODUCTS[key] : null;
+  var mode  = prod ? prod.mode : 'standard';
+  var done  = get('done') === '1';
+
+  function setBi(el, zh, en){
+    if(!el) return;
+    el.setAttribute('data-zh', zh);
+    el.setAttribute('data-en', en);
+    el.innerHTML = zh;
+  }
+  function show(el, on){ if(el) el.style.display = on ? '' : 'none'; }
+
+  /* ── 訂單橫幅 ── */
+  if (prod) {
+    show($('obOrder'), true);
+    setBi($('obOrderName'), prod.zh, prod.en);
+    if (prod.etaZh) { setBi($('obOrderEta'), prod.etaZh, prod.etaEn); }
+    else { show($('obOrderEta'), false); }
+  } else {
+    show($('obFallbackWrap'), true);
+    var sel = $('obFallbackSel');
+    if (sel) {
+      sel.setAttribute('required','');
+      sel.addEventListener('change', function(){ $('obPurchased').value = sel.value; });
+    }
+  }
+
+  /* ── hidden 欄位：email 上一眼看到是哪張單 ── */
+  $('obPurchased').value = prod ? (prod.zh + '（' + key + '）') : '';
+  $('obSource').value    = key || '(none)';
+
+  /* ── 按模式顯示欄位 ── */
+  var isDeposit = (mode === 'deposit');
+  show($('obNameWrap'), !isDeposit);
+  show($('obTimeWrap'), !isDeposit);
+  show($('obQWrap'),    mode === 'question' || mode === 'package');
+  show($('obDepositBox'), isDeposit);
+  show($('obPkgHint'),  mode === 'package');
+
+  /* 隱藏欄位一律拆走 required，否則表單會被看不見的欄位擋住 */
+  function syncRequired(){
+    document.querySelectorAll('#obForm input, #obForm select, #obForm textarea').forEach(function(el){
+      var wrap = el.closest('#obNameWrap, #obTimeWrap, #obQWrap, #obFallbackWrap');
+      if (wrap && wrap.style.display === 'none') { el.removeAttribute('required'); }
+    });
+    if (mode === 'question') {
+      var ta = document.querySelector('#obQWrap textarea');
+      if (ta) ta.setAttribute('required','');
+    }
+  }
+  syncRequired();
+
+  /* ── 訂金版文案 ── */
+  if (isDeposit) {
+    var d = new Date(); d.setDate(d.getDate() + DEPOSIT_DAYS);
+    var zhDate = d.getFullYear() + ' 年 ' + (d.getMonth()+1) + ' 月 ' + d.getDate() + ' 日';
+    var enDate = d.toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
+    setBi($('obDepositTxt'),
+      '你已支付訂金 <strong>USD 99</strong>。請於 <strong>' + zhDate + '</strong> 或之前補付餘額 <strong>USD 899</strong>，名額才會正式保留；逾期訂金不設退還。',
+      'Your <strong>USD 99</strong> deposit is received. Please pay the <strong>USD 899</strong> balance on or before <strong>' + enDate + '</strong> to hold your place. Deposits are non-refundable after that date.');
+    setBi($('obLede'),
+      '請留下聯絡方式與出生日期，我們會先為你保留名額。',
+      'Leave your contact and date of birth and we\'ll hold your place.');
+  }
+
+  /* ── 提交時把 ?p= 帶落 done 頁，否則下面的區塊會失準 ── */
+  var form = $('obForm');
+  if (form && key) { form.setAttribute('action', '/onboarding.html?done=1&p=' + encodeURIComponent(key)); }
+
+  /* ── 提交後區塊：只有套裝客見到套裝說明 ── */
+  show($('obPkgNote'), mode === 'package');
+  show($('obAskNote'), mode !== 'package');
+  if (isDeposit) { show($('obNextNote'), false); }
+
+  /* ── 已提交狀態 ── */
+  if (done) {
     document.body.classList.add('ob-submitted');
-    var f=document.getElementById('obForm'),d=document.getElementById('obDone'),l=document.getElementById('obLede');
-    if(f)f.style.display='none'; if(d)d.classList.add('show');
-    if(l){l.setAttribute('data-zh','我們已開始為你準備。');l.setAttribute('data-en',"We've started preparing your order.");l.textContent='我們已開始為你準備。';}
-    try{window.scrollTo(0,0);}catch(e){}
+    show(form, false);
+    show($('obOrder'), false);
+    show($('obDone'), true);
+    var dn = $('obDone'); if (dn) dn.classList.add('show');
+    if (isDeposit && dn && dn.querySelector('p')) {
+      setBi(dn.querySelector('p'),
+        '名額已為你保留。請記得在限期前補付餘額，我們收到後會電郵通知你下一步。',
+        'Your place is held. Please pay the balance before the deadline — we\'ll email you the next step once it arrives.');
+    }
+    setBi($('obLede'), '我們已開始為你準備。', 'We\'ve started preparing your order.');
+    try{ window.scrollTo(0,0); }catch(e){}
   }
 })();
 </script>
