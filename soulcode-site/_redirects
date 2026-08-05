@@ -1,0 +1,27 @@
+# Soul Code 中間層轉址 — 改落點只需改呢度
+/go/ask       https://wa.me/61433098338  302
+/go/jeffrey   https://wa.me/61433098338?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%9C%A8%20Soul%20Code%20%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%20Jeffrey%20%E8%AB%AE%E8%A9%A2%EF%BC%8C%E6%83%B3%E4%BA%86%E8%A7%A3%E8%A9%B3%E6%83%85%E3%80%82  302
+/go/unlock    https://wa.me/61433098338?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A3%9C%E5%85%85%E5%87%BA%E7%94%9F%E6%99%82%E5%88%86%E8%A7%A3%E9%8E%96%E5%A0%B1%E5%91%8A  302
+/go/consult   https://app.acuityscheduling.com/schedule.php?owner=39649424&appointmentType=94804037  302
+/go/webinar   /webinar.html  302
+
+# 已下架產品舊連結 → 首頁
+/go/buy-family  /  302
+/go/buy-love    /  302
+/go/buy-wealth  /  302
+/go/buy-career  /  302
+/go/buy-book    /  302
+/go/buy-ask     /  302
+/go/express     /  302
+
+# 已移除頁面
+/reports.html      /calculator.html  301
+/thank-you.html    /  301
+/onboarding.html   /  301
+/course-advanced.html  /courses.html  301
+/course-advanced       /courses.html  301
+
+# 講座優惠短網址 — 一場一條，必須用 302（200 rewrite 會令 ?s= 傳唔到落 JS）
+/offer-0725   /webinar-offer.html?s=yue  302
+/offer-0727   /webinar-offer.html?s=man  302
+/offer-0731   /webinar-offer.html?s=car  302
