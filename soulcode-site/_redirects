@@ -14,6 +14,10 @@
 /go/buy-ask     /  302
 /go/express     /  302
 
+# 舊生頁改址
+/soulwarriorsstudent.html  /oldstudent  301
+/soulwarriorsstudent       /oldstudent  301
+
 # 已移除頁面
 /reports.html      /calculator.html  301
 /thank-you.html    /  301
