@@ -14,6 +14,10 @@
 /go/buy-ask     /  302
 /go/express     /  302
 
+# L1 學員 landing
+/L1students   /l1students  301
+/go/l2        https://wa.me/61433098338?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%20L2%20%E8%A6%BA%E9%86%92%E8%A7%A3%E7%A2%BC%E8%AA%B2%E7%A8%8B  302
+
 # 舊生頁改址
 /soulwarriorsstudent.html  /oldstudent  301
 /soulwarriorsstudent       /oldstudent  301
