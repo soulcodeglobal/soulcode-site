@@ -148,6 +148,17 @@ footer{text-align:center;font-size:12px;letter-spacing:.18em;color:#8f8f8f;paddi
         </div>
       </div>
     </div>
+
+    <!-- 單買 L2 課堂（同樣限時） -->
+    <div class="card single" style="margin-top:18px">
+      <div class="card-body" style="padding:18px 20px 22px">
+        <div class="sec-lbl" style="text-align:center">只想單報 L2 課堂？</div>
+        <div style="text-align:center;font-size:14px;color:#777777">原價 <s style="color:#999999">HKD 6,899</s></div>
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-weight:900;font-size:30px;color:var(--red);line-height:1.2;margin-top:2px">HKD 5,899</div>
+        <div style="text-align:center;margin-top:6px"><span class="save" style="display:inline-block;background:var(--red);color:#fff;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 12px">節省 HKD 1,000</span></div>
+        <a class="cta" id="l2onlyBtn" href="https://buy.stripe.com/28EfZhdy1aN13v2aPh3ks0g" style="font-size:16px;padding:13px 16px;margin-top:14px">單報 L2 課堂 →</a>
+      </div>
+    </div>
   </div>
 
   <!-- ============ EXPIRED（截止後） ============ -->
@@ -169,7 +180,7 @@ footer{text-align:center;font-size:12px;letter-spacing:.18em;color:#8f8f8f;paddi
           <div class="now">HKD 1,480</div>
         </div>
         <a class="cta" id="singleBtn" href="https://buy.stripe.com/5kQ00jgKdg7l3v28H93ks0e">報名單堂 →</a>
-        <p class="wa-line">報名後請 WhatsApp Fiona 確認堂次：<br><a href="https://wa.me/61433098338">+61 433 098 338</a></p>
+        <p class="wa-line">報名後請 WhatsApp Fiona 確認堂次：<br><a href="https://wa.me/61433098338?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%B7%B2%E5%A0%B1%E5%90%8D%20Soul%20Code%20%E5%85%B1%E4%BF%AE%E8%AA%B2%E5%96%AE%E5%A0%82%EF%BC%8C%E6%83%B3%E7%A2%BA%E8%AA%8D%E5%A0%82%E6%AC%A1%E3%80%82">+61 433 098 338</a></p>
       </div>
     </div>
   </div>
@@ -210,6 +221,7 @@ footer{text-align:center;font-size:12px;letter-spacing:.18em;color:#8f8f8f;paddi
 
   function track(){ try{ if(window.fbq){ fbq('track','InitiateCheckout'); } }catch(e){} }
   document.getElementById('buyBtn').addEventListener('click', track);
+  var l2b=document.getElementById('l2onlyBtn'); if(l2b){ l2b.addEventListener('click', track); }
   document.getElementById('singleBtn').addEventListener('click', track);
 })();
 </script>
