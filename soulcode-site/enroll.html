@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>報名登記 — Soul Code Global</title>
+<title>報名登記 Registration — Soul Code Global</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -22,6 +22,7 @@
     --ok: #2E7D5B;
     --fserif: "Noto Serif TC", serif;
     --fsans: "Noto Sans TC", sans-serif;
+    --fen: "Space Grotesk", var(--fsans);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
@@ -47,14 +48,22 @@
     text-align: center;
     letter-spacing: .1em;
   }
+  .h-en {
+    text-align: center;
+    color: var(--ink-soft);
+    font-family: var(--fen);
+    font-size: 13px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
   .brand {
     text-align: center;
     color: var(--ink-soft);
-    font-family: "Space Grotesk", var(--fsans);
+    font-family: var(--fen);
     font-size: 12px;
     letter-spacing: .3em;
     text-transform: uppercase;
-    margin: 4px 0 30px;
+    margin: 8px 0 30px;
   }
 
   .card {
@@ -77,10 +86,12 @@
     color: var(--red);
     letter-spacing: .06em;
   }
-  .lede { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 20px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 4px; }
+  .lede-en { color: #8a8a8a; font-size: 12.5px; font-family: var(--fen); margin-bottom: 18px; }
 
   label { display: block; font-size: 13.5px; color: var(--ink-soft); font-weight: 500; margin: 16px 0 6px; letter-spacing: .04em; }
-  input, select {
+  label .en { color: #9a9a9a; font-family: var(--fen); font-weight: 400; font-size: 12px; margin-left: 6px; }
+  input {
     width: 100%;
     background: var(--bg);
     border: 1px solid var(--line);
@@ -90,10 +101,11 @@
     font-family: inherit;
     padding: 12px 14px;
   }
-  input:focus, select:focus { outline: 2px solid var(--red-soft); outline-offset: 1px; border-color: var(--red-soft); }
+  input:focus { outline: 2px solid var(--red-soft); outline-offset: 1px; border-color: var(--red-soft); }
   input::placeholder { color: #B7B7B7; }
 
   .hint { font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+  .hint .en { color: #9a9a9a; font-family: var(--fen); font-size: 12px; display: block; }
   .notice {
     display: none;
     background: var(--mint);
@@ -103,6 +115,7 @@
     margin-top: 18px;
     color: var(--red);
   }
+  .notice .en { display: block; font-family: var(--fen); font-size: 12.5px; opacity: .85; }
   .error { color: var(--red-bright); font-size: 14px; margin-top: 14px; display: none; }
 
   button {
@@ -116,14 +129,15 @@
     border: 0;
     border-radius: 999px;
     font-family: inherit;
-    font-size: 16.5px;
+    font-size: 16px;
     font-weight: 700;
-    letter-spacing: .14em;
+    letter-spacing: .1em;
     padding: 14px 22px;
     cursor: pointer;
     box-shadow: 0 8px 22px -8px rgba(212,69,60,.6);
     transition: transform .15s, box-shadow .2s;
   }
+  button .en { font-family: var(--fen); font-weight: 500; font-size: 13px; margin-left: 8px; opacity: .9; letter-spacing: .06em; }
   button:hover { transform: translateY(-1px); }
   button:disabled { opacity: .55; cursor: default; transform: none; }
 
@@ -134,8 +148,10 @@
     display: flex; align-items: center; justify-content: center;
     color: var(--ok); font-size: 26px;
   }
-  .done h2 { font-family: var(--fserif); font-size: 21px; font-weight: 700; letter-spacing: .1em; margin-bottom: 10px; }
+  .done h2 { font-family: var(--fserif); font-size: 21px; font-weight: 700; letter-spacing: .1em; margin-bottom: 4px; }
+  .done .h2-en { font-family: var(--fen); font-size: 12.5px; color: #9a9a9a; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
   .done p { color: var(--ink-soft); font-size: 14.5px; }
+  .done p.en { color: #9a9a9a; font-family: var(--fen); font-size: 12.5px; margin-top: 6px; }
 
   .foot { text-align: center; color: #9a9a9a; font-size: 12px; margin-top: 26px; letter-spacing: .05em; }
 
@@ -151,58 +167,48 @@
   <img class="dial" src="/assets/soulcode-icon.svg" alt="Soul Code">
 
   <h1>報名登記</h1>
+  <div class="h-en">Registration</div>
   <div class="brand">Soul Code Global</div>
 
   <div class="card">
     <div class="product">
-      <span class="p-label">課程</span>
+      <span class="p-label">課程 Course</span>
       <span class="p-name" id="productName">—</span>
     </div>
 
     <form id="form" novalidate>
       <p class="lede" id="lede"></p>
-
-      <div id="adminFields" style="display:none">
-        <label for="pkg">課程項目</label>
-        <select id="pkg">
-          <option value="l2">L2課堂</option>
-          <option value="l1">L1課堂</option>
-        </select>
-        <label for="pay">收款方式</label>
-        <select id="pay">
-          <option value="現場已收">現場已收</option>
-          <option value="已轉帳">已轉帳</option>
-          <option value="stripe">Stripe 付款連結</option>
-        </select>
-      </div>
+      <p class="lede-en" id="ledeEn"></p>
 
       <label for="email">Email</label>
       <input type="email" id="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
-      <p class="hint" id="emailHint" style="display:none">請使用之前報名時的 Email。</p>
+      <p class="hint" id="emailHint" style="display:none">請使用之前報名時的 Email。<span class="en">Please use the email you registered with before.</span></p>
 
       <div id="detailFields" style="display:none">
-        <label for="name">姓名</label>
-        <input type="text" id="name" autocomplete="name" placeholder="與付款時相同的姓名">
-        <label for="nickname">稱呼(選填)</label>
-        <input type="text" id="nickname" placeholder="希望我們怎麼稱呼你">
-        <label for="phone">電話</label>
-        <input type="tel" id="phone" inputmode="tel" autocomplete="tel" placeholder="+852 / +61 開頭皆可">
+        <label for="name">姓名 <span class="en">Full name</span></label>
+        <input type="text" id="name" autocomplete="name" placeholder="與付款時相同的姓名 Same name as payment">
+        <label for="nickname">稱呼(選填)<span class="en">Preferred name (optional)</span></label>
+        <input type="text" id="nickname" placeholder="希望我們怎麼稱呼你 How should we call you">
+        <label for="phone">電話 <span class="en">Phone</span></label>
+        <input type="tel" id="phone" inputmode="tel" autocomplete="tel" placeholder="區號 + 號碼,如 +852 9123 4567">
       </div>
 
       <div class="notice" id="notice"></div>
       <p class="error" id="error"></p>
 
-      <button type="submit" id="submitBtn">完成登記</button>
+      <button type="submit" id="submitBtn">完成登記<span class="en">Complete</span></button>
     </form>
 
     <div class="done" id="done">
       <div class="tick">✓</div>
-      <h2 id="doneTitle">登記完成</h2>
+      <h2>登記完成</h2>
+      <div class="h2-en">Registration Complete</div>
       <p id="doneMsg">我們已收到你的資料,Fiona 會盡快與你聯繫,確認上課安排。</p>
+      <p class="en" id="doneMsgEn">We've received your details. Fiona will contact you soon to confirm the class arrangements.</p>
     </div>
   </div>
 
-  <p class="foot">如有疑問,請直接聯繫 Soul Code Global。</p>
+  <p class="foot">如有疑問,請直接聯繫 Soul Code Global。 For any questions, please contact Soul Code Global.</p>
 </div>
 
 <script>
@@ -210,39 +216,31 @@
   var ENDPOINT = "https://vloxjzyxanhrbwolfgwz.supabase.co/functions/v1/enroll";
 
   var qs = new URLSearchParams(location.search);
-  var isAdmin = qs.get("admin") === "1";
   var pkgCode = (qs.get("p") || "").toLowerCase();
   var NAMES = { l1: "L1課堂", l2: "L2課堂" };
 
   var $ = function (id) { return document.getElementById(id); };
   var detailsOpen = false;
 
+  function toggleDetails(on) {
+    detailsOpen = on;
+    $("detailFields").style.display = on ? "block" : "none";
+  }
   function setProduct(code) {
     pkgCode = code;
     $("productName").textContent = NAMES[code] || "—";
     if (code === "l1" && !detailsOpen) toggleDetails(true);
   }
-  function toggleDetails(on) {
-    detailsOpen = on;
-    $("detailFields").style.display = on ? "block" : "none";
-  }
 
-  if (isAdmin) {
-    $("adminFields").style.display = "block";
-    $("lede").textContent = "代同學登記:選擇課程與收款方式,填寫同學資料。";
-    toggleDetails(true);
-    setProduct(pkgCode || "l2");
-    $("pkg").value = pkgCode || "l2";
-    $("pkg").addEventListener("change", function () { setProduct(this.value); });
+  if (!NAMES[pkgCode]) pkgCode = "l2";
+  setProduct(pkgCode);
+  if (pkgCode === "l2") {
+    $("lede").textContent = "感謝你完成付款。L2 的同學都是舊生,填寫報名時使用的 Email 即可完成登記。";
+    $("ledeEn").textContent = "Thank you for your payment. L2 students are returning students — just enter your registered email.";
+    $("emailHint").style.display = "block";
   } else {
-    if (!NAMES[pkgCode]) pkgCode = "l2";
-    setProduct(pkgCode);
-    if (pkgCode === "l2") {
-      $("lede").textContent = "感謝你完成付款。L2 的同學都是舊生,填寫報名時使用的 Email 即可完成登記。";
-      $("emailHint").style.display = "block";
-    } else {
-      $("lede").textContent = "感謝你完成付款。請留下你的資料,完成報名登記。";
-    }
+    $("lede").textContent = "感謝你完成付款。請留下你的資料,完成報名登記。";
+    $("ledeEn").textContent = "Thank you for your payment. Please fill in your details to complete registration.";
   }
 
   $("form").addEventListener("submit", function (ev) {
@@ -251,57 +249,61 @@
     var err = $("error");
     err.style.display = "none";
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-      err.textContent = "請輸入正確的 Email。";
+      err.textContent = "請輸入正確的 Email。 Please enter a valid email.";
       err.style.display = "block";
       return;
     }
-    if (detailsOpen && !isAdmin && pkgCode === "l1" && !$("name").value.trim()) {
-      err.textContent = "請填寫姓名。";
+    if (detailsOpen && pkgCode === "l1" && !$("name").value.trim()) {
+      err.textContent = "請填寫姓名。 Please enter your name.";
       err.style.display = "block";
       return;
     }
 
     var btn = $("submitBtn");
     btn.disabled = true;
-    btn.textContent = "處理中⋯";
+    btn.innerHTML = "處理中⋯";
 
     fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        package_code: isAdmin ? $("pkg").value : pkgCode,
+        package_code: pkgCode,
         email: email,
         name: $("name").value.trim(),
         nickname: $("nickname").value.trim(),
         phone: $("phone").value.trim(),
-        payment_method: isAdmin ? $("pay").value : "stripe",
-        admin: isAdmin
+        payment_method: "stripe",
+        admin: false
       })
     })
     .then(function (r) { return r.json(); })
     .then(function (res) {
       btn.disabled = false;
-      btn.textContent = "完成登記";
+      btn.innerHTML = "完成登記<span class=\"en\">Complete</span>";
       if (res.ok && res.need_details) {
         toggleDetails(true);
         var n = $("notice");
-        n.textContent = "找不到這個 Email 的紀錄。可以改用之前的 Email,或補上以下資料,由我們為你核對。";
+        n.innerHTML = "找不到這個 Email 的紀錄。可以改用之前的 Email,或補上以下資料,由我們為你核對。" +
+          "<span class=\"en\">We couldn't find this email. Try your previous email, or fill in the details below and we'll match it for you.</span>";
         n.style.display = "block";
         return;
       }
       if (res.ok) {
         $("form").style.display = "none";
         $("done").style.display = "block";
-        if (res.duplicate) $("doneMsg").textContent = "你的資料早前已收到,不需要重複登記。";
+        if (res.duplicate) {
+          $("doneMsg").textContent = "你的資料早前已收到,不需要重複登記。";
+          $("doneMsgEn").textContent = "We already have your details — no need to register again.";
+        }
         return;
       }
-      err.textContent = "登記未能完成,請稍後再試,或直接聯繫我們。";
+      err.textContent = "登記未能完成,請稍後再試,或直接聯繫我們。 Something went wrong — please try again later or contact us.";
       err.style.display = "block";
     })
     .catch(function () {
       btn.disabled = false;
-      btn.textContent = "完成登記";
-      err.textContent = "網絡出現問題,請稍後再試。";
+      btn.innerHTML = "完成登記<span class=\"en\">Complete</span>";
+      err.textContent = "網絡出現問題,請稍後再試。 Network issue — please try again.";
       err.style.display = "block";
     });
   });
