@@ -1,0 +1,13 @@
+{
+  "name": "Soul Code",
+  "short_name": "Soul Code",
+  "start_url": "/dashboard/",
+  "scope": "/dashboard/",
+  "display": "standalone",
+  "background_color": "#fcfcfc",
+  "theme_color": "#fcfcfc",
+  "icons": [
+    { "src": "/dashboard/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/dashboard/icon-180.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
