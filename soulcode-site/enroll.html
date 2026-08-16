@@ -217,7 +217,7 @@
 
   var qs = new URLSearchParams(location.search);
   var pkgCode = (qs.get("p") || "").toLowerCase();
-  var NAMES = { l1: "L1課堂", l2: "L2課堂" };
+  var NAMES = { l1: "L1課堂", l2: "L2課堂", l1_hkd: "L1課堂", l1_aud: "L1課堂", l2_hkd: "L2課堂", l2_aud: "L2課堂" };
 
   var $ = function (id) { return document.getElementById(id); };
   var detailsOpen = false;
@@ -229,12 +229,12 @@
   function setProduct(code) {
     pkgCode = code;
     $("productName").textContent = NAMES[code] || "—";
-    if (code === "l1" && !detailsOpen) toggleDetails(true);
+    if (code.indexOf("l1") === 0 && !detailsOpen) toggleDetails(true);
   }
 
   if (!NAMES[pkgCode]) pkgCode = "l2";
   setProduct(pkgCode);
-  if (pkgCode === "l2") {
+  if (pkgCode.indexOf("l2") === 0) {
     $("lede").textContent = "感謝你完成付款。L2 的同學都是舊生,填寫報名時使用的 Email 即可完成登記。";
     $("ledeEn").textContent = "Thank you for your payment. L2 students are returning students — just enter your registered email.";
     $("emailHint").style.display = "block";
@@ -253,7 +253,7 @@
       err.style.display = "block";
       return;
     }
-    if (detailsOpen && pkgCode === "l1" && !$("name").value.trim()) {
+    if (detailsOpen && pkgCode.indexOf("l1") === 0 && !$("name").value.trim()) {
       err.textContent = "請填寫姓名。 Please enter your name.";
       err.style.display = "block";
       return;
