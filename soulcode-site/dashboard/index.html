@@ -161,6 +161,26 @@
     font-family: var(--fen); font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase;
     color: var(--ink-faint); margin: 16px 2px 8px;
   }
+  .day-h {
+    display: flex; align-items: baseline; gap: 8px;
+    font-family: var(--fen); font-size: 13px; font-weight: 700;
+    color: var(--ink); margin: 14px 2px 7px;
+  }
+  .day-h .today-tag {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    background: var(--red-bright); color: #fff; border-radius: 999px; padding: 1px 9px;
+  }
+  .week-h {
+    display: flex; align-items: center; gap: 10px;
+    margin: 22px 0 4px;
+  }
+  .week-h::before, .week-h::after {
+    content: ""; flex: 1; height: 2px; background: var(--ink);
+  }
+  .week-h span {
+    font-family: var(--fen); font-size: 11px; font-weight: 700;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--ink);
+  }
   .empty { color: var(--ink-faint); font-size: 13.5px; padding: 8px 2px 4px; }
 
   .searchbox { margin-bottom: 10px; }
@@ -489,8 +509,6 @@
   function renderSched() {
     var now = new Date();
     var todayKey = hkDateKey(now);
-    var next3 = [];
-    for (var i = 1; i <= 3; i++) next3.push(hkDateKey(new Date(now.getTime() + i * 86400e3)));
     var monthKey = todayKey.slice(0, 7);
 
     /* 合併:Cal.com booking(sessions)+ Google Calendar,GCal 撞時間嘅當重複跳過 */
@@ -503,16 +521,29 @@
       });
       if (!dup) items.push({ kind: "g", starts_at: g.starts_at, d: g });
     });
+    /* 今日至月尾 */
+    items = items.filter(function (it) {
+      var k = hkDateKey(new Date(it.starts_at));
+      return k >= todayKey && k.slice(0, 7) === monthKey;
+    });
     items.sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); });
 
-    var buckets = { today: [], soon: [], month: [] };
+    /* 按日分組(香港曆) */
+    var dayOrder = [];
+    var byDay = {};
     items.forEach(function (it) {
       var k = hkDateKey(new Date(it.starts_at));
-      if (k === todayKey) buckets.today.push(it);
-      else if (next3.indexOf(k) >= 0) buckets.soon.push(it);
-      else if (k.slice(0, 7) === monthKey && k > todayKey) buckets.month.push(it);
+      if (!byDay[k]) { byDay[k] = []; dayOrder.push(k); }
+      byDay[k].push(it);
     });
 
+    function hkWeekday(key) { /* 0=Sun...6=Sat */
+      return new Date(key + "T12:00:00+08:00").getUTCDay();
+    }
+    function dayLabelFromKey(key) {
+      return new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Hong_Kong", weekday: "short", day: "numeric", month: "short" })
+        .format(new Date(key + "T12:00:00+08:00"));
+    }
     function rowHtml(it) {
       var d = it.d;
       var time = d.all_day
@@ -522,20 +553,41 @@
         ? esc(cname(d.clients))
         : esc(d.location || "Google Calendar");
       return '<div class="row"><div class="grow">' +
-        '<div class="time">' + hkDateLabel(it.starts_at) + " · " + time + "</div>" +
+        '<div class="time">' + time + "</div>" +
         '<div class="t1">' + esc(d.title || "Session") + "</div>" +
         '<div class="t2">' + line2 + "</div>" +
         "</div></div>";
     }
-    function rows(list) {
-      if (!list.length) return '<p class="empty">Nothing scheduled</p>';
-      return list.map(rowHtml).join("");
-    }
-    $("schedBody").innerHTML =
-      '<div class="sub-h">Today 今日</div>' + rows(buckets.today) +
-      '<div class="sub-h">Next 3 days</div>' + rows(buckets.soon) +
-      '<div class="sub-h">Later this month</div>' + rows(buckets.month);
-    $("schedCnt").textContent = buckets.today.length + buckets.soon.length + buckets.month.length;
+
+    var html = "";
+    var lastKey = null;
+    dayOrder.forEach(function (key) {
+      /* 逢跨週(去到新嘅星期一或之後)插週分隔 */
+      if (lastKey !== null) {
+        var crossed = false;
+        var cursor = new Date(lastKey + "T12:00:00+08:00");
+        var target = new Date(key + "T12:00:00+08:00");
+        while (cursor < target) {
+          cursor = new Date(cursor.getTime() + 86400e3);
+          if (cursor.getUTCDay() === 1) { crossed = true; break; }
+        }
+        if (crossed) {
+          /* 搵返嗰週星期一嘅日期做標籤 */
+          var mon = new Date(target.getTime());
+          while (mon.getUTCDay() !== 1) mon = new Date(mon.getTime() - 86400e3);
+          var monLabel = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Hong_Kong", day: "numeric", month: "short" }).format(mon);
+          html += '<div class="week-h"><span>Week of ' + monLabel + "</span></div>";
+        }
+      }
+      html += '<div class="day-h">' + dayLabelFromKey(key) +
+        (key === todayKey ? ' <span class="today-tag">Today 今日</span>' : "") +
+        "</div>";
+      html += byDay[key].map(rowHtml).join("");
+      lastKey = key;
+    });
+
+    $("schedBody").innerHTML = html || '<p class="empty">Nothing scheduled this month</p>';
+    $("schedCnt").textContent = items.length;
   }
 
   /* ---------- 未交付服務 ---------- */
