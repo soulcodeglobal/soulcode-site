@@ -188,11 +188,11 @@
     border-radius: 14px; padding: 12px; font-family: inherit; font-size: 14.5px; font-weight: 700;
     letter-spacing: .06em; cursor: pointer;
   }
-  #modalWrap {
+  #modalWrap, #todoModalWrap {
     display:none; position: fixed; inset: 0; z-index: 60;
     background: rgba(17,17,17,.45); align-items: flex-end; justify-content: center;
   }
-  #modalWrap.on { display:flex; }
+  #modalWrap.on, #todoModalWrap.on { display:flex; }
   .modal {
     background: var(--bg); width: 100%; max-width: 560px;
     border-radius: 20px 20px 0 0; padding: 20px 18px 30px;
@@ -254,7 +254,10 @@
       <button class="blk-head" data-blk="blkTodo">
         <h2>To-dos <span class="cn">待辦</span></h2><span class="cnt" id="todoCnt">0</span><span class="chev">▶</span>
       </button>
-      <div class="blk-body" id="todoBody"></div>
+      <div class="blk-body">
+        <div id="todoBody"></div>
+        <button class="add-btn" id="addTodoBtn">＋ Add to-do 加待辦</button>
+      </div>
     </section>
 
     <!-- 行程 -->
@@ -323,6 +326,25 @@
   </div>
 </div>
 
+<div id="todoModalWrap">
+  <div class="modal">
+    <button class="icon-btn close" id="tClose">Close</button>
+    <h3>Add to-do <span style="font-family:var(--fsans);font-weight:400;font-size:12px;color:var(--ink-faint);">加待辦</span></h3>
+
+    <label for="tTitle">What needs doing 事項</label>
+    <input type="text" id="tTitle" placeholder="e.g. Send Zoom link to Amy">
+
+    <label for="tClient">Client (optional)</label>
+    <select id="tClient"></select>
+
+    <label for="tDue">Due (optional)</label>
+    <input type="datetime-local" id="tDue">
+
+    <p class="err" id="tErr"></p>
+    <button class="btn-main" id="tSubmit">Add 加入</button>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -333,7 +355,7 @@
 
   var sb = window.supabase.createClient(SUPABASE_URL, ANON_KEY);
   var $ = function (id) { return document.getElementById(id); };
-  var D = { clients: [], ents: [], credits: [], deposits: [], sessions: [], todos: [], catalog: [] };
+  var D = { clients: [], ents: [], credits: [], deposits: [], sessions: [], todos: [], catalog: [], gcal: [] };
 
   /* ---------- 時間工具:雙時區 ---------- */
   function fmtIn(tz, d, opts) {
@@ -418,14 +440,16 @@
       sb.from("deposits").select("*, clients(name,nickname)").gt("remaining", 0),
       sb.from("sessions").select("*, clients(name,nickname)").neq("status", "cancelled").gte("starts_at", lo).lte("starts_at", hi).order("starts_at"),
       sb.from("todos").select("*, clients(name,nickname)").neq("status", "done").order("due_at", { ascending: true, nullsFirst: false }),
-      sb.from("package_catalog").select("*").eq("active", true).order("code")
+      sb.from("package_catalog").select("*").eq("active", true).order("code"),
+      sb.from("gcal_events").select("*").gte("starts_at", lo).lte("starts_at", hi).order("starts_at")
     ]).then(function (rs) {
-      var names = ["clients", "entitlements", "v_client_credit_total", "deposits", "sessions", "todos", "package_catalog"];
+      var names = ["clients", "entitlements", "v_client_credit_total", "deposits", "sessions", "todos", "package_catalog", "gcal_events"];
       for (var i = 0; i < rs.length; i++) {
         if (rs[i].error) { banner("Error reading " + names[i] + ": " + rs[i].error.message); return; }
       }
       D.clients = rs[0].data; D.ents = rs[1].data; D.credits = rs[2].data;
       D.deposits = rs[3].data; D.sessions = rs[4].data; D.todos = rs[5].data; D.catalog = rs[6].data;
+      D.gcal = rs[7].data;
       renderAll();
     });
   }
@@ -469,24 +493,43 @@
     for (var i = 1; i <= 3; i++) next3.push(hkDateKey(new Date(now.getTime() + i * 86400e3)));
     var monthKey = todayKey.slice(0, 7);
 
+    /* 合併:Cal.com booking(sessions)+ Google Calendar,GCal 撞時間嘅當重複跳過 */
+    var items = D.sessions.filter(function (s) { return s.starts_at; })
+      .map(function (s) { return { kind: "s", starts_at: s.starts_at, d: s }; });
+    D.gcal.forEach(function (g) {
+      var gt = new Date(g.starts_at).getTime();
+      var dup = D.sessions.some(function (s) {
+        return s.starts_at && Math.abs(new Date(s.starts_at).getTime() - gt) < 5 * 60e3;
+      });
+      if (!dup) items.push({ kind: "g", starts_at: g.starts_at, d: g });
+    });
+    items.sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); });
+
     var buckets = { today: [], soon: [], month: [] };
-    D.sessions.forEach(function (s) {
-      if (!s.starts_at) return;
-      var k = hkDateKey(new Date(s.starts_at));
-      if (k === todayKey) buckets.today.push(s);
-      else if (next3.indexOf(k) >= 0) buckets.soon.push(s);
-      else if (k.slice(0, 7) === monthKey && k > todayKey) buckets.month.push(s);
+    items.forEach(function (it) {
+      var k = hkDateKey(new Date(it.starts_at));
+      if (k === todayKey) buckets.today.push(it);
+      else if (next3.indexOf(k) >= 0) buckets.soon.push(it);
+      else if (k.slice(0, 7) === monthKey && k > todayKey) buckets.month.push(it);
     });
 
+    function rowHtml(it) {
+      var d = it.d;
+      var time = d.all_day
+        ? '<span class="tag grey">All day 全日</span>'
+        : dualTime(it.starts_at);
+      var line2 = it.kind === "s"
+        ? esc(cname(d.clients))
+        : esc(d.location || "Google Calendar");
+      return '<div class="row"><div class="grow">' +
+        '<div class="time">' + hkDateLabel(it.starts_at) + " · " + time + "</div>" +
+        '<div class="t1">' + esc(d.title || "Session") + "</div>" +
+        '<div class="t2">' + line2 + "</div>" +
+        "</div></div>";
+    }
     function rows(list) {
       if (!list.length) return '<p class="empty">Nothing scheduled</p>';
-      return list.map(function (s) {
-        return '<div class="row"><div class="grow">' +
-          '<div class="time">' + hkDateLabel(s.starts_at) + " · " + dualTime(s.starts_at) + "</div>" +
-          '<div class="t1">' + esc(s.title || "Session") + "</div>" +
-          '<div class="t2">' + esc(cname(s.clients)) + "</div>" +
-          "</div></div>";
-      }).join("");
+      return list.map(rowHtml).join("");
     }
     $("schedBody").innerHTML =
       '<div class="sub-h">Today 今日</div>' + rows(buckets.today) +
@@ -621,6 +664,8 @@
       .map(function (p) {
         return '<option value="' + esc(p.code) + '">' + esc(p.name) + " · " + esc(p.currency) + " " + Number(p.price) + "</option>";
       }).join("");
+    $("tClient").innerHTML = '<option value="">No client 唔掛客</option>' + D.clients
+      .map(function (c) { return '<option value="' + esc(c.id) + '">' + esc(cname(c)) + "</option>"; }).join("");
   }
   $("addBtn").addEventListener("click", function () {
     $("mErr").style.display = "none"; $("mNewFields").style.display = "none";
@@ -628,6 +673,32 @@
     $("modalWrap").classList.add("on");
   });
   $("mClose").addEventListener("click", function () { $("modalWrap").classList.remove("on"); });
+
+  /* ---------- 加待辦 modal ---------- */
+  $("addTodoBtn").addEventListener("click", function () {
+    $("tErr").style.display = "none";
+    $("tTitle").value = ""; $("tClient").value = ""; $("tDue").value = "";
+    $("todoModalWrap").classList.add("on");
+  });
+  $("tClose").addEventListener("click", function () { $("todoModalWrap").classList.remove("on"); });
+  $("tSubmit").addEventListener("click", function () {
+    var err = $("tErr"); err.style.display = "none";
+    var title = $("tTitle").value.trim();
+    if (!title) { err.textContent = "Please enter what needs doing."; err.style.display = "block"; return; }
+    var btn = $("tSubmit"); btn.disabled = true; btn.textContent = "Working…";
+    sb.from("todos").insert({
+      title: title,
+      client_id: $("tClient").value || null,
+      due_at: $("tDue").value ? new Date($("tDue").value).toISOString() : null,
+      status: "pending",
+      source: "manual"
+    }).then(function (r) {
+      btn.disabled = false; btn.textContent = "Add 加入";
+      if (r.error) { err.textContent = "Failed: " + r.error.message; err.style.display = "block"; return; }
+      $("todoModalWrap").classList.remove("on");
+      toast("To-do added"); loadAll();
+    });
+  });
 
   $("mSubmit").addEventListener("click", function () {
     var btn = $("mSubmit"); var err = $("mErr"); err.style.display = "none";
